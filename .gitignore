@@ -1,2 +1,6 @@
 .venv
 old_scripts
+
+# remove any media files
+assets
+cache
