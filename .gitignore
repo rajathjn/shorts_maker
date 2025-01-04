@@ -4,3 +4,15 @@ old_scripts
 # remove any media files
 assets
 cache
+
+# config files
+setup.yml
+
+# ignore cache files
+*.pyc
+
+# ignore logs
+*.log
+
+# ignore pytest cache
+.pytest_cache
