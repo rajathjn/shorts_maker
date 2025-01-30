@@ -1,5 +1,5 @@
 [project]
-name = "youtube-shorts-automation"
+name = "ShortsMaker"
 version = "0.2"
 description = "A python project to make and upload Youtube shorts video"
 authors = [
