@@ -16,4 +16,7 @@ setup.yml
 
 # ignore pytest cache
 .pytest_cache
+
+# IDE caches
 .vscode
+.idea
