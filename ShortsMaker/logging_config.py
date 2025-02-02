@@ -1,8 +1,12 @@
 import logging
+import os
 from pathlib import Path
 from typing import Union
 
 from colorlog import ColoredFormatter
+
+# prevent huggingface symlink warnings
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "true"
 
 
 def setup_package_logging(
