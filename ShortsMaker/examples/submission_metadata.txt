@@ -1,0 +1,97 @@
+# Extracted constants for reusable default values
+DEFAULT_LIST = []
+DEFAULT_DICT = {}
+DEFAULT_BOOL = False
+DEFAULT_STR = None
+
+# Refactored JSON-like structure with improved readability
+submission_metadata = {
+# Additional fetch parameters
+"_additional_fetch_params": DEFAULT_DICT,
+"_comments_by_id": DEFAULT_DICT,
+"_fetched": DEFAULT_BOOL,
+"_reddit": "<Reddit client>",
+
+# Award-related information
+"all_awardings": DEFAULT_LIST,
+"total_awards_received": 0,
+"top_awarded_type": DEFAULT_STR,
+# Author information
+"author": "Redditor(name='Infinite_Plastic5400')",
+"author_flair": {
+"background_color": DEFAULT_STR,
+"css_class"       : DEFAULT_STR,
+"richtext": DEFAULT_LIST,
+"template_id": DEFAULT_STR,
+"text": DEFAULT_STR,
+"text_color": DEFAULT_STR,
+"type"            : "text"
+},
+"author_fullname": "t2_m9qapuoff",
+"author_is_blocked": DEFAULT_BOOL,
+"author_patreon_flair": DEFAULT_BOOL,
+"author_premium": DEFAULT_BOOL,
+
+# Moderation-related fields
+"approved_by": DEFAULT_STR,
+"approved_at_utc": DEFAULT_STR,
+"banned_at_utc": DEFAULT_STR,
+"banned_by": DEFAULT_STR,
+"mod_reports"             : DEFAULT_LIST,
+"removal_reason": DEFAULT_STR,
+"removed_by": DEFAULT_STR,
+"removed_by_category": DEFAULT_STR,
+# Flags and toggles
+"archived"                : DEFAULT_BOOL,
+"clicked": DEFAULT_BOOL,
+"contest_mode": DEFAULT_BOOL,
+"edited": DEFAULT_BOOL,
+"hidden": DEFAULT_BOOL,
+"locked"                  : DEFAULT_BOOL,
+"media_only": DEFAULT_BOOL,
+"over_18": DEFAULT_BOOL,
+"pinned": DEFAULT_BOOL,
+"quarantine": DEFAULT_BOOL,
+"saved"                   : DEFAULT_BOOL,
+"send_replies": True, # Default field retained as True
+
+# Numerical metadata
+"comment_limit": 2048,
+"ups": 3158,
+"downs": 0,
+"score": 3158,
+"num_comments": 220,
+"num_crossposts": 0,
+
+# Content-related information
+"selftext": (
+"Ok so me and my wife spend a decent chunk of time with my sisters kids "
+"since we dont have any kids and my sister sometimes needs a break ..."
+),
+"selftext_html": "<!-- SC_OFF --><div class=\"md\">...",
+"title": (
+"AITA for telling my brother that the reason me and my wife dont "
+"spend time with their kids is cause his wife is terrible"
+),
+"thumbnail": DEFAULT_STR,
+"url": "https://www.reddit.com/r/AmItheAsshole/comments/17dmnzj/"
+"aita_for_telling_my_brother_that_the_reason_me/",
+"permalink": "/r/AmItheAsshole/comments/17dmnzj/aita_for_telling_my_brother...",
+# Subreddit information
+"subreddit": {
+"display_name": "AmItheAsshole",
+"id": "t5_2xhvq",
+"name_prefixed": "r/AmItheAsshole",
+"subscribers": 11513110,
+"type": "public",
+},
+"subreddit_subscribers": 11513110,
+"subreddit_type": "public",
+
+# Miscellaneous fields
+"report_reasons": DEFAULT_LIST,
+"media": DEFAULT_STR,
+"media_embed": DEFAULT_DICT,
+"secure_media": DEFAULT_STR,
+"secure_media_embed": DEFAULT_DICT,
+}
