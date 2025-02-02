@@ -13,9 +13,12 @@ def align_transcript_with_script(transcript, script_string):
     """
     Aligns transcript text with the best matching portions from the script.
 
-    :param transcript: List of dictionaries with 'start', 'end', and 'text' keys.
-    :param script_string: The original script as a string.
-    :return: Altered transcript with corrected text.
+    Args:
+        transcript: List of dictionaries with 'start', 'end', and 'text' keys.
+        script_string: The original script as a string.
+
+    Returns:
+        A list of dictionaries with aligned text, each containing 'text', 'start', and 'end' keys.
     """
     temp_transcript = []
     window_sizes = [i for i in range(6)]
@@ -74,17 +77,15 @@ def generate_audio_transcription(
     and returns the final aligned transcript.
 
     Args:
-        device (str): Device to use ("cuda" or "cpu").
-        audio_file (str): Path to the audio file for transcription.
-        batch_size (int): Batch size for transcription.
-        compute_type (str): Compute type ("float16" or "int8").
-        script (str): The script to align the transcript with.
-        model (str): The whisperx model to load.
+        device: Device to use ("cuda" or "cpu").
+        audio_file: Path to the audio file for transcription.
+        batch_size: Batch size for transcription.
+        compute_type: Compute type ("float16" or "int8").
+        script: The script to align the transcript with.
+        model: The whisperx model to load.
 
     Returns:
-        tuple: A tuple containing:
-            - list[dict]: Final aligned transcript as a list of dictionaries with 'text', 'start', and 'end' keys.
-            - list[dict]: Word-level transcript as a list of dictionaries with 'word', 'start', and 'end' keys.
+        list: Word-level transcript as a list of dictionaries with 'word', 'start', and 'end' keys.
     """
     # 1. Transcribe with original whisper (batched)
     # options for models medium, large-v2, large-v3
