@@ -84,9 +84,5 @@ line-length = 200
 [tool.ruff.lint]
 extend-select = [
     "UP",  # pyupgrade
-    "D",   # pydocstyle
     "I",   # isort
 ]
-
-[tool.ruff.lint.pydocstyle]
-convention = "google"
