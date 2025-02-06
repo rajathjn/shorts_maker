@@ -10,6 +10,7 @@ setup.yml
 
 # ignore cache files
 *.pyc
+*.pyo
 
 # ignore logs
 *.log
