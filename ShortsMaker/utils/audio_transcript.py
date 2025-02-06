@@ -30,12 +30,8 @@ def align_transcript_with_script(transcript, script_string):
 
         # Generate script windows for all specified window sizes
         for window_size in window_sizes:
-            possible_windows.extend(
-                [" ".join(script_words[: length_of_entry_text + window_size])]
-            )
-            possible_windows.extend(
-                [" ".join(script_words[: length_of_entry_text - window_size])]
-            )
+            possible_windows.extend([" ".join(script_words[: length_of_entry_text + window_size])])
+            possible_windows.extend([" ".join(script_words[: length_of_entry_text - window_size])])
 
         # Find the best match among all possible windows
         # print(f"Entry text: {entry['text']}\n"
@@ -93,9 +89,7 @@ def generate_audio_transcription(
 
     audio = whisperx.load_audio(audio_file)
     result = model.transcribe(audio, batch_size=batch_size, language="en")
-    logger.debug(
-        f"Before Alignment:\n {pformat(result["segments"])}"
-    )  # before alignment
+    logger.debug(f"Before Alignment:\n {pformat(result['segments'])}")  # before alignment
 
     new_aligned_transcript = align_transcript_with_script(result["segments"], script)
 
@@ -106,9 +100,7 @@ def generate_audio_transcription(
     del model
 
     # 2. Align whisper output
-    model_a, metadata = whisperx.load_align_model(
-        language_code=result["language"], device=device
-    )
+    model_a, metadata = whisperx.load_align_model(language_code=result["language"], device=device)
     result = whisperx.align(
         new_aligned_transcript,
         model_a,
@@ -118,24 +110,16 @@ def generate_audio_transcription(
         return_char_alignments=False,
     )
 
-    logger.debug(
-        f"After Alignment:\n {pformat(result["segments"])}"
-    )  # before alignment  # after alignment
+    logger.debug(f"After Alignment:\n {pformat(result['segments'])}")  # before alignment  # after alignment
 
     word_transcript = []
     for segments in result["segments"]:
         for index, word in enumerate(segments["words"]):
             if "start" not in word:
                 word["start"] = segments["words"][index - 1]["end"] if index > 0 else 0
-                word["end"] = (
-                    segments["words"][index + 1]["start"]
-                    if index < len(segments["words"]) - 1
-                    else segments["words"][-1]["start"]
-                )
+                word["end"] = segments["words"][index + 1]["start"] if index < len(segments["words"]) - 1 else segments["words"][-1]["start"]
 
-            word_transcript.append(
-                {"word": word["word"], "start": word["start"], "end": word["end"]}
-            )
+            word_transcript.append({"word": word["word"], "start": word["start"], "end": word["end"]})
 
     logger.debug(f"Transcript:\n {pformat(word_transcript)}")  # before alignment
 
