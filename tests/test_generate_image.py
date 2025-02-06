@@ -6,6 +6,19 @@ import pytest
 from ShortsMaker import GenerateImage
 
 
+@pytest.fixture
+def generate_image(setup_file):
+    """Fixture to initialize and return a GenerateImage instance.
+
+    Args:
+        setup_file: The configuration file for GenerateImage.
+
+    Returns:
+        GenerateImage: An instance of the GenerateImage class.
+    """
+    return GenerateImage(setup_file)
+
+
 def test_initialization_with_non_existent_file():
     with pytest.raises(FileNotFoundError):
         GenerateImage(config_file=Path("non_existent_file.yml"))
@@ -31,7 +44,7 @@ def test_use_huggingface_flux_dev_success(generate_image):
     temp_file = Path(temp_file.name)
     try:
         generate_image.use_huggingface_flux_dev(
-            prompt="A lazy dog trying to eat a burger", output_path=temp_file.absolute()
+            prompt="A cat in mid-air, performing a daring stunt with its paws outstretched, surrounded by a blurred cityscape with bright lights and colors.", output_path=temp_file.absolute()
         )
     finally:
         assert temp_file.exists()
@@ -43,7 +56,7 @@ def test_use_huggingface_flux_schnell_success(generate_image):
     temp_file = Path(temp_file.name)
     try:
         generate_image.use_huggingface_flux_schnell(
-            prompt="A lazy dog trying to eat a burger", output_path=temp_file.absolute()
+            prompt="A cat in mid-air, performing a daring stunt with its paws outstretched, surrounded by a blurred cityscape with bright lights and colors.", output_path=temp_file.absolute()
         )
     finally:
         assert temp_file.exists()
