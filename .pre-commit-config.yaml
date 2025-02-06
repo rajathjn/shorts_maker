@@ -31,6 +31,4 @@ repos:
     hooks:
       - id: uv-lock
       - id: uv-export
-      - id: pip-compile
-        args: [ requirements.in, -o, requirements.txt ]
 exclude: .venv
