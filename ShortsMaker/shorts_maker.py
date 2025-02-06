@@ -3,7 +3,6 @@ import logging
 import random
 from pathlib import Path
 from pprint import pformat
-from typing import Optional
 
 import ftfy
 import language_tool_python
@@ -72,11 +71,13 @@ def split_alpha_and_digit(word):
                 res += " "
                 digit = False
             res += character
-        if character.isdigit():
+        elif character.isdigit():
             digit = True
             if alpha:
                 res += " "
                 alpha = False
+            res += character
+        else:
             res += character
     return res
 
@@ -98,7 +99,7 @@ class ShortsMaker:
             raise ValueError(f"Config file {config_file} is not a yaml file")
 
         # load yaml file
-        with open(config_file, "r") as ymlfile:
+        with open(config_file) as ymlfile:
             self.cfg = yaml.safe_load(ymlfile)
 
         # check if assets directory exists
@@ -176,7 +177,7 @@ class ShortsMaker:
         self.logger.info(f"Submission text saved to {self.cache_dir / self.reddit_post['record_file_txt']}")
 
         # return the generated file contents
-        with open(self.cache_dir / self.reddit_post["record_file_txt"], "r") as result_file:
+        with open(self.cache_dir / self.reddit_post["record_file_txt"]) as result_file:
             result_string = result_file.read()
         return result_string
 
@@ -228,9 +229,12 @@ class ShortsMaker:
     def generate_audio(
         self,
         source_txt: str,
-        output_audio: Optional[str] = None,
-        seed: Optional[int] = None,
+        output_audio: str | None = None,
+        seed: int | None = None,
     ) -> bool:
+        if output_audio is None:
+            output_audio = self.cache_dir / "output.wav"
+
         self.logger.info("Generating audio from text")
         for abbreviation, replacement, padding in ABBREVIATION_TUPLES:
             source_txt = abbreviation_replacer(source_txt, abbreviation, replacement, padding)
@@ -240,7 +244,7 @@ class ShortsMaker:
             if has_alpha_and_digit(s):
                 source_txt = source_txt.replace(s, split_alpha_and_digit(s))
 
-        with open(self.cache_dir / "generated_audio_script.txt", "w") as text_file:
+        with open(Path(output_audio).parent / "generated_audio_script.txt", "w") as text_file:
             text_file.write(source_txt)
         self.logger.info(f"Text saved to {self.cache_dir / 'generated_audio_script.txt'}")
 
@@ -251,9 +255,6 @@ class ShortsMaker:
             speaker = VOICES[seed]
 
         self.logger.info(f"Generating audio with speaker: {speaker}")
-
-        if output_audio is None:
-            output_audio = self.cache_dir / "output.wav"
 
         try:
             tts(source_txt, speaker, output_audio)
@@ -271,14 +272,14 @@ class ShortsMaker:
         self,
         source_audio_file: Path,
         source_text_file: Path,
-        output_transcript_file: Optional[str] = None,
+        output_transcript_file: str | None = None,
         debug: bool = True,
-    ) -> bool:
+    ) -> list[dict[str, str | float]]:
         self.audio_cfg = self.cfg["audio"]
         self.logger.info("Generating audio transcript")
 
         # read the script
-        with open(source_text_file, "r") as text_file:
+        with open(source_text_file) as text_file:
             source_text = text_file.read()
 
         self.word_transcript = generate_audio_transcription(
@@ -308,4 +309,4 @@ class ShortsMaker:
         if debug:
             self.logger.info(pformat(self.transcript))
 
-        return True
+        return self.word_transcript

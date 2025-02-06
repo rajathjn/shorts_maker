@@ -80,6 +80,7 @@ exclude = [
     ".idea"
 ]
 line-length = 200
+fix = true
 
 [tool.ruff.lint]
 extend-select = [
