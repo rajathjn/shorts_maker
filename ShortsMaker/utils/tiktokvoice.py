@@ -87,9 +87,7 @@ def tts(text: str, voice: str, output_filename: str = "output.mp3") -> None:
                     # store the audio data for the chunk
                     audio_data[index] = response.json()[entry["response"]]
                 else:
-                    logger.info(
-                        f"response: {response}, Endpoint not valid: {entry['url']}"
-                    )
+                    logger.info(f"response: {response}, Endpoint not valid: {entry['url']}")
                     endpoint_valid = False
 
             except requests.RequestException as e:
@@ -130,8 +128,6 @@ def _split_text(text: str) -> list[str]:
     # empty list to store merged chunks
     chunk_size: int = 250
 
-    text_list = textwrap.wrap(
-        text, width=chunk_size, break_long_words=False, break_on_hyphens=False
-    )
+    text_list = textwrap.wrap(text, width=chunk_size, break_long_words=False, break_on_hyphens=False)
 
     return text_list
