@@ -39,7 +39,8 @@ dependencies = [
     "outlines (>=0.1.14,<0.2.0)", #
     "datasets (>=3.2.0,<4.0.0)", #
     "ollama (>=0.4.7,<0.5.0)",
-    "langchain-ollama (>=0.2.3,<0.3.0)"
+    "langchain-ollama (>=0.2.3,<0.3.0)",
+    "hatchling>=1.27.0",
 ]
 
 [build-system]
@@ -88,4 +89,4 @@ extend-select = [
 ]
 
 [tool.ruff.lint.pydocstyle]
-convention = "google-notypes"
+convention = "google"
