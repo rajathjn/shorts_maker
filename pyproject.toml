@@ -81,5 +81,11 @@ exclude = [
 line-length = 200
 
 [tool.ruff.lint]
-# Add the `line-too-long` rule to the enforced rule set.
-extend-select = ["E501"]
+extend-select = [
+    "UP",  # pyupgrade
+    "D",   # pydocstyle
+    "I",   # isort
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google-notypes"
