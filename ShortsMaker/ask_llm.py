@@ -1,4 +1,3 @@
-# os.environ["OLLAMA_FLASH_ATTENTION "] = "1"
 import logging
 import platform
 import subprocess
@@ -50,6 +49,7 @@ class OllamaServiceManager:
         except Exception as e:
             self.logger.error(f"Error starting Ollama service: {str(e)}")
             raise e
+            return False
 
     def stop_service(self) -> bool:
         # Stop the Ollama service
