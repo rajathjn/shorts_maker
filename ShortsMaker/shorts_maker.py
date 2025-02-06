@@ -58,9 +58,7 @@ def abbreviation_replacer(text, abbreviation, replacement, padding=""):
 
 
 def has_alpha_and_digit(word):
-    return any(character.isalpha() for character in word) and any(
-        character.isdigit() for character in word
-    )
+    return any(character.isalpha() for character in word) and any(character.isdigit() for character in word)
 
 
 def split_alpha_and_digit(word):
@@ -85,7 +83,6 @@ def split_alpha_and_digit(word):
 
 class ShortsMaker:
     def __init__(self, config_file: Path):
-
         # check if config file exists
         self.word_transcript = None
         self.line_transcript = None
@@ -158,14 +155,7 @@ class ShortsMaker:
         self.logger.info(f"Subreddit display name: {subreddit.display_name}")
 
         # Get random submission
-        submission: Submission = random.choice(
-            [
-                submission
-                for submission in subreddit.top(
-                    time_filter="month", limit=random.randint(3, 3)
-                )
-            ]
-        )
+        submission: Submission = random.choice([submission for submission in subreddit.top(time_filter="month", limit=random.randint(3, 3))])
         self.logger.info(f"Submission Url: {submission.url}")
         self.logger.info(f"Submission title: {submission.title}")
 
@@ -174,35 +164,24 @@ class ShortsMaker:
             data[key] = str(value)
 
         # Save the submission to a json file
-        with open(
-            self.cache_dir / self.reddit_post["record_file_json"], "w"
-        ) as record_file:
+        with open(self.cache_dir / self.reddit_post["record_file_json"], "w") as record_file:
             # noinspection PyTypeChecker
             json.dump(data, record_file, indent=4, skipkeys=True, sort_keys=True)
-        self.logger.info(
-            f"Submission saved to {self.cache_dir/self.reddit_post['record_file_json']}"
-        )
+        self.logger.info(f"Submission saved to {self.cache_dir / self.reddit_post['record_file_json']}")
 
         # Save the submission to a text file
-        with open(
-            self.cache_dir / self.reddit_post["record_file_txt"], "w"
-        ) as text_file:
+        with open(self.cache_dir / self.reddit_post["record_file_txt"], "w") as text_file:
             text_file.write(unidecode(ftfy.fix_text(submission.title)) + "." + "\n")
             text_file.write(unidecode(ftfy.fix_text(submission.selftext)) + "\n")
-        self.logger.info(
-            f"Submission text saved to {self.cache_dir/self.reddit_post['record_file_txt']}"
-        )
+        self.logger.info(f"Submission text saved to {self.cache_dir / self.reddit_post['record_file_txt']}")
 
         # return the generated file contents
-        with open(
-            self.cache_dir / self.reddit_post["record_file_txt"], "r"
-        ) as result_file:
+        with open(self.cache_dir / self.reddit_post["record_file_txt"], "r") as result_file:
             result_string = result_file.read()
         return result_string
 
     # @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
     def fix_text(self, source_txt: str, debug: bool = True) -> str:
-
         self.logger.info("Setting up language tool text fixer")
         grammar_fixer = language_tool_python.LanguageTool("en-US")
 
@@ -225,9 +204,7 @@ class ShortsMaker:
                 sentences.append(" ".join(res))
                 res = []
 
-        self.logger.info(
-            f"Split text into sentences and fixed text. Found {len(sentences)} sentences"
-        )
+        self.logger.info(f"Split text into sentences and fixed text. Found {len(sentences)} sentences")
 
         corrected_sentences = []
         for sentence in sentences:
@@ -243,9 +220,7 @@ class ShortsMaker:
         if debug:
             with open(self.cache_dir / "fix_text_debug.txt", "w") as text_file:
                 text_file.write(result_string)
-            self.logger.info(
-                f"Debug text saved to {self.cache_dir/"fix_text_debug.txt"}"
-            )
+            self.logger.info(f"Debug text saved to {self.cache_dir / 'fix_text_debug.txt'}")
 
         return result_string
 
@@ -258,9 +233,7 @@ class ShortsMaker:
     ) -> bool:
         self.logger.info("Generating audio from text")
         for abbreviation, replacement, padding in ABBREVIATION_TUPLES:
-            source_txt = abbreviation_replacer(
-                source_txt, abbreviation, replacement, padding
-            )
+            source_txt = abbreviation_replacer(source_txt, abbreviation, replacement, padding)
         source_txt = source_txt.strip()
 
         for s in source_txt.split(" "):
@@ -269,7 +242,7 @@ class ShortsMaker:
 
         with open(self.cache_dir / "generated_audio_script.txt", "w") as text_file:
             text_file.write(source_txt)
-        self.logger.info(f"Text saved to {self.cache_dir/"generated_audio_script.txt"}")
+        self.logger.info(f"Text saved to {self.cache_dir / 'generated_audio_script.txt'}")
 
         if seed is None:
             random.shuffle(VOICES)
@@ -284,9 +257,7 @@ class ShortsMaker:
 
         try:
             tts(source_txt, speaker, output_audio)
-            self.logger.info(
-                f"Successfully generated audio.\nSpeaker: {speaker}\nOutput path: {output_audio}"
-            )
+            self.logger.info(f"Successfully generated audio.\nSpeaker: {speaker}\nOutput path: {output_audio}")
         except Exception as e:
             self.logger.error(f"Error: {e}")
             self.logger.error("Failed to generate audio with tiktokvoice")

@@ -2,7 +2,7 @@
 import logging
 import os
 from pathlib import Path
-from typing import DefaultDict, Optional
+from typing import DefaultDict, Optional, Union
 
 import torch
 import yaml
@@ -12,12 +12,9 @@ from .logging_config import setup_package_logging
 
 
 class GenerateImage:
-    def __init__(self, config_file: Path, logging_config: DefaultDict = None) -> None:
-
+    def __init__(self, config_file: Union[Path, str], logging_config: DefaultDict = None) -> None:
         # if config_file is str convert it to a Pathlike
-        self.setup_cfg = (
-            Path(config_file) if isinstance(config_file, str) else config_file
-        )
+        self.setup_cfg = Path(config_file) if isinstance(config_file, str) else config_file
 
         if not self.setup_cfg.exists():
             raise FileNotFoundError(f"File {str(self.setup_cfg)} does not exist")
@@ -50,19 +47,13 @@ class GenerateImage:
         self.logger = setup_package_logging(**self.logging_cfg)
 
         if "hugging_face_access_token" not in self.cfg:
-            self.logger.warning(
-                "Please add your huggingface access token to use Flux.1-Dev.\n"
-                "Defaulting to use Flux.1-Schnell"
-            )
+            self.logger.warning("Please add your huggingface access token to use Flux.1-Dev.\nDefaulting to use Flux.1-Schnell")
 
         self.pipe: Optional[FluxPipeline] = None
 
     def _load_model(self, model_id: str) -> bool:
-
         try:
-            self.pipe = FluxPipeline.from_pretrained(
-                model_id, torch_dtype=torch.bfloat16
-            )
+            self.pipe = FluxPipeline.from_pretrained(model_id, torch_dtype=torch.bfloat16)
             self.logger.info(f"Loading Flux model from {model_id}")
             # to run on low vram GPUs (i.e. between 4 and 32 GB VRAM)
             # Choose ONE of the following:
@@ -93,13 +84,9 @@ class GenerateImage:
         width: int = 1024,
         guidance_scale: float = 3.5,
     ) -> bool:
-
         self.logger.info("This image generator uses the Flux Dev model.")
         # Add access token to environment variable
-        if (
-            "hugging_face_access_token" in self.cfg
-            and os.environ.get("HF_TOKEN") is None
-        ):
+        if "hugging_face_access_token" in self.cfg and os.environ.get("HF_TOKEN") is None:
             self.logger.info("Setting HF_TOKEN environment variable")
             os.environ["HF_TOKEN"] = self.cfg["hugging_face_access_token"]
 
@@ -112,6 +99,7 @@ class GenerateImage:
             guidance_scale=guidance_scale,
             output_type="pil",
             num_inference_steps=steps,
+            max_sequence_length=512,
             height=height,
             width=width,
             generator=torch.Generator("cpu").manual_seed(seed),
@@ -138,7 +126,6 @@ class GenerateImage:
         width: int = 1024,
         guidance_scale: float = 0.0,
     ) -> bool:
-
         self.logger.info("This image generator uses the Flux Schnell model.")
 
         self._load_model(model_id)

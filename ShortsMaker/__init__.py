@@ -1,3 +1,4 @@
+from .ask_llm import AskLLM, OllamaServiceManager
 from .generate_image import GenerateImage
 from .shorts_maker import ShortsMaker
 from .utils.audio_transcript import (
@@ -11,6 +12,8 @@ from .utils.tiktokvoice import VOICES, tts
 __all__ = [
     "GenerateImage",
     "ShortsMaker",
+    "AskLLM",
+    "OllamaServiceManager",
     "align_transcript_with_script",
     "generate_audio_transcription",
     "notify_discord",
