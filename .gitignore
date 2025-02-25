@@ -21,3 +21,9 @@ setup.yml
 # IDE caches
 .vscode
 .idea
+
+# Ignore any media files
+*.mp4
+*.avi
+*.wav
+*.mp3
