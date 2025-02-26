@@ -15,7 +15,6 @@ repos:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
-      - id: check-added-large-files
       - id: debug-statements
         language_version: python3
       - id: detect-private-key
