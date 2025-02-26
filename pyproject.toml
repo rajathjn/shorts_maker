@@ -38,6 +38,8 @@ dependencies = [
     "whisperx>=3.3.1",
     "moviepy>=2.1.2",
     "yt-dlp>=2025.2.19",
+    "pyyaml>=6.0.2",
+    "colorlog>=6.9.0",
 ]
 
 [dependency-groups]
