@@ -74,12 +74,25 @@ testpaths = [
 [tool.ruff]
 # Set the maximum line length to 79.
 exclude = [
+    ".git",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".tox",
+    "_build",
+    "build",
+    "venv",
     ".pytest_cache",
     ".venv",
     ".vscode",
     ".idea"
 ]
-line-length = 200
+line-length = 100
+indent-width = 4
 fix = true
 
 [tool.ruff.lint]
@@ -87,3 +100,10 @@ extend-select = [
     "UP",  # pyupgrade
     "I",   # isort
 ]
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
