@@ -27,3 +27,7 @@ setup.yml
 *.avi
 *.wav
 *.mp3
+
+# ignore ipynb files and checkpoints, which may be used for testing
+*.ipynb
+.ipynb_checkpoints
