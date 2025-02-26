@@ -11,8 +11,7 @@ import yaml
 from praw.models import Submission, Subreddit
 from unidecode import unidecode
 
-from .logging_config import setup_package_logging
-from .utils import VOICES, generate_audio_transcription, tts
+from .utils import VOICES, generate_audio_transcription, setup_package_logging, tts
 
 # needed for retry decorator
 MAX_RETRIES: int = 1
@@ -57,7 +56,9 @@ def abbreviation_replacer(text, abbreviation, replacement, padding=""):
 
 
 def has_alpha_and_digit(word):
-    return any(character.isalpha() for character in word) and any(character.isdigit() for character in word)
+    return any(character.isalpha() for character in word) and any(
+        character.isdigit() for character in word
+    )
 
 
 def split_alpha_and_digit(word):
@@ -91,16 +92,17 @@ class ShortsMaker:
         self.audio_cfg = None
         self.reddit_post = None
         self.reddit_cfg = None
-        if not config_file.exists():
-            raise FileNotFoundError(f"Config file {config_file} not found")
 
-        # check if config file is a yaml file
-        if config_file.suffix != ".yml":
-            raise ValueError(f"Config file {config_file} is not a yaml file")
+        self.setup_cfg = Path(config_file) if isinstance(config_file, str) else config_file
+        if not self.setup_cfg.exists():
+            raise FileNotFoundError(f"File {str(self.setup_cfg)} does not exist")
+
+        if self.setup_cfg.suffix != ".yml":
+            raise ValueError(f"File {str(self.setup_cfg)} is not a yaml file")
 
         # load yaml file
-        with open(config_file) as ymlfile:
-            self.cfg = yaml.safe_load(ymlfile)
+        with open(self.setup_cfg) as f:
+            self.cfg = yaml.safe_load(f)
 
         # check if assets directory exists
         self.assets_dir = Path(self.cfg["assets_dir"])
@@ -156,7 +158,12 @@ class ShortsMaker:
         self.logger.info(f"Subreddit display name: {subreddit.display_name}")
 
         # Get random submission
-        submission: Submission = random.choice([submission for submission in subreddit.top(time_filter="month", limit=random.randint(3, 3))])
+        submission: Submission = random.choice(
+            [
+                submission
+                for submission in subreddit.top(time_filter="month", limit=random.randint(3, 3))
+            ]
+        )
         self.logger.info(f"Submission Url: {submission.url}")
         self.logger.info(f"Submission title: {submission.title}")
 
@@ -168,13 +175,17 @@ class ShortsMaker:
         with open(self.cache_dir / self.reddit_post["record_file_json"], "w") as record_file:
             # noinspection PyTypeChecker
             json.dump(data, record_file, indent=4, skipkeys=True, sort_keys=True)
-        self.logger.info(f"Submission saved to {self.cache_dir / self.reddit_post['record_file_json']}")
+        self.logger.info(
+            f"Submission saved to {self.cache_dir / self.reddit_post['record_file_json']}"
+        )
 
         # Save the submission to a text file
         with open(self.cache_dir / self.reddit_post["record_file_txt"], "w") as text_file:
             text_file.write(unidecode(ftfy.fix_text(submission.title)) + "." + "\n")
             text_file.write(unidecode(ftfy.fix_text(submission.selftext)) + "\n")
-        self.logger.info(f"Submission text saved to {self.cache_dir / self.reddit_post['record_file_txt']}")
+        self.logger.info(
+            f"Submission text saved to {self.cache_dir / self.reddit_post['record_file_txt']}"
+        )
 
         # return the generated file contents
         with open(self.cache_dir / self.reddit_post["record_file_txt"]) as result_file:
@@ -205,7 +216,9 @@ class ShortsMaker:
                 sentences.append(" ".join(res))
                 res = []
 
-        self.logger.info(f"Split text into sentences and fixed text. Found {len(sentences)} sentences")
+        self.logger.info(
+            f"Split text into sentences and fixed text. Found {len(sentences)} sentences"
+        )
 
         corrected_sentences = []
         for sentence in sentences:
@@ -230,10 +243,23 @@ class ShortsMaker:
         self,
         source_txt: str,
         output_audio: str | None = None,
+        output_script_file: str | None = None,
         seed: int | None = None,
     ) -> bool:
+        self.audio_cfg = self.cfg["audio"]
         if output_audio is None:
-            output_audio = self.cache_dir / "output.wav"
+            self.logger.info("No output audio file specified. Generating output audio file")
+            if "output_audio_file" in self.audio_cfg:
+                output_audio = self.cache_dir / self.audio_cfg["output_audio_file"]
+            else:
+                output_audio = self.cache_dir / "output.wav"
+
+        if output_script_file is None:
+            self.logger.info("No output script file specified. Generating output script file")
+            if "output_script_file" in self.audio_cfg:
+                output_script_file = self.cache_dir / self.audio_cfg["output_script_file"]
+            else:
+                output_script_file = self.cache_dir / "generated_audio_script.txt"
 
         self.logger.info("Generating audio from text")
         for abbreviation, replacement, padding in ABBREVIATION_TUPLES:
@@ -244,9 +270,9 @@ class ShortsMaker:
             if has_alpha_and_digit(s):
                 source_txt = source_txt.replace(s, split_alpha_and_digit(s))
 
-        with open(Path(output_audio).parent / "generated_audio_script.txt", "w") as text_file:
+        with open(output_script_file, "w") as text_file:
             text_file.write(source_txt)
-        self.logger.info(f"Text saved to {self.cache_dir / 'generated_audio_script.txt'}")
+        self.logger.info(f"Text saved to {output_script_file}")
 
         if seed is None:
             random.shuffle(VOICES)
@@ -258,7 +284,9 @@ class ShortsMaker:
 
         try:
             tts(source_txt, speaker, output_audio)
-            self.logger.info(f"Successfully generated audio.\nSpeaker: {speaker}\nOutput path: {output_audio}")
+            self.logger.info(
+                f"Successfully generated audio.\nSpeaker: {speaker}\nOutput path: {output_audio}"
+            )
         except Exception as e:
             self.logger.error(f"Error: {e}")
             self.logger.error("Failed to generate audio with tiktokvoice")
@@ -310,3 +338,25 @@ class ShortsMaker:
             self.logger.info(pformat(self.transcript))
 
         return self.word_transcript
+
+    def quit(self) -> None:
+        self.logger.debug("Closing and cleaning up resources.")
+        # Close the language tool if it was used
+        if hasattr(self, "grammar_fixer") and self.grammar_fixer:
+            try:
+                self.grammar_fixer.close()
+            except Exception as e:
+                self.logger.error(f"Error closing grammar fixer: {e}")
+
+        # Delete all instance variables
+        for attr in list(self.__dict__.keys()):
+            try:
+                self.logger.debug(f"Deleting {attr}")
+                if attr == "logger":
+                    continue
+                delattr(self, attr)
+            except Exception as e:
+                self.logger.warning(f"Error deleting {attr}: {e}")
+
+        self.logger.debug("All objects in the class have been deleted.")
+        return
