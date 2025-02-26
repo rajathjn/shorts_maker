@@ -1,0 +1,47 @@
+---
+# Used only for fetching models
+hugging_face_access_token: "your_hugging_face_access_token_here"
+
+cache_dir: "/path/to/cache"
+
+# A dir in which your background_videos, background_music, credits and fonts folders are located
+assets_dir: "/path/to/assets"
+models_dir: "/path/to/models"
+
+logging:
+  enable: true
+  level: DEBUG
+  log_file: "/path/to/logfile.log"
+
+retry:
+  enable: true
+  max_retries: 3
+  delay: 5
+  notify: false
+
+reddit_praw:
+  client_id: "your_reddit_client_id"
+  client_secret: "your_reddit_client_secret"
+  user_agent: "your_user_agent_here"
+
+reddit_post_getter:
+  subreddit_name: "example_subreddit"
+  record_file_json: "post.json"
+  record_file_txt: "post.txt"
+
+audio:
+  output_script_file: "generated_audio_script.txt"
+  output_audio_file: "output.wav"
+  transcript_json: "transcript.json"
+  device: "cuda"
+  model: "large-v2"
+  batch_size: 16
+  compute_type: "float16"
+
+video:
+  background_videos_urls:
+    - "https://www.youtube.com/watch?v=example_video_id"
+  background_music_urls:
+    - "https://www.youtube.com/watch?v=example_music_id"
+  font_dir: "fonts"
+  credits_dir: "credits"

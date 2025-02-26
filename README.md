@@ -89,6 +89,7 @@ Before running ShortsMaker, make sure you set the necessary environment variable
 
 ## Usage
 
+Use the [example-setup.yml](example.setup.yml) to look at the `setup.yml` configuration.
 Below is a basic example to get you started with ShortsMaker:
 
 ```python
