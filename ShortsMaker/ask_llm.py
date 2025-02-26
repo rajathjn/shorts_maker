@@ -13,7 +13,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from pydantic import BaseModel, Field
 
-from .logging_config import setup_package_logging
+from .utils import setup_package_logging
 
 
 class OllamaServiceManager:
@@ -37,7 +37,9 @@ class OllamaServiceManager:
                 ollama_execution_command = ["ollama app.exe", "serve"]
             else:
                 ollama_execution_command = ["ollama", "serve"]
-            self.process = subprocess.Popen(ollama_execution_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            self.process = subprocess.Popen(
+                ollama_execution_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
+            )
 
             # Wait a moment for the service to start
             time.sleep(2)
@@ -57,8 +59,12 @@ class OllamaServiceManager:
             if self.process:
                 if self.system == "windows":
                     # For Windows
-                    subprocess.run(["taskkill", "/F", "/IM", "ollama app.exe"], capture_output=True, text=True)
-                    subprocess.run(["taskkill", "/F", "/IM", "ollama.exe"], capture_output=True, text=True)
+                    subprocess.run(
+                        ["taskkill", "/F", "/IM", "ollama app.exe"], capture_output=True, text=True
+                    )
+                    subprocess.run(
+                        ["taskkill", "/F", "/IM", "ollama.exe"], capture_output=True, text=True
+                    )
                 else:
                     # For Linux/MacOS
                     self.process.terminate()
@@ -99,12 +105,18 @@ class OllamaServiceManager:
 
     def stop_running_model(self, model_name: str):
         try:
-            stop_attempt = subprocess.check_output(["ollama", "stop", model_name], stderr=subprocess.STDOUT, text=True)
-            self.logger.info(f"Ollama service with {model_name} stopped successfully: {stop_attempt}")
+            stop_attempt = subprocess.check_output(
+                ["ollama", "stop", model_name], stderr=subprocess.STDOUT, text=True
+            )
+            self.logger.info(
+                f"Ollama service with {model_name} stopped successfully: {stop_attempt}"
+            )
             return True
         except Exception as e:
             self.logger.warning(f"Failed to stop {model_name}")
-            self.logger.warning("Either the model was already stopped, or the Ollama service is already stopped")
+            self.logger.warning(
+                "Either the model was already stopped, or the Ollama service is already stopped"
+            )
             self.logger.error(f"Error stopping Ollama service: {str(e)}")
             return False
 
@@ -122,7 +134,13 @@ class OllamaServiceManager:
 
 
 class AskLLM:
-    def __init__(self, config_file: Path | str, model_name: str = "llama3.1:latest", temperature: float = 0, logging_config: defaultdict = None) -> None:
+    def __init__(
+        self,
+        config_file: Path | str,
+        model_name: str = "llama3.1:latest",
+        temperature: float = 0,
+        logging_config: defaultdict = None,
+    ) -> None:
         # if config_file is str convert it to a Pathlike
         self.setup_cfg = Path(config_file) if isinstance(config_file, str) else config_file
 
@@ -183,31 +201,76 @@ class AskLLM:
     def invoke(self, input_text: str) -> dict | BaseModel:
         prompt = ChatPromptTemplate(
             messages=[
-                SystemMessage("You are a Youtubers digital assistant. Please provide creative, engaging, clickbait, key word rich and accurate information to the user."),
+                SystemMessage(
+                    "You are a Youtubers digital assistant. Please provide creative, engaging, clickbait, key word rich and accurate information to the user."
+                ),
                 SystemMessage(
                     "The Youtuber which runs an AI automated Youtube channel. The entire process involves me finding a script, making a video about it, and then using an AI image creator to make a thumbnail for the video."
                 ),
-                SystemMessage("Be short and concise. Be articulate, no need to be verbose and justify your answer."),
+                SystemMessage(
+                    "Be short and concise. Be articulate, no need to be verbose and justify your answer."
+                ),
                 HumanMessage(f"Script:\n{input_text}"),
             ],
         )
         self.structured_llm = self.llm.with_structured_output(YoutubeDetails, include_raw=True)
         return self.structured_llm.invoke(prompt.messages)
 
+    def invoke_image_describer(self, script: str, input_text: str) -> dict | BaseModel:
+        prompt = ChatPromptTemplate(
+            messages=[
+                SystemMessage(
+                    "You are an AI image prompt generator, who specializes in image description. Helping users to create AI image prompts."
+                ),
+                SystemMessage(
+                    "The user provides the complete and the text to generate the prompt for. You should provide a detailed and creative description of an image. Note: Avoid mentioning names or text titles to be in the description. The more detailed and imaginative your description, the more interesting the resulting image will be."
+                ),
+                SystemMessage("Keep the description with 500 characters or less."),
+                HumanMessage(f"Script:\n{script}"),
+                HumanMessage(f"Text:\n{input_text}"),
+            ]
+        )
+        self.structured_llm = self.llm.with_structured_output(ImageDescriber, include_raw=True)
+        return self.structured_llm.invoke(prompt.messages)
+
     def quit_llm(self):
         self.ollama_service_manager.stop_running_model(self.model_name)
         if self.self_started_ollama:
             self.ollama_service_manager.stop_service()
-        return True
+        # Delete all instance variables
+        for attr in list(self.__dict__.keys()):
+            try:
+                self.logger.debug(f"Deleting {attr}")
+                if attr == "logger":
+                    continue
+                delattr(self, attr)
+            except Exception as e:
+                self.logger.error(f"Error deleting {attr}: {e}")
+        return
 
 
 # Pydantic YoutubeDetails
 class YoutubeDetails(BaseModel):
     """Details of the YouTube video."""
 
-    title: str = Field(description="A fun and engaging title for the Youtube video. Has to be related to the reddit post and is not more than 100 characters.")
-    description: str = Field(description="Description of the Youtube video. It should be a simple summary of the video.")
-    tags: list[str] = Field(description="Tags of the Youtube video. tags are single words with no space in them. Utmost 3 tags only.")
+    title: str = Field(
+        description="A fun and engaging title for the Youtube video. Has to be related to the reddit post and is not more than 100 characters."
+    )
+    description: str = Field(
+        description="Description of the Youtube video. It should be a simple summary of the video."
+    )
+    tags: list[str] = Field(
+        description="Tags of the Youtube video. tags are single words with no space in them."
+    )
     thumbnail_description: str = Field(
         description="Thumbnail description of the Youtube video. provide detailed and creative descriptions that will inspire unique and interesting images from the AI. Keep in mind that the AI is capable of understanding a wide range of language and can interpret abstract concepts, so feel free to be as imaginative and descriptive as possible. For example, you could describe a scene from a futuristic city, or a surreal landscape filled with strange creatures. The more detailed and imaginative your description, the more interesting the resulting image will be."
+    )
+
+
+# Image Describer
+class ImageDescriber(BaseModel):
+    """Given text, Provides a detailed and creative description for an image."""
+
+    description: str = Field(
+        description="Provide a detailed and creative description that will inspire unique and interesting images from the AI. Keep in mind that the AI is capable of understanding a wide range of language and can interpret abstract concepts, so feel free to be as imaginative and descriptive as possible. For example, you could describe the scene in a pictorial way adding more details or elaborating the scenario. The more detailed and imaginative your description, the more interesting the resulting image will be."
     )
