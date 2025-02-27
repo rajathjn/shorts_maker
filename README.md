@@ -19,6 +19,8 @@ ShortsMaker is a Python package designed to facilitate the creation of engaging 
 - **External Service Integration:** Seamlessly integrates with services like Discord for notifications.
 - **GPU-Accelerated Processing:** Optional GPU support for faster processing using whisperx.
 - **Modular Design:** Built with extensibility in mind.
+- **In Development:** AskLLM AI agent, which helps in generating metadata for YouTube or image generation.
+- **In Development:** Image Generation, GenerateImage class created for text2image generation. Note: This uses flux, Hence maybe resource intensive.
 
 ## Requirements
 
@@ -104,8 +106,8 @@ with open(setup_file) as f:
 
 get_post = ShortsMaker(setup_file)
 get_post.get_reddit_post()
-with open( Path(cfg["cache_dir"])/cfg["reddit_post_getter"]["record_file_txt"] ) as scriptfile:
-    script = scriptfile.read()
+with open( Path(cfg["cache_dir"])/cfg["reddit_post_getter"]["record_file_txt"] ) as f:
+    script = f.read()
 
 get_post.generate_audio(script)
 get_post.generate_audio_transcript(
