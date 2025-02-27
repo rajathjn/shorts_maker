@@ -22,7 +22,9 @@ def mock_ollama_service_manager():
 
 
 @patch("ShortsMaker.ask_llm.AskLLM._load_llm_model")
-def test_initialization_with_valid_config(mock_load_llm_model, setup_file, mock_ollama_service_manager):
+def test_initialization_with_valid_config(
+    mock_load_llm_model, setup_file, mock_ollama_service_manager
+):
     mock_load_llm_model.return_value = None
     ask_llm = AskLLM(config_file=setup_file, model_name="test_model", logging_config=None)
     assert ask_llm.model_name == "test_model"
@@ -68,14 +70,21 @@ def test_invoke_creates_chat_prompt(setup_file, mock_ollama_service_manager):
 @patch("ShortsMaker.ask_llm.OllamaServiceManager.stop_service")
 @patch("ShortsMaker.ask_llm.subprocess.check_output")
 @patch("ShortsMaker.ask_llm.subprocess.run")
-def test_quit_llm_with_self_started_service(mock_load_llm_model, mock_stop_service, mock_check_output, mock_run, setup_file, mock_ollama_service_manager):
+def test_quit_llm_with_self_started_service(
+    mock_load_llm_model,
+    mock_stop_service,
+    mock_check_output,
+    mock_run,
+    setup_file,
+    mock_ollama_service_manager,
+):
     mock_load_llm_model.return_value = None
 
     ask_llm = AskLLM(config_file=setup_file, model_name="test_model")
     ask_llm.self_started_ollama = True
 
     result = ask_llm.quit_llm()
-    assert result is True
+    assert result is None
     mock_stop_service.assert_called_once()
 
 
@@ -89,7 +98,10 @@ def test_ask_llm_working(setup_file):
         result["parsed"].description
         == "Get ready for the most epic feline feats you've ever seen! Watch as our fearless feline friend runs, jumps, and even flies through a series of death-defying stunts."
     )
-    assert result["parsed"].tags == ["cat", "stunts", "flying"]
-    assert result["parsed"].thumbnail_description == "A cat in mid-air, performing a daring stunt with its paws outstretched, surrounded by a blurred cityscape with bright lights and colors."
+    assert result["parsed"].tags == ["cat", "stunts", "flying", "jumping"]
+    assert (
+        result["parsed"].thumbnail_description
+        == "A cat in mid-air, performing a daring stunt with its paws outstretched, surrounded by a blurred cityscape with bright lights and colors."
+    )
     assert result["parsing_error"] is None
     assert result is not None

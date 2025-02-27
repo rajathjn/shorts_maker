@@ -7,8 +7,9 @@ def test_generate_audio(shorts_maker):
     temp_file = Path(temp_file.name)
     try:
         assert shorts_maker.generate_audio(
-            "This is a test to generate audio for the reddit bot.",
-            temp_file,
+            source_txt="This is a test to generate audio for the reddit bot.",
+            output_audio=temp_file,
+            output_script_file=temp_file.parent / "generated_audio_script.txt",
         )
         assert (temp_file.parent / "generated_audio_script.txt").exists()
     finally:

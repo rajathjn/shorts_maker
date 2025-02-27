@@ -132,9 +132,10 @@ If you want to contribute to the project, please follow these steps:
 2. **Run the Tests:**
    - Tests are located in the `tests/` directory.
    - Run tests using:
+   - Note: Tests require the setup.yml to be at the project root.
 
      ```bash
-     pytest .
+     pytest
      ```
 
 ## License

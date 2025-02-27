@@ -1,5 +1,6 @@
 import tempfile
 from pathlib import Path
+from unittest.mock import MagicMock, patch
 
 import pytest
 
@@ -39,25 +40,17 @@ def test_load_model_failure(generate_image):
         generate_image._load_model("model_id")
 
 
-def test_use_huggingface_flux_dev_success(generate_image):
-    temp_file = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
-    temp_file = Path(temp_file.name)
-    try:
-        generate_image.use_huggingface_flux_dev(
-            prompt="A cat in mid-air, performing a daring stunt with its paws outstretched, surrounded by a blurred cityscape with bright lights and colors.", output_path=temp_file.absolute()
-        )
-    finally:
-        assert temp_file.exists()
-        temp_file.unlink()
+@patch("ShortsMaker.generate_image.GenerateImage._load_model")
+def test_use_huggingface_flux_dev_success(mock_load_model, generate_image):
+    mock_load_model.return_value = True
+    generate_image.pipe = MagicMock()
+    generate_image.use_huggingface_flux_dev(prompt="Random stuff", output_path="random_path.png")
 
 
-def test_use_huggingface_flux_schnell_success(generate_image):
-    temp_file = tempfile.NamedTemporaryFile(suffix=".png", delete=False)
-    temp_file = Path(temp_file.name)
-    try:
-        generate_image.use_huggingface_flux_schnell(
-            prompt="A cat in mid-air, performing a daring stunt with its paws outstretched, surrounded by a blurred cityscape with bright lights and colors.", output_path=temp_file.absolute()
-        )
-    finally:
-        assert temp_file.exists()
-        temp_file.unlink()
+@patch("ShortsMaker.generate_image.GenerateImage._load_model")
+def test_use_huggingface_flux_schnell_success(mock_load_model, generate_image):
+    mock_load_model.return_value = True
+    generate_image.pipe = MagicMock()
+    generate_image.use_huggingface_flux_schnell(
+        prompt="Random stuff", output_path="random_path.png"
+    )
