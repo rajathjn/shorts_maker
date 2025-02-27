@@ -11,7 +11,7 @@ from .utils.audio_transcript import (
     align_transcript_with_script,
     generate_audio_transcription,
 )
-from .utils.colors_dict import colors_dict
+from .utils.colors_dict import COLORS_DICT
 from .utils.download_youtube_music import download_youtube_music
 from .utils.download_youtube_video import download_youtube_video
 from .utils.notify_discord import notify_discord
@@ -27,7 +27,7 @@ __all__ = [
     download_youtube_music,
     download_youtube_video,
     abbreviation_replacer,
-    colors_dict,
+    COLORS_DICT,
     has_alpha_and_digit,
     split_alpha_and_digit,
     align_transcript_with_script,

@@ -1,5 +1,5 @@
 from .audio_transcript import align_transcript_with_script, generate_audio_transcription
-from .colors_dict import colors_dict
+from .colors_dict import COLORS_DICT
 from .download_youtube_music import download_youtube_music
 from .download_youtube_video import download_youtube_video
 from .logging_config import setup_package_logging
@@ -16,6 +16,6 @@ __all__ = [
     notify_discord,
     retry,
     tts,
-    colors_dict,
+    COLORS_DICT,
     VOICES,
 ]

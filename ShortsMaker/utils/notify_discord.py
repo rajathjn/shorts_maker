@@ -16,7 +16,17 @@ DISCORD_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
 def get_arthas():
     """
-    Scraps the search query for Arthas image
+    Fetches a random Arthas image URL from Bing image search results.
+
+    This function sends a search request to Bing images for the keyword 'arthas'
+    and retrieves a specific page of the search results. It extracts image URLs
+    from the returned HTML content and returns one randomly selected image URL.
+
+    Returns:
+        str: A randomly selected URL of an Arthas image.
+
+    Raises:
+        requests.exceptions.RequestException: If the HTTP request fails or encounters an issue.
     """
     url = f"https://www.bing.com/images/search?q=arthas&first={randint(1, 10)}"
     response = requests.get(
@@ -38,13 +48,30 @@ def get_arthas():
 
 def get_meme():
     """
-    Uses https://meme-api.com/gimme/
-    Can use custom subreddit and return multiple images
-    Endpoint: /gimme/{subreddit}/{count}
-    Example: https://meme-api.com/gimme/wholesomememes/2
+    Fetches a meme image URL from the meme-api.com API.
+
+    This function uses the "gimme" endpoint of the meme-api.com to fetch a
+    meme image URL. The API allows for specifying a subreddit and quantity
+    of meme images. The default behavior is to fetch a random meme from the
+    API. The response is parsed and the URL of the image is extracted and
+    returned. The function applies a User-Agent header as part of the
+    request to prevent potential issues with the API.
+
     Returns:
-        Image url
+        str: The URL of the meme image.
+
+    Raises:
+        JSONDecodeError: If the response content could not be decoded into JSON.
+        KeyError: If the expected "url" key is not found in the JSON response.
+        RequestException: If there is an issue with the HTTP request.
+
     """
+    # Uses https://meme-api.com/gimme/
+    # Can use custom subreddit and return multiple images
+    # Endpoint: /gimme/{subreddit}/{count}
+    # Example: https://meme-api.com/gimme/wholesomememes/2
+    # Returns:
+    #     Image url
     url = "https://meme-api.com/gimme"
     response = requests.get(
         url,
@@ -59,7 +86,16 @@ def get_meme():
 
 def notify_discord(message) -> Response:
     """
-    Notify Discord channel
+    Sends a notification message to a Discord webhook, splitting messages longer than the character limit,
+    and embedding additional information such as title, description, and images.
+
+    Args:
+        message (str): The message content to be sent to the Discord webhook. If the message exceeds 4000
+            characters, it will be split into smaller parts.
+
+    Returns:
+        Response: The response object resulting from the webhook execution, which contains information
+            such as status code and response text.
     """
     messages = textwrap.wrap(message, 4000)
     response = None

@@ -6,10 +6,21 @@ import yt_dlp
 logger = logging.getLogger(__name__)
 
 
-def download_youtube_music(music_url: str, music_dir: Path, force: bool = False) -> list[Path]:
+def download_youtube_music(
+    music_url: str, music_dir: Path, force: bool = False
+) -> list[Path] | Path:
     """
-    Download background music from URL.
-    and returns a list of paths to the downloaded music files.
+    Downloads music from a YouTube URL provided, saving it to a specified directory. The method supports
+    downloading either the full audio or splitting into chapters, if chapters are available in the video
+    metadata. Optionally, existing files can be overwritten if the `force` flag is set.
+
+    Args:
+        music_url (str): The YouTube URL of the music video to download.
+        music_dir (Path): The directory where the downloaded audio files will be saved.
+        force (bool): Specifies whether existing files should be overwritten. Defaults to False.
+
+    Returns:
+        list[Path]: A list of paths to the downloaded audio files.
     """
     ydl_opts = {}
 

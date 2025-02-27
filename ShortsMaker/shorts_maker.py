@@ -3,6 +3,7 @@ import logging
 import random
 from pathlib import Path
 from pprint import pformat
+from typing import Any
 
 import ftfy
 import language_tool_python
@@ -11,7 +12,7 @@ import yaml
 from praw.models import Submission, Subreddit
 from unidecode import unidecode
 
-from .utils import VOICES, generate_audio_transcription, setup_package_logging, tts
+from .utils import VOICES, generate_audio_transcription, retry, setup_package_logging, tts
 
 # needed for retry decorator
 MAX_RETRIES: int = 1
@@ -49,19 +50,68 @@ ABBREVIATION_TUPLES = [
 ]
 
 
-def abbreviation_replacer(text, abbreviation, replacement, padding=""):
+def abbreviation_replacer(text: str, abbreviation: str, replacement: str, padding: str = "") -> str:
+    """
+    Replaces all occurrences of an abbreviation within a given text with a specified replacement.
+
+    This function allows replacing abbreviations with a replacement string while considering optional padding
+    around the abbreviation. Padding ensures the abbreviation is correctly replaced regardless of its position
+    in the text or the surrounding characters.
+
+    Args:
+        text (str): The text where the abbreviation occurrences should be replaced.
+        abbreviation (str): The abbreviation to be replaced in the text.
+        replacement (str): The string to replace the abbreviation with.
+        padding (str, optional): Additional characters surrounding the abbreviation, making the
+            replacement match more specific. Default is an empty string.
+
+    Returns:
+        str: The text with all occurrences of the abbreviation replaced by the replacement string.
+    """
     text = text.replace(abbreviation + padding, replacement)
     text = text.replace(padding + abbreviation, replacement)
     return text
 
 
-def has_alpha_and_digit(word):
+def has_alpha_and_digit(word: str) -> bool:
+    """
+    Determines if a string contains both alphabetic and numeric characters.
+
+    This function checks whether the given string contains at least one alphabetic
+    character and at least one numeric character. It utilizes Python's string methods
+    to identify the required character types.
+
+    Args:
+        word: The string to check for the presence of alphabetic and numeric
+            characters.
+
+    Returns:
+        bool: True if the string contains at least one alphabetic character and one
+            numeric character, otherwise False.
+    """
     return any(character.isalpha() for character in word) and any(
         character.isdigit() for character in word
     )
 
 
 def split_alpha_and_digit(word):
+    """
+    Splits a given string into separate segments of alphabetic and numeric sequences.
+
+    This function processes each character in the input string and divides it into
+    distinct groups of alphabetic sequences and numeric sequences. A space is added
+    between these groups whenever a transition occurs between alphabetic and numeric
+    characters, or vice versa. Non-alphanumeric characters are included as is without
+    causing a split.
+
+    Args:
+        word (str): The input string to be split into alphabetic and numeric
+            segments.
+
+    Returns:
+        str: A string where alphabetic and numeric segments from the input are
+            separated by a space while retaining other characters.
+    """
     res = ""
     alpha = False
     digit = False
@@ -84,62 +134,203 @@ def split_alpha_and_digit(word):
 
 
 class ShortsMaker:
-    def __init__(self, config_file: Path):
-        # check if config file exists
-        self.word_transcript = None
-        self.line_transcript = None
-        self.transcript = None
-        self.audio_cfg = None
-        self.reddit_post = None
-        self.reddit_cfg = None
+    """
+    Represents a utility class to facilitate the creation of video shorts from
+    text and audio assets. The class manages configuration, logging, processing
+    of text for audio generation, reddit post retrieval, and asset handling among
+    other operations.
 
-        self.setup_cfg = Path(config_file) if isinstance(config_file, str) else config_file
-        if not self.setup_cfg.exists():
-            raise FileNotFoundError(f"File {str(self.setup_cfg)} does not exist")
+    The `ShortsMaker` class is designed to be highly extensible and configurable
+    via YAML configuration files. It includes robust error handling for invalid
+    or missing configuration files and directories. The functionality also integrates
+    with external tools such as Reddit API and grammar correction tools to streamline
+    the process of creating video shorts.
 
-        if self.setup_cfg.suffix != ".yml":
-            raise ValueError(f"File {str(self.setup_cfg)} is not a yaml file")
+    Attributes:
+        DEFAULT_LOGGING_CONFIG (dict): Default configuration for logging, including
+            settings for file path, logger name, level, and whether logging is enabled.
+        VALID_CONFIG_EXTENSION (str): Expected file extension for configuration files.
+        setup_cfg (Path): Path of the validated configuration file.
+        cfg (dict): Parsed configuration from the loaded configuration file.
+        assets_dir (Path): Directory containing assets used for video and audio creation.
+        cache_dir (Path): Directory for storing temporary files and intermediate data.
+        logging_cfg (dict): Configuration for setting up logging.
+        logger (Logger): Logger instance used for logging events and errors.
+        retry_cfg (dict): Configuration parameters for retry logic, including maximum
+            retries and delay between retries.
+        word_transcript (str | None): Transcript represented as individual words.
+        line_transcript (str | None): Transcript represented as individual lines.
+        transcript (str | None): Full transcript derived from the Reddit post or input text.
+        audio_cfg (dict | None): Configuration details specific to audio processing.
+        reddit_post (dict | None): Details related to the Reddit post being processed.
+        reddit_cfg (dict | None): Configuration details specific to Reddit API integration.
+    """
 
-        # load yaml file
-        with open(self.setup_cfg) as f:
-            self.cfg = yaml.safe_load(f)
+    DEFAULT_LOGGING_CONFIG = {
+        "log_file": "shorts_maker.log",
+        "logger_name": "ShortsMaker",
+        "level": logging.INFO,
+        "enable": True,
+    }
 
-        # check if assets directory exists
-        self.assets_dir = Path(self.cfg["assets_dir"])
-        if not self.assets_dir.exists():
-            raise f"FileNotFound: Assets directory {self.assets_dir} not found"
+    VALID_CONFIG_EXTENSION = ".yml"
 
-        # create cache directory
-        self.cache_dir = Path(self.cfg["cache_dir"])
-        self.cache_dir.mkdir(parents=True, exist_ok=True)
-
-        self.logging_cfg = {
-            "log_file": "shorts_maker.log",
-            "logger_name": "ShortsMaker",
-            "level": logging.INFO,
-            "enable": True,
-        }
-
-        if "logging" in self.cfg:
-            # override with values in from the setup.yml file
-            for key, value in self.cfg["logging"].items():
-                self.logging_cfg[key] = value
-
+    def __init__(self, config_file: Path | str) -> None:
+        self.setup_cfg = self._validate_config_path(config_file)
+        self.cfg = self._load_config()
+        self.assets_dir = self._setup_assets_directory()
+        self.cache_dir = self._setup_cache_directory()
+        self.logging_cfg = self._setup_logging_config()
         self.logger = setup_package_logging(**self.logging_cfg)
+        self.retry_cfg = self._setup_retry_config()
 
-        self.retry_cfg = self.cfg["retry"]
-        if not self.retry_cfg["enable"]:
-            self.retry_cfg["max_retries"] = 1
-            self.retry_cfg["delay"] = 0
-        global MAX_RETRIES
-        global DELAY
-        global NOTIFY
-        MAX_RETRIES = self.retry_cfg["max_retries"]
-        DELAY = self.retry_cfg["delay"]
-        NOTIFY = self.retry_cfg["notify"]
+        # Initialize other instance variables
+        self.word_transcript: str | None = None
+        self.line_transcript: str | None = None
+        self.transcript: str | None = None
+        self.audio_cfg: dict | None = None
+        self.reddit_post: dict | None = None
+        self.reddit_cfg: dict | None = None
 
-    # @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
+    def _validate_config_path(self, config_file: Path | str) -> Path:
+        """
+        Validates the given configuration file path to ensure it exists and has the correct format.
+
+        This method checks whether the provided file path points to an actual file and
+        whether its extension matches the expected configuration file format. If any
+        of these conditions are not met, appropriate exceptions are raised.
+
+        Args:
+            config_file: A file path string or a Path object representing the
+                configuration file to be validated.
+
+        Returns:
+            The validated configuration file path as a Path object.
+
+        Raises:
+            FileNotFoundError: If the configuration file does not exist.
+            ValueError: If the configuration file format is invalid.
+        """
+        config_path = Path(config_file) if isinstance(config_file, str) else config_file
+        if not config_path.exists():
+            raise FileNotFoundError(f"Configuration file not found: {config_path}")
+        if config_path.suffix != self.VALID_CONFIG_EXTENSION:
+            raise ValueError(
+                f"Invalid configuration file format. Expected {self.VALID_CONFIG_EXTENSION}"
+            )
+        return config_path
+
+    def _load_config(self) -> dict[str, Any]:
+        """
+        Loads and parses configuration data from a YAML file.
+
+        This method attempts to open and parse a YAML configuration file specified
+        by the `setup_cfg` attribute of the class. If the file does not contain valid
+        YAML or cannot be read, it raises an exception with an appropriate error message.
+
+        Returns:
+            Dict[str, Any]: A dictionary representation of the loaded YAML configuration.
+
+        Raises:
+            ValueError: If the YAML file contains invalid content or cannot be parsed.
+        """
+        try:
+            with open(self.setup_cfg) as f:
+                return yaml.safe_load(f)
+        except yaml.YAMLError as e:
+            raise ValueError(f"Invalid YAML configuration: {e}")
+
+    def _setup_assets_directory(self) -> Path:
+        """
+        Sets up and validates the assets directory path based on the configuration.
+
+        This function retrieves the path of the assets directory specified in the
+        configuration file (`self.cfg`). It checks if the directory exists, and if
+        not, raises a `FileNotFoundError` to indicate the missing directory. If
+        the directory exists, the function returns its `Path` object.
+
+        Returns:
+            Path: The `Path` object representing the validated assets directory.
+
+        Raises:
+            FileNotFoundError: If the specified assets directory does not exist.
+        """
+        assets_dir = Path(self.cfg["assets_dir"])
+        if not assets_dir.exists():
+            raise FileNotFoundError(f"Assets directory not found: {assets_dir}")
+        return assets_dir
+
+    def _setup_cache_directory(self) -> Path:
+        """
+        Sets up the cache directory based on the configuration and ensures its existence.
+
+        This method retrieves the cache directory path from the configuration, creates the
+        directory (including any required parent directories), and returns the Path object
+        representing the cache directory. If the directory already exists, it will not attempt
+        to create it again.
+
+        Returns:
+            Path: A Path object representing the cache directory.
+        """
+        cache_dir = Path(self.cfg["cache_dir"])
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        return cache_dir
+
+    def _setup_logging_config(self) -> dict[str, Any]:
+        """
+        Sets up and returns a logging configuration dictionary.
+
+        This method initializes and configures a logging setup based on a default
+        configuration. If a custom logging configuration is provided in the `self.cfg`
+        dictionary under the "logging" key, it updates and merges the default logging
+        setup with the custom configuration.
+
+        Returns:
+            Dict[str, Any]: A dictionary containing the merged logging configuration.
+        """
+        logging_config = self.DEFAULT_LOGGING_CONFIG.copy()
+        if "logging" in self.cfg:
+            logging_config.update(self.cfg["logging"])
+        return logging_config
+
+    def _setup_retry_config(self) -> dict[str, Any]:
+        """
+        Configures the retry mechanism based on the settings provided in the
+        configuration. If retry is disabled, it updates the retry settings to default
+        values. Updates global constants to reflect the current retry configuration.
+
+        Returns:
+            Dict[str, Any]: The updated retry configuration dictionary.
+        """
+        retry_config = self.cfg["retry"]
+        if not retry_config["enable"]:
+            retry_config["max_retries"] = 1
+            retry_config["delay"] = 0
+
+        global MAX_RETRIES, DELAY, NOTIFY
+        MAX_RETRIES = retry_config["max_retries"]
+        DELAY = retry_config["delay"]
+        NOTIFY = retry_config["notify"]
+
+        return retry_config
+
+    @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
     def get_reddit_post(self) -> str:
+        """
+        Retrieves a random top Reddit post from a specified subreddit, saves the post details
+        to both a JSON file and a text file, and returns the text content of the post.
+
+        Args:
+            None
+
+        Returns:
+            str: The text content of the retrieved Reddit post.
+
+        Raises:
+            ValueError: If any value processing errors occur.
+            IOError: If file handling (reading/writing) fails.
+            praw.exceptions.PRAWException: If PRAW encounters an API or authentication issue.
+        """
         self.reddit_cfg = self.cfg["reddit_praw"]
         self.reddit_post = self.cfg["reddit_post_getter"]
 
@@ -192,8 +383,24 @@ class ShortsMaker:
             result_string = result_file.read()
         return result_string
 
-    # @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
+    @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
     def fix_text(self, source_txt: str, debug: bool = True) -> str:
+        """
+        Fixes and corrects grammatical and textual issues in the provided text input using language processing tools.
+        The method processes the input text by fixing encoding issues, normalizing it, splitting it into sentences,
+        and then correcting the grammar of each individual sentence. An optional debug mode saves the processed text
+        to a debug file for inspection.
+
+        Args:
+            source_txt: The text to be processed and corrected.
+            debug: If True, saves the corrected text to a debug file for further analysis.
+
+        Returns:
+            str: The corrected and formatted text.
+
+        Raises:
+            Exception: Raised if errors occur during text correction within individual sentences.
+        """
         self.logger.info("Setting up language tool text fixer")
         grammar_fixer = language_tool_python.LanguageTool("en-US")
 
@@ -238,7 +445,7 @@ class ShortsMaker:
 
         return result_string
 
-    # @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
+    @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
     def generate_audio(
         self,
         source_txt: str,
@@ -246,6 +453,29 @@ class ShortsMaker:
         output_script_file: str | None = None,
         seed: int | None = None,
     ) -> bool:
+        """
+        Generates audio from a given textual input. The function processes the input text,
+        performs text transformations (e.g., replacing abbreviations and splitting alphanumeric
+        combinations), and uses a synthesized voice to create an audio file. It also writes the
+        processed script to a text file. Speaker selection is either randomized or based on the
+        provided seed.
+
+        Args:
+            source_txt (str): The input text to be converted into audio.
+            output_audio (str | None): The path to save the generated audio. If not provided, a
+                default path is generated based on the configuration or cache directory.
+            output_script_file (str | None): The file path to save the processed text script. If
+                not provided, a default path is generated based on the configuration or cache
+                directory.
+            seed (int | None): An optional seed to determine the choice of speaker. If not
+                provided, the function randomly selects a speaker.
+
+        Returns:
+            bool: Returns True if the audio generation is successful; False otherwise.
+
+        Raises:
+            Exception: If an error occurs during text-to-speech processing.
+        """
         self.audio_cfg = self.cfg["audio"]
         if output_audio is None:
             self.logger.info("No output audio file specified. Generating output audio file")
@@ -294,15 +524,31 @@ class ShortsMaker:
 
         return True
 
-    # function to generate the audio transcript from given audio file and text file.
-    # @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
+    @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
     def generate_audio_transcript(
         self,
-        source_audio_file: Path,
-        source_text_file: Path,
+        source_audio_file: Path | str,
+        source_text_file: Path | str,
         output_transcript_file: str | None = None,
         debug: bool = True,
     ) -> list[dict[str, str | float]]:
+        """
+        Generates an audio transcript by processing a source audio file and its corresponding text
+        file, using predefined configurations such as model, device, and batch size. Saves the
+        resulting transcript into a specified output file or a default cache location. Additionally,
+        provides an option to enable debug logging.
+
+        Args:
+            source_audio_file (Path): The source audio file to be transcribed.
+            source_text_file (Path): The text file containing the corresponding script.
+            output_transcript_file (str | None): The file where the resulting transcript will be saved.
+                Defaults to a predefined location if not specified.
+            debug (bool): Whether to enable debug logging of the processed transcript.
+
+        Returns:
+            list[dict[str, str | float]]: A list of word-level transcription data, where each entry
+            contains word-related information such as timestamps and confidence scores.
+        """
         self.audio_cfg = self.cfg["audio"]
         self.logger.info("Generating audio transcript")
 
@@ -340,6 +586,21 @@ class ShortsMaker:
         return self.word_transcript
 
     def quit(self) -> None:
+        """
+        Closes and cleans up resources used in the class instance.
+
+        This method ensures that all resources, tools, and variables used within the
+        class instance are properly closed or removed to prevent memory leaks or issues
+        when the instance is no longer in use. It includes closing language tools, if
+        utilized, and deleting all instance variables except the logger.
+
+        Raises:
+            Exception: If there is an issue closing the grammar fixer or deleting
+                instance variables. Specific details are logged.
+
+        Returns:
+            None: This method does not return any value.
+        """
         self.logger.debug("Closing and cleaning up resources.")
         # Close the language tool if it was used
         if hasattr(self, "grammar_fixer") and self.grammar_fixer:

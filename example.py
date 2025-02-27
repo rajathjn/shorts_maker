@@ -13,8 +13,8 @@ get_post = ShortsMaker(setup_file)
 
 get_post.get_reddit_post()
 
-with open(Path(cfg["cache_dir"]) / cfg["reddit_post_getter"]["record_file_txt"]) as scriptfile:
-    script = scriptfile.read()
+with open(Path(cfg["cache_dir"]) / cfg["reddit_post_getter"]["record_file_txt"]) as f:
+    script = f.read()
 
 get_post.generate_audio(script)
 

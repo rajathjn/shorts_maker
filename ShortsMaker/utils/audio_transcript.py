@@ -9,16 +9,29 @@ from rapidfuzz import process
 logger = logging.getLogger(__name__)
 
 
-def align_transcript_with_script(transcript, script_string):
+def align_transcript_with_script(transcript: list[dict], script_string: str) -> list[dict]:
     """
-    Aligns transcript text with the best matching portions from the script.
+    Aligns the transcript entries with corresponding segments of a script string by
+    comparing text similarities and finding the best matches. This process adjusts
+    each transcript entry to align as closely as possible with the correct script
+    segment while maintaining the temporal information from the transcript.
 
     Args:
-        transcript: List of dictionaries with 'start', 'end', and 'text' keys.
-        script_string: The original script as a string.
+        transcript (list[dict]): A list of dictionaries, each containing a segment
+            of the transcript with keys "text" (text of the segment), "start"
+            (start time), and "end" (end time).
+        script_string (str): The entire script as a single string to which the
+            transcript is aligned.
 
     Returns:
-        A list of dictionaries with aligned text, each containing 'text', 'start', and 'end' keys.
+        list[dict]: A list containing the transcript with updated "text" fields
+            that are aligned to the most similar segments of the script. The
+            "start" and "end" fields remain unchanged from the input.
+
+    Raises:
+        ValueError: If either the transcript or script_string is empty. Applies
+            to cases where alignment cannot be performed.
+
     """
     temp_transcript = []
     window_sizes = [i for i in range(6)]
@@ -69,19 +82,30 @@ def generate_audio_transcription(
     model="large-v2",
 ) -> list[dict[str, str | float]]:
     """
-    Generates the audio file transcription, aligns it with the given script,
-    and returns the final aligned transcript.
+    Generates a transcription of an audio file by performing speech-to-text transcription and aligning the
+    transcription with a given script. It utilizes whisper models for transcription and alignment to improve
+    accuracy.
+
+    This function processes the audio in batches, aligns the transcriptions with the provided script for better
+    accuracy, and cleans GPU memory usage during its workflow. It outputs a list of word-level transcriptions
+    with start and end times for enhanced downstream processing.
 
     Args:
-        device: Device to use ("cuda" or "cpu").
-        audio_file: Path to the audio file for transcription.
-        batch_size: Batch size for transcription.
-        compute_type: Compute type ("float16" or "int8").
-        script: The script to align the transcript with.
-        model: The whisperx model to load.
+        audio_file (str): The path to the audio file that needs to be transcribed.
+        script (str): The text script used for alignment with the transcribed segments.
+        device (str): The device to be used for computation, default is 'cuda'.
+        batch_size (int): The batch size to use during transcription, default is 16.
+        compute_type (str): The precision type to be used for the model, default is "float16".
+        model (str): The Whisper model variant to use, default is "large-v2". Options include "medium",
+            "large-v2", and "large-v3".
 
     Returns:
-        list: Word-level transcript as a list of dictionaries with 'word', 'start', and 'end' keys.
+        list[dict[str, str | float]]: A list of dictionaries, where each dictionary represents a word in
+            the transcription with the word text, start time, and end time.
+
+    Raises:
+        Could include potential runtime or memory-related errors specific to the underlying
+        libraries or resource management.
     """
     # 1. Transcribe with original whisper (batched)
     # options for models medium, large-v2, large-v3
@@ -110,16 +134,24 @@ def generate_audio_transcription(
         return_char_alignments=False,
     )
 
-    logger.debug(f"After Alignment:\n {pformat(result['segments'])}")  # before alignment  # after alignment
+    logger.debug(
+        f"After Alignment:\n {pformat(result['segments'])}"
+    )  # before alignment  # after alignment
 
     word_transcript = []
     for segments in result["segments"]:
         for index, word in enumerate(segments["words"]):
             if "start" not in word:
                 word["start"] = segments["words"][index - 1]["end"] if index > 0 else 0
-                word["end"] = segments["words"][index + 1]["start"] if index < len(segments["words"]) - 1 else segments["words"][-1]["start"]
+                word["end"] = (
+                    segments["words"][index + 1]["start"]
+                    if index < len(segments["words"]) - 1
+                    else segments["words"][-1]["start"]
+                )
 
-            word_transcript.append({"word": word["word"], "start": word["start"], "end": word["end"]})
+            word_transcript.append(
+                {"word": word["word"], "start": word["start"], "end": word["end"]}
+            )
 
     logger.debug(f"Transcript:\n {pformat(word_transcript)}")  # before alignment
 

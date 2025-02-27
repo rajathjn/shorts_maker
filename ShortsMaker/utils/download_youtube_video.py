@@ -7,7 +7,22 @@ logger = logging.getLogger(__name__)
 
 
 def download_youtube_video(video_url: str, video_dir: Path, force: bool = False) -> list[Path]:
-    """Download background video from URL."""
+    """
+    Downloads a YouTube video given its URL and stores it in the specified directory. The
+    video is downloaded in the best available MP4 format, and its filename is sanitized to
+    remove invalid characters. Provides an option to force download the video even if the
+    target file already exists.
+
+    Args:
+        video_url: The URL of the video to be downloaded from YouTube.
+        video_dir: The directory where the video will be saved.
+        force: If True, forces the download even if the video file already exists. Defaults
+            to False.
+
+    Returns:
+        list[Path]: A list containing the Path objects of the '.mp4' files in the specified
+            directory after the download process.
+    """
     ydl_opts = {
         "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
         "merge_output_format": "mp4",

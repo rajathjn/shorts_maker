@@ -7,23 +7,32 @@ from .notify_discord import notify_discord
 
 def retry(max_retries: int, delay: int, notify: bool = False):
     """
-    A decorator that retries a function execution a specified number of times with a delay between retries.
+    A retry decorator function that allows retrying a function based on the specified
+    number of retries, delay between retries, and an option to send a notification upon
+    failure. It logs all execution details, including successful executions, exceptions,
+    and retry attempts.
 
     Args:
-        max_retries: The number of times to retry the function.
-        delay: The delay in seconds between each retry attempt.
+        max_retries (int): The maximum number of times the function should be retried
+            in case of an exception.
+        delay (int): The time in seconds to wait before retrying the function after
+            a failure.
+        notify (bool): Whether to send a notification if the function fails after
+            reaching the maximum number of retries. Default is False.
 
     Returns:
-        The decorated function with retry logic.
+        Callable: A decorator function that applies the retry logic to the decorated
+            function.
 
     Raises:
-        Exception: If the function fails after the specified number of retries.
+        Exception: If all retries are exhausted and the function still fails, the
+            exception from the last attempt will be raised.
 
     Example:
-        @retry(max_retries=3, delay=2)
-        def my_function():
-            # Function implementation
-            pass
+    @retry(max_retries=3, delay=2)
+    def my_function():
+        # Function implementation
+        pass
     """
 
     def decorator(func):

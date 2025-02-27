@@ -15,22 +15,23 @@ def setup_package_logging(
     enable: bool = True,
 ):
     """
-    Sets up the logging configuration for the given package. This function creates a logger with
-    both console and file handlers, applies specified formatting styles, sets the logging level,
-    and optionally disables or enables logging based on the given parameters. The root logger
-    propagation is disabled to limit log handling to the configured handlers only.
+    Sets up customized logging for a package. This function configures a logger with
+    console and file handlers, specifies log formatting (including colored output
+    for console logs), and applies a logging level based on an `enable` flag. It
+    prevents log propagation to the root logger, ensuring the logger operates
+    independently while avoiding duplicate logging configurations.
 
     Args:
-        logger_name: The name for the logger
-        log_file (str | Path): The file location where logs will be written. If the file does not
-            exist, it will be created. Logs are stored in UTF-8 encoding mode.
-        level (str | int): The logging level to set for the logger. Common options are "DEBUG",
-            "INFO", "WARNING", "ERROR", or "CRITICAL". Defaults to "INFO" if not specified.
-        enable (bool): A flag indicating whether logging should be enabled. If set to False,
-            logging is effectively disabled by setting the logging level to CRITICAL. Defaults to True.
+        log_file (str | Path): Path to the file where log messages will be saved.
+        logger_name (str): Name of the logger. Defaults to the current module's name
+            if not provided.
+        level (str | int): Logging level (e.g., 'DEBUG', 'INFO', or corresponding
+            numeric levels). Defaults to 'INFO'.
+        enable (bool): Flag indicating whether logging is enabled. When set to
+            False, the logger is configured to only log critical messages.
 
     Returns:
-        logging.Logger: The configured logger for the package.
+        logging.Logger: Configured logger instance with the specified settings.
     """
     # Create the root logger for the package
     logger = logging.getLogger(logger_name)

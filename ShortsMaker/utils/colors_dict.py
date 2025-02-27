@@ -1,4 +1,5 @@
-colors_dict: dict[str, tuple[int, int, int, int]] = {
+# A list of colors and their equivalent RGBA values
+COLORS_DICT: dict[str, tuple[int, int, int, int]] = {
     "aquamarine": (127, 255, 212, 255),
     "aquamarine2": (118, 238, 198, 255),
     "azure1": (240, 255, 255, 255),

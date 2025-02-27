@@ -6,7 +6,6 @@ cache_dir: "/path/to/cache"
 
 # A dir in which your background_videos, background_music, credits and fonts folders are located
 assets_dir: "/path/to/assets"
-models_dir: "/path/to/models"
 
 logging:
   enable: true
@@ -40,8 +39,10 @@ audio:
 
 video:
   background_videos_urls:
+  # https://www.youtube.com/watch?v=n_Dv4JMiwK8
     - "https://www.youtube.com/watch?v=example_video_id"
   background_music_urls:
+  # https://www.youtube.com/watch?v=G8a45UZJGh4&t=1s
     - "https://www.youtube.com/watch?v=example_music_id"
   font_dir: "fonts"
   credits_dir: "credits"

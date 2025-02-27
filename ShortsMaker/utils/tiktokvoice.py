@@ -8,6 +8,8 @@ from threading import Thread
 import requests
 from pydub import AudioSegment
 
+from .retry import retry
+
 logger = logging.getLogger(__name__)
 
 # define the endpoint data with URLs and corresponding response keys
@@ -22,7 +24,6 @@ ENDPOINT_DATA = [
 
 # define available voices for text-to-speech conversion
 VOICES = [
-    # Duplicate voices, so it has more chances to work
     "en_us_001",  # English US - Female (Int. 1)
     "en_us_002",  # English US - Female (Int. 2)
     "en_au_001",  # English AU - Female
@@ -38,8 +39,22 @@ VOICES = [
 
 
 # define the text-to-speech function
-# @retry(max_retries=3, delay=5)
+@retry(max_retries=3, delay=5)
 def tts(text: str, voice: str, output_filename: str = "output.mp3") -> None:
+    """
+    Converts provided text into synthesized speech using a given voice. The function splits the input text into chunks,
+    sends requests to specific endpoints to generate audio for each chunk, and concatenates the resulting audio into
+    a single output file. Each chunk is processed in parallel using threads.
+
+    Args:
+        text (str): The text to be converted into speech. Must not be empty.
+        voice (str): The voice to be used for text-to-speech synthesis. Must be a valid predefined voice.
+        output_filename (str): The filename where the generated audio will be stored. Defaults to "output.mp3".
+
+    Raises:
+        ValueError: If the provided `voice` is not a valid voice or the `text` is empty.
+
+    """
     # specified voice is valid
     if voice not in VOICES:
         raise ValueError("voice must be valid")
@@ -56,18 +71,15 @@ def tts(text: str, voice: str, output_filename: str = "output.mp3") -> None:
         logger.info(f"Chunk: {chunk}")
 
     for entry in ENDPOINT_DATA:
-        endpoint_valid: bool = True
-
+        VALID_ENDPOINT: bool = True
         # empty list to store the data from the requests
-        audio_data: list[str] = ["" for i in range(len(chunks))]
+        audio_data: list[str] = [""] * len(chunks)
 
         # generate audio for each chunk in a separate thread
         def generate_audio_chunk(index: int, chunk: str) -> None:
-            nonlocal endpoint_valid
-
-            if not endpoint_valid:
+            nonlocal VALID_ENDPOINT
+            if not VALID_ENDPOINT:
                 return
-
             try:
                 # request to the endpoint to generate audio for the chunk
                 response = requests.post(
@@ -77,14 +89,12 @@ def tts(text: str, voice: str, output_filename: str = "output.mp3") -> None:
                         "User-Agent": "com.zhiliaoapp.musically/2022600030 (Linux; U; Android 7.1.2; es_ES; SM-G988N; Build/NRD90M;tt-ok/3.12.13.1)",
                     },
                 )
-
                 if response.status_code == 200:
                     # store the audio data for the chunk
                     audio_data[index] = response.json()[entry["response"]]
                 else:
                     logger.info(f"response: {response}, Endpoint not valid: {entry['url']}")
-                    endpoint_valid = False
-
+                    VALID_ENDPOINT = False
             except requests.RequestException as e:
                 print(f"Error: {e}")
                 sys.exit()
@@ -101,26 +111,35 @@ def tts(text: str, voice: str, output_filename: str = "output.mp3") -> None:
         for thread in threads:
             thread.join()
 
-        if not endpoint_valid:
+        if not VALID_ENDPOINT:
             continue
 
         # Assuming audio_data is a list of base64 encoded audio chunks received from the server
         # Concatenate audio data from all chunks and decode from base64
         audio_bytes = b"".join(base64.b64decode(chunk) for chunk in audio_data)
-
         # Convert the audio bytes to an AudioSegment
         audio_segment: AudioSegment = AudioSegment.from_file(io.BytesIO(audio_bytes))
-
         # Export the AudioSegment to a file
         audio_segment.export(output_filename, format="wav")
-
-        # break after processing a valid endpoint
         break
 
 
-# define a function to split the text into chunks of maximum 300 characters or less
 def _split_text(text: str) -> list[str]:
-    # empty list to store merged chunks
+    """
+    Splits a given text into smaller chunks of a specified size without breaking
+    words or splitting on hyphens.
+
+    The function wraps the input text into smaller substrings, ensuring the
+    integrity of the text by preventing cutoff mid-word or mid-hyphen. Each chunk
+    is at most of the specified chunk size.
+
+    Args:
+        text (str): The input text to be split into smaller chunks.
+
+    Returns:
+        list[str]: A list of text chunks where each chunk is at most the
+        specified size while preserving word integrity.
+    """
     chunk_size: int = 250
 
     text_list = textwrap.wrap(
