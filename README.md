@@ -2,6 +2,11 @@
 
 ShortsMaker is a Python package designed to facilitate the creation of engaging short videos or social media clips. It leverages a variety of external services and libraries to streamline the process of generating, processing, and uploading short content.
 
+## Support Me
+Like what I do, Please consider supporting me.
+
+<a href="https://www.buymeacoffee.com/rajathjn" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
 ## Table of Contents
 
 1. [Features](#features)
