@@ -25,9 +25,6 @@ VOICES = [
     # Duplicate voices, so it has more chances to work
     "en_us_001",  # English US - Female (Int. 1)
     "en_us_002",  # English US - Female (Int. 2)
-    "en_us_001",  # English US - Female (Int. 1)
-    "en_us_002",  # English US - Female (Int. 2)
-    "en_us_ghostface",  # Ghost Face
     "en_au_001",  # English AU - Female
     "en_au_002",  # English AU - Male
     "en_uk_001",  # English UK - Male 1
@@ -36,8 +33,6 @@ VOICES = [
     "en_us_002",  # English US - Female (Int. 2)
     "en_us_006",  # English US - Male 1
     "en_us_010",  # English US - Male 4
-    "en_male_narration",  # narrator
-    "en_male_funny",  # wacky
     "en_female_emotional",  # peaceful
 ]
 
@@ -128,6 +123,8 @@ def _split_text(text: str) -> list[str]:
     # empty list to store merged chunks
     chunk_size: int = 250
 
-    text_list = textwrap.wrap(text, width=chunk_size, break_long_words=False, break_on_hyphens=False)
+    text_list = textwrap.wrap(
+        text, width=chunk_size, break_long_words=False, break_on_hyphens=False
+    )
 
     return text_list
