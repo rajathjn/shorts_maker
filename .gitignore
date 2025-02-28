@@ -31,3 +31,4 @@ setup.yml
 # ignore ipynb files and checkpoints, which may be used for testing
 *.ipynb
 .ipynb_checkpoints
+.ruff_cache
