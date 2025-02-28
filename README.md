@@ -50,6 +50,8 @@ Like what I do, Please consider supporting me.
    or
 
    uv sync
+   uv sync --extra cpu # for cpu
+   uv sync --extra cu124 # for cuda 12.4 versions
    ```
 
 3. **Install Any Additional Python Dependencies:**
