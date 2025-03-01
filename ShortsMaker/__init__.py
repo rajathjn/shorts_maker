@@ -14,9 +14,9 @@ from .utils.audio_transcript import (
 from .utils.colors_dict import COLORS_DICT
 from .utils.download_youtube_music import download_youtube_music
 from .utils.download_youtube_video import download_youtube_video
+from .utils.get_tts import VOICES, tts
 from .utils.notify_discord import notify_discord
 from .utils.retry import retry
-from .utils.tiktokvoice import VOICES, tts
 
 __all__ = [
     GenerateImage,
