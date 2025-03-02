@@ -1,6 +1,6 @@
 import json
-import logging
-import random
+import secrets
+from collections.abc import Generator
 from pathlib import Path
 from pprint import pformat
 from typing import Any
@@ -12,7 +12,7 @@ import yaml
 from praw.models import Submission, Subreddit
 from unidecode import unidecode
 
-from .utils import VOICES, generate_audio_transcription, retry, setup_package_logging, tts
+from .utils import VOICES, generate_audio_transcription, get_logger, retry, tts
 
 # needed for retry decorator
 MAX_RETRIES: int = 1
@@ -147,12 +147,9 @@ class ShortsMaker:
     the process of creating video shorts.
 
     Attributes:
-        DEFAULT_LOGGING_CONFIG (dict): Default configuration for logging, including
-            settings for file path, logger name, level, and whether logging is enabled.
         VALID_CONFIG_EXTENSION (str): Expected file extension for configuration files.
         setup_cfg (Path): Path of the validated configuration file.
         cfg (dict): Parsed configuration from the loaded configuration file.
-        assets_dir (Path): Directory containing assets used for video and audio creation.
         cache_dir (Path): Directory for storing temporary files and intermediate data.
         logging_cfg (dict): Configuration for setting up logging.
         logger (Logger): Logger instance used for logging events and errors.
@@ -166,22 +163,13 @@ class ShortsMaker:
         reddit_cfg (dict | None): Configuration details specific to Reddit API integration.
     """
 
-    DEFAULT_LOGGING_CONFIG = {
-        "log_file": "shorts_maker.log",
-        "logger_name": "ShortsMaker",
-        "level": logging.INFO,
-        "enable": True,
-    }
-
     VALID_CONFIG_EXTENSION = ".yml"
 
     def __init__(self, config_file: Path | str) -> None:
         self.setup_cfg = self._validate_config_path(config_file)
         self.cfg = self._load_config()
-        self.assets_dir = self._setup_assets_directory()
+        self.logger = get_logger(__name__)
         self.cache_dir = self._setup_cache_directory()
-        self.logging_cfg = self._setup_logging_config()
-        self.logger = setup_package_logging(**self.logging_cfg)
         self.retry_cfg = self._setup_retry_config()
 
         # Initialize other instance variables
@@ -240,26 +228,6 @@ class ShortsMaker:
         except yaml.YAMLError as e:
             raise ValueError(f"Invalid YAML configuration: {e}")
 
-    def _setup_assets_directory(self) -> Path:
-        """
-        Sets up and validates the assets directory path based on the configuration.
-
-        This function retrieves the path of the assets directory specified in the
-        configuration file (`self.cfg`). It checks if the directory exists, and if
-        not, raises a `FileNotFoundError` to indicate the missing directory. If
-        the directory exists, the function returns its `Path` object.
-
-        Returns:
-            Path: The `Path` object representing the validated assets directory.
-
-        Raises:
-            FileNotFoundError: If the specified assets directory does not exist.
-        """
-        assets_dir = Path(self.cfg["assets_dir"])
-        if not assets_dir.exists():
-            raise FileNotFoundError(f"Assets directory not found: {assets_dir}")
-        return assets_dir
-
     def _setup_cache_directory(self) -> Path:
         """
         Sets up the cache directory based on the configuration and ensures its existence.
@@ -272,26 +240,12 @@ class ShortsMaker:
         Returns:
             Path: A Path object representing the cache directory.
         """
+        if "cache_dir" not in self.cfg:
+            self.logger.info("Cache directory not specified, creating it.")
+            self.cfg["cache_dir"] = Path.cwd()
         cache_dir = Path(self.cfg["cache_dir"])
         cache_dir.mkdir(parents=True, exist_ok=True)
         return cache_dir
-
-    def _setup_logging_config(self) -> dict[str, Any]:
-        """
-        Sets up and returns a logging configuration dictionary.
-
-        This method initializes and configures a logging setup based on a default
-        configuration. If a custom logging configuration is provided in the `self.cfg`
-        dictionary under the "logging" key, it updates and merges the default logging
-        setup with the custom configuration.
-
-        Returns:
-            Dict[str, Any]: A dictionary containing the merged logging configuration.
-        """
-        logging_config = self.DEFAULT_LOGGING_CONFIG.copy()
-        if "logging" in self.cfg:
-            logging_config.update(self.cfg["logging"])
-        return logging_config
 
     def _setup_retry_config(self) -> dict[str, Any]:
         """
@@ -302,10 +256,11 @@ class ShortsMaker:
         Returns:
             Dict[str, Any]: The updated retry configuration dictionary.
         """
-        retry_config = self.cfg["retry"]
-        if not retry_config["enable"]:
-            retry_config["max_retries"] = 1
-            retry_config["delay"] = 0
+        retry_config = dict()
+        if "retry" not in self.cfg:
+            retry_config = {"max_retries": 1, "delay": 0, "notify": False}
+        if "retry" in self.cfg:
+            retry_config.update(self.cfg["retry"])
 
         global MAX_RETRIES, DELAY, NOTIFY
         MAX_RETRIES = retry_config["max_retries"]
@@ -314,14 +269,61 @@ class ShortsMaker:
 
         return retry_config
 
+    def get_submission_from_subreddit(
+        self, reddit: praw.Reddit, subreddit_name: str
+    ) -> Generator[Submission]:
+        """
+        Retrieves a unique Reddit submission from a specified subreddit.
+
+        Args:
+            reddit (praw.Reddit): An instance of the Reddit API client.
+            subreddit_name (str): The name of the subreddit to fetch submissions from.
+            submission_category (str): The category of submissions to filter by (e.g., "hot", "new") TODO.
+
+        Returns:
+            Submission: A unique Reddit submission object.
+        """
+        subreddit: Subreddit = reddit.subreddit(subreddit_name)
+        self.logger.info(f"Subreddit title: {subreddit.title}")
+        self.logger.info(f"Subreddit display name: {subreddit.display_name}")
+        yield from subreddit.hot()
+
+    def is_unique_submission(self, submission: Submission) -> bool:
+        """
+        Checks if the given Reddit submission is unique based on its ID.
+
+        Args:
+            submission (Submission): The Reddit submission to check.
+
+        Returns:
+            bool: True if the submission is unique, False otherwise.
+        """
+        submission_dirs = self.cache_dir / "reddit_submissions"
+        submission_dirs.mkdir(parents=True, exist_ok=True)
+        self.logger.debug("Checking if submission is unique")
+        self.logger.debug(f"Submission ID: {submission.id}")
+        if any(f"{submission.name}.json" == file.name for file in submission_dirs.iterdir()):
+            self.logger.info(f"Submission {submission.name} - '{submission.title}' already exists")
+            return False
+        else:
+            with open(submission_dirs / f"{submission.name}.json", "w") as record_file:
+                # Object of type Reddit is not JSON serializable, hence need to use vars
+                json.dump(
+                    {key: str(value) for key, value in vars(submission).items()},
+                    record_file,
+                    indent=4,
+                    skipkeys=True,
+                    sort_keys=True,
+                )
+            self.logger.debug("Unique submission found")
+            self.logger.info(f"Submission saved to {submission_dirs / f'{submission.name}.json'}")
+        return True
+
     @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
     def get_reddit_post(self) -> str:
         """
         Retrieves a random top Reddit post from a specified subreddit, saves the post details
         to both a JSON file and a text file, and returns the text content of the post.
-
-        Args:
-            None
 
         Returns:
             str: The text content of the retrieved Reddit post.
@@ -344,17 +346,13 @@ class ShortsMaker:
         )
         self.logger.info(f"Is reddit readonly: {reddit.read_only}")
 
-        subreddit: Subreddit = reddit.subreddit(self.reddit_post["subreddit_name"])
-        self.logger.info(f"Subreddit title: {subreddit.title}")
-        self.logger.info(f"Subreddit display name: {subreddit.display_name}")
+        for submission_found in self.get_submission_from_subreddit(
+            reddit, self.reddit_post["subreddit_name"]
+        ):
+            if self.is_unique_submission(submission_found):
+                submission = submission_found
+                break
 
-        # Get random submission
-        submission: Submission = random.choice(
-            [
-                submission
-                for submission in subreddit.top(time_filter="month", limit=random.randint(3, 3))
-            ]
-        )
         self.logger.info(f"Submission Url: {submission.url}")
         self.logger.info(f"Submission title: {submission.title}")
 
@@ -451,7 +449,7 @@ class ShortsMaker:
         source_txt: str,
         output_audio: str | None = None,
         output_script_file: str | None = None,
-        seed: int | None = None,
+        seed: str | None = None,
     ) -> bool:
         """
         Generates audio from a given textual input. The function processes the input text,
@@ -467,8 +465,9 @@ class ShortsMaker:
             output_script_file (str | None): The file path to save the processed text script. If
                 not provided, a default path is generated based on the configuration or cache
                 directory.
-            seed (int | None): An optional seed to determine the choice of speaker. If not
-                provided, the function randomly selects a speaker.
+            seed (str | None): An optional seed to determine the choice of speaker. If not
+                provided, the function randomly selects a speaker. Refer to VOICES for available
+                speakers.
 
         Returns:
             bool: Returns True if the audio generation is successful; False otherwise.
@@ -505,10 +504,9 @@ class ShortsMaker:
         self.logger.info(f"Text saved to {output_script_file}")
 
         if seed is None:
-            random.shuffle(VOICES)
-            speaker = random.choice(VOICES)
+            speaker = secrets.choice(VOICES)
         else:
-            speaker = VOICES[seed]
+            speaker = seed
 
         self.logger.info(f"Generating audio with speaker: {speaker}")
 
@@ -564,6 +562,7 @@ class ShortsMaker:
             batch_size=self.audio_cfg["batch_size"],
             compute_type=self.audio_cfg["compute_type"],
         )
+        self.word_transcript = self._filter_word_transcript(self.word_transcript)
 
         if output_transcript_file is None:
             output_transcript_file = self.cache_dir / self.audio_cfg["transcript_json"]
@@ -581,9 +580,19 @@ class ShortsMaker:
             )
 
         if debug:
-            self.logger.info(pformat(self.transcript))
+            self.logger.info(pformat(self.word_transcript))
 
         return self.word_transcript
+
+    def _filter_word_transcript(
+        self, transcript: list[dict[str, str | float]]
+    ) -> list[dict[str, str | float]]:
+        # filter entries which have a start time of 0 and end time of greater than 5s
+        return [
+            entry
+            for entry in transcript
+            if entry["start"] > 0 and (entry["end"] - entry["start"]) < 5
+        ]
 
     def quit(self) -> None:
         """
