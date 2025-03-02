@@ -1,3 +1,4 @@
+import os
 import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, patch
@@ -26,7 +27,7 @@ def test_initialization_with_valid_config(
     mock_load_llm_model, setup_file, mock_ollama_service_manager
 ):
     mock_load_llm_model.return_value = None
-    ask_llm = AskLLM(config_file=setup_file, model_name="test_model", logging_config=None)
+    ask_llm = AskLLM(config_file=setup_file, model_name="test_model")
     assert ask_llm.model_name == "test_model"
 
 
@@ -88,6 +89,7 @@ def test_quit_llm_with_self_started_service(
     mock_stop_service.assert_called_once()
 
 
+@pytest.mark.skipif("RUNALL" not in os.environ, reason="takes too long")
 def test_ask_llm_working(setup_file):
     script = "A video about a cat. Doing stunts like running around, flying, and jumping."
     ask_llm = AskLLM(config_file=setup_file)

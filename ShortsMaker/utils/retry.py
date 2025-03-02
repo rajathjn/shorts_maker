@@ -4,6 +4,8 @@ import time
 from .logging_config import get_logger
 from .notify_discord import notify_discord
 
+logger = get_logger(__name__)
+
 
 def retry(max_retries: int, delay: int, notify: bool = False):
     """
@@ -38,7 +40,6 @@ def retry(max_retries: int, delay: int, notify: bool = False):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
-            logger = get_logger(__name__)
             start_time = time.perf_counter()
             logger.info(f"Using retry decorator with {max_retries} max_retries and {delay}s delay")
             logger.info(f"Begin function {func.__name__}")

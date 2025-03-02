@@ -6,7 +6,7 @@ from ShortsMaker.ask_llm import OllamaServiceManager
 
 
 @pytest.fixture
-def ollama_service_manager(mock_logger):
+def ollama_service_manager():
     """Fixture to provide an instance of OllamaServiceManager with a mock logger.
 
     Args:
@@ -15,16 +15,11 @@ def ollama_service_manager(mock_logger):
     Returns:
         An instance of OllamaServiceManager.
     """
-    return OllamaServiceManager(logger=mock_logger)
-
-
-def test_initialization(ollama_service_manager):
-    assert ollama_service_manager.logger.name == "OllamaServiceManager"
+    return OllamaServiceManager()
 
 
 @patch("ShortsMaker.ask_llm.subprocess.Popen")
-@patch("ShortsMaker.ask_llm.time.sleep", return_value=None)
-def test_start_service(mock_sleep, mock_popen, ollama_service_manager):
+def test_start_service(mock_popen, ollama_service_manager):
     process_mock = MagicMock()
     process_mock.poll.return_value = None
     mock_popen.return_value = process_mock
