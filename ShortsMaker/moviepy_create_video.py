@@ -1,4 +1,3 @@
-import logging
 import random
 import secrets
 from collections import defaultdict
@@ -12,6 +11,7 @@ from moviepy import (
     CompositeAudioClip,
     CompositeVideoClip,
     TextClip,
+    VideoClip,
     VideoFileClip,
     afx,
     vfx,
@@ -21,7 +21,7 @@ from .utils import (
     COLORS_DICT,
     download_youtube_music,
     download_youtube_video,
-    setup_package_logging,
+    get_logger,
 )
 
 random.seed(secrets.randbelow(1000000))
@@ -51,19 +51,13 @@ class MoviepyCreateVideo:
     Attributes:
         DEFAULT_FADE_TIME (int): Default duration for fade effects applied to the video.
         DEFAULT_DELAY (int): Default delay applied between video transitions or sections.
-        DEFAULT_LOGGING_CONFIG (dict): Default logging configurations for the video generation process.
         REQUIRED_DIRECTORIES (list): List of essential directories required for using the class.
         PUNCTUATION_MARKS (list): List of punctuation marks used for processing transcripts or text inputs.
     """
 
     DEFAULT_FADE_TIME = 2
-    DEFAULT_DELAY = 2
-    DEFAULT_LOGGING_CONFIG = {
-        "log_file": "generate_video.log",
-        "logger_name": "MoviepyCreateVideo",
-        "level": logging.INFO,
-        "enable": True,
-    }
+    DEFAULT_DELAY = 1
+    DEFAULT_SPEED_FACTOR = 1.1
     REQUIRED_DIRECTORIES = ["video_dir", "music_dir", "fonts_dir", "credits_dir"]
     PUNCTUATION_MARKS = [".", ";", ":", "!", "?", ","]
 
@@ -72,6 +66,7 @@ class MoviepyCreateVideo:
         config_file: Path | str,
         logging_config: defaultdict = None,
         bg_video_path: Path | str = None,
+        add_credits: bool = True,
         credits_path: Path | str = None,
         audio_path: Path | str = None,
         music_path: Path | str = None,
@@ -79,13 +74,15 @@ class MoviepyCreateVideo:
         font_path: Path | str = None,
         fade_time: int = DEFAULT_FADE_TIME,
         delay: int = DEFAULT_DELAY,
+        speed_factor: int = DEFAULT_SPEED_FACTOR,
     ) -> None:
         self.fade_time = fade_time
         self.delay = delay
+        self.speed_factor = speed_factor
 
         # Initialize configuration
         self.config = self._load_configuration(config_file)
-        self.logger = self._setup_logging(logging_config)
+        self.logger = get_logger(__name__)
         self._verify_ffmpeg()
 
         # Initialize directories
@@ -94,6 +91,7 @@ class MoviepyCreateVideo:
         # Initialize media components
         self.audio_clip = self._initialize_audio(audio_path)
         self.audio_clip_bitrate = self.audio_clip.reader.bitrate
+        self.logger.info(f"Audio Duration: {self.audio_clip.duration:.2f}s")
 
         self.audio_transcript = self._load_transcript(transcript_path)
         self.audio_transcript = self.preprocess_audio_transcript()
@@ -110,7 +108,8 @@ class MoviepyCreateVideo:
 
         self.font_path = self._initialize_font(font_path)
 
-        self.credits_video = self._initialize_credits(credits_path)
+        self.add_credits: bool = add_credits
+        self.credits_video = self._initialize_credits(credits_path) if add_credits else None
 
         # Initialize color
         self.color = self._select_random_color()
@@ -151,28 +150,6 @@ class MoviepyCreateVideo:
             video_config=cfg.get("video", {}),
             logging_config=cfg.get("logging", {}),
         )
-
-    def _setup_logging(self, logging_config: defaultdict = None) -> logging.Logger:
-        """
-        Configures and initializes the logging setup for the package using the provided or default
-        logging configuration.
-
-        Combines the default logging configuration with the user-specified configuration
-        and applies the setup using the `setup_package_logging` function.
-
-        Args:
-            logging_config (defaultdict, optional): A dictionary of specific logging
-                configurations to override or supplement the default logging setup. If
-                not provided, the default logging configuration will be used.
-
-        Returns:
-            logging.Logger: The primary logger instance configured for the package.
-        """
-        final_config = self.DEFAULT_LOGGING_CONFIG.copy()
-        final_config.update(self.config.logging_config)
-        if logging_config:
-            final_config.update(logging_config)
-        return setup_package_logging(**final_config)
 
     def _verify_ffmpeg(self) -> None:
         """
@@ -575,18 +552,21 @@ class MoviepyCreateVideo:
         self.logger.info(f"Using video segment from {random_start:.2f}s to {random_end:.2f}s")
 
         # Crop and apply effects
-        self.bg_video = (
-            self.bg_video.subclipped(
-                start_time=random_start - self.delay, end_time=random_end + self.delay
-            )
-            .cropped(x_center=width / 2, width=height * 9 / 16)
-            .with_effects([vfx.CrossFadeIn(self.fade_time), vfx.CrossFadeOut(self.fade_time)])
+        self.bg_video: VideoFileClip = self.bg_video.subclipped(
+            start_time=random_start - self.delay, end_time=random_end + self.delay
+        )
+        self.bg_video: VideoFileClip = self.bg_video.cropped(
+            x_center=width / 2, width=int(height * 9 / 16) & -2
+        )
+        self.bg_video: VideoFileClip = self.bg_video.with_effects(
+            [vfx.FadeIn(self.fade_time), vfx.FadeOut(self.fade_time)]
         )
 
         new_width, new_height = self.bg_video.size
         self.logger.info(
             f"Processed video - Width: {new_width}, Height: {new_height}, FPS: {self.bg_video.fps}"
         )
+        self.logger.info(f"Video Duration: {self.bg_video.duration:.2f}s")
 
         return self.bg_video
 
@@ -642,13 +622,13 @@ class MoviepyCreateVideo:
         """
         # Process music clip
         self.music_clip = self.music_clip.with_effects(
-            [
-                afx.AudioLoop(duration=self.bg_video.duration),
-                afx.MultiplyVolume(factor=0.05),
-                afx.AudioFadeIn(self.fade_time),
-                afx.AudioFadeOut(self.fade_time),
-            ]
+            [afx.AudioLoop(duration=self.bg_video.duration)]
         )
+        self.music_clip = self.music_clip.with_effects([afx.MultiplyVolume(factor=0.05)])
+        self.music_clip = self.music_clip.with_effects(
+            [afx.AudioFadeIn(self.fade_time), afx.AudioFadeOut(self.fade_time)]
+        )
+
         self.audio_clip = self.audio_clip.with_start(self.delay)
 
         # Combine audio clips
@@ -682,12 +662,15 @@ class MoviepyCreateVideo:
         self.video_clips.extend(self.text_clips)
 
         # Add the credits clip to the end of the video
-        self.credits_video = self.credits_video.resized(width=int(0.8 * self.bg_video.size[0]))
-        self.video_clips.append(
-            self.credits_video.with_start(
-                self.bg_video.duration - self.credits_video.duration
-            ).with_position(("center", "bottom"))
-        )
+        if self.add_credits:
+            self.credits_video: VideoClip = self.credits_video.resized(
+                width=int(0.8 * self.bg_video.size[0])
+            )
+            self.video_clips.append(
+                self.credits_video.with_start(
+                    self.bg_video.duration - self.credits_video.duration
+                ).with_position(("center", "bottom"))
+            )
 
         # Combine video clips
         output_video = CompositeVideoClip(self.video_clips)
@@ -696,7 +679,7 @@ class MoviepyCreateVideo:
         output_audio = self.prepare_audio()
 
         # Create final video
-        final_video = output_video.with_audio(output_audio)
+        final_video: CompositeVideoClip = output_video.with_audio(output_audio)
 
         # Write output file
         final_video.write_videofile(
@@ -709,6 +692,36 @@ class MoviepyCreateVideo:
             threads=threads,
         )
         self.logger.info(f"Video successfully created at {output_path}")
+
+        if self.speed_factor != 1:
+            final_video.close()
+            speedup_output_path = f"{output_path.split('.')[0]}_speed.mp4"
+            self.logger.info(f"Speeding up video to {self.speed_factor}x")
+            self.logger.info(f"Speed up video at {speedup_output_path}")
+            import subprocess
+
+            result = subprocess.run(
+                [
+                    "ffmpeg",
+                    "-i",
+                    f"{output_path}",
+                    "-filter_complex",
+                    f"[0:v]setpts=(1/{self.speed_factor})*PTS[v];[0:a]atempo={self.speed_factor}[a]",
+                    "-map",
+                    "[v]",
+                    "-map",
+                    "[a]",
+                    f"{speedup_output_path}",
+                    "-y",
+                ],
+                capture_output=True,
+                text=True,
+            )
+            if result.returncode == 0:
+                self.logger.info("Speed adjustment completed successfully.")
+            else:
+                self.logger.error(f"Speed adjustment failed: {result.stderr}")
+
         output_video.close()
         output_audio.close()
         final_video.close()
