@@ -1,9 +1,10 @@
-import logging
 from pathlib import Path
 
 import yt_dlp
 
-logger = logging.getLogger(__name__)
+from .logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 def download_youtube_video(video_url: str, video_dir: Path, force: bool = False) -> list[Path]:

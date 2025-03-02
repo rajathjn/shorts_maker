@@ -1,7 +1,5 @@
 # https://huggingface.co/docs/diffusers/main/en/index
-import logging
 import os
-from collections import defaultdict
 from pathlib import Path
 from time import sleep
 
@@ -10,13 +8,13 @@ import yaml
 from diffusers import AutoencoderKL, FluxPipeline
 from transformers import CLIPTextModel, T5EncoderModel
 
-from .utils import setup_package_logging
+from .utils import get_logger
 
 MODEL_UNLOAD_DELAY = 5
 
 
 class GenerateImage:
-    def __init__(self, config_file: Path | str, logging_config: defaultdict = None) -> None:
+    def __init__(self, config_file: Path | str) -> None:
         # if config_file is str convert it to a Pathlike
         self.setup_cfg = Path(config_file) if isinstance(config_file, str) else config_file
 
@@ -30,25 +28,7 @@ class GenerateImage:
         with open(self.setup_cfg) as f:
             self.cfg = yaml.safe_load(f)
 
-        # check if logging is set up in config_file
-        self.logging_cfg = {
-            "log_file": "generate_image.log",
-            "logger_name": "GenerateImage",
-            "level": logging.INFO,
-            "enable": True,
-        }
-
-        if "logging" in self.cfg:
-            # override with values in from the setup.yml file
-            for key, value in self.cfg["logging"].items():
-                self.logging_cfg[key] = value
-
-        if logging_config is not None:
-            # override with values defined in logging_config
-            for key, value in logging_config.items():
-                self.logging_cfg[key] = value
-
-        self.logger = setup_package_logging(**self.logging_cfg)
+        self.logger = get_logger(__name__)
 
         if "hugging_face_access_token" not in self.cfg:
             self.logger.warning(

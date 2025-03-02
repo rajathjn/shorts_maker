@@ -2,7 +2,6 @@ import logging
 import platform
 import subprocess
 import time
-from collections import defaultdict
 from pathlib import Path
 
 import ollama
@@ -13,7 +12,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from pydantic import BaseModel, Field
 
-from .utils import setup_package_logging
+from .utils import get_logger
 
 
 class OllamaServiceManager:
@@ -139,7 +138,6 @@ class AskLLM:
         config_file: Path | str,
         model_name: str = "llama3.1:latest",
         temperature: float = 0,
-        logging_config: defaultdict = None,
     ) -> None:
         # if config_file is str convert it to a Pathlike
         self.setup_cfg = Path(config_file) if isinstance(config_file, str) else config_file
@@ -154,25 +152,7 @@ class AskLLM:
         with open(self.setup_cfg) as f:
             self.cfg = yaml.safe_load(f)
 
-        # check if logging is set up in config_file
-        self.logging_cfg = {
-            "log_file": "AskLLM.log",
-            "logger_name": "AskLLM",
-            "level": logging.INFO,
-            "enable": True,
-        }
-
-        if "logging" in self.cfg:
-            # override with values in from the setup.yml file
-            for key, value in self.cfg["logging"].items():
-                self.logging_cfg[key] = value
-
-        if logging_config is not None:
-            # override with values defined in logging_config
-            for key, value in logging_config.items():
-                self.logging_cfg[key] = value
-
-        self.logger = setup_package_logging(**self.logging_cfg)
+        self.logger = get_logger(__name__)
 
         self.self_started_ollama: bool = False
         self.ollama_service_manager = OllamaServiceManager(logger=self.logger)

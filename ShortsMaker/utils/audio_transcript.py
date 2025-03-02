@@ -1,12 +1,13 @@
 import gc
-import logging
 from pprint import pformat
 
 import torch
 import whisperx
 from rapidfuzz import process
 
-logger = logging.getLogger(__name__)
+from .logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 def align_transcript_with_script(transcript: list[dict], script_string: str) -> list[dict]:

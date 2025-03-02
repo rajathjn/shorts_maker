@@ -15,6 +15,7 @@ from .utils.colors_dict import COLORS_DICT
 from .utils.download_youtube_music import download_youtube_music
 from .utils.download_youtube_video import download_youtube_video
 from .utils.get_tts import VOICES, tts
+from .utils.logging_config import configure_logging, get_logger
 from .utils.notify_discord import notify_discord
 from .utils.retry import retry
 
@@ -24,6 +25,8 @@ __all__ = [
     AskLLM,
     OllamaServiceManager,
     MoviepyCreateVideo,
+    configure_logging,
+    get_logger,
     download_youtube_music,
     download_youtube_video,
     abbreviation_replacer,
