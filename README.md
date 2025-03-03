@@ -1,6 +1,6 @@
 # ShortsMaker
 
-[![ShortsMaker](https://github.com/rajathjn/youtube_shorts_automation/actions/workflows/python-app.yml/badge.svg)](https://github.com/rajathjn/youtube_shorts_automation/actions/workflows/python-app.yml)
+[![ShortsMaker](https://github.com/rajathjn/shorts_maker/actions/workflows/python-app.yml/badge.svg)](https://github.com/rajathjn/shorts_maker/actions/workflows/python-app.yml)
 
 ShortsMaker is a Python package designed to facilitate the creation of engaging short videos or social media clips. It leverages a variety of external services and libraries to streamline the process of generating, processing, and uploading short content.
 
@@ -38,7 +38,7 @@ Like what I do, Please consider supporting me.
 ## Requirements
 
 - **Python:** 3.12.8
-- **Package Manager:** `uv` is used for package management.
+- **Package Manager:** [`uv`](https://docs.astral.sh/uv/) is used for package management. ( It's amazing! try it out. )
 - **Operating System:** Windows, Mac, or Linux (ensure external dependencies are installed for your platform)
 
 ## Installation
@@ -46,8 +46,8 @@ Like what I do, Please consider supporting me.
 1. **Clone the Repository:**
 
    ```bash
-   git clone <repository-url>
-   cd ShortsMaker
+   git clone https://github.com/rajathjn/shorts_maker
+   cd shorts_maker
    ```
 
 2. **Install the Package Using uv:**
@@ -75,7 +75,14 @@ Like what I do, Please consider supporting me.
 ShortsMaker relies on several external non-Python components. Please ensure the following are installed/configured on your system:
 
 - **Discord Notifications:**
-  - You must set the Discord webhook token (`DISCORD_WEBHOOK_URL`) as an environment variable.
+  - You must set your Discord webhook URL (`DISCORD_WEBHOOK_URL`) as an environment variable.
+  - Refer to the [Discord documentation](https://discord.com/developers/docs/resources/webhook#create-webhook) for creating a webhook.
+  - If you don't want to use Discord notifications, you can set `DISCORD_WEBHOOK_URL` to `None` or do something like
+
+  ```python
+  import os
+  os.environ["DISCORD_WEBHOOK_URL"] = "None"
+  ```
 
 - **Ollama:**
   - The external tool Ollama must be installed on your system. Refer to the [Ollama documentation](https://ollama.com/) for installation details.
@@ -90,23 +97,30 @@ ShortsMaker relies on several external non-Python components. Please ensure the 
 
 Before running ShortsMaker, make sure you set the necessary environment variables:
 
-- **DISCORD_WEBHOOK_TOKEN:**
+- **DISCORD_WEBHOOK_URL:**
   This token is required for sending notifications through Discord.
   Example (Windows Command Prompt):
 
-  ```batch
-  set DISCORD_WEBHOOK_TOKEN=your_discord_webhook_token_here
+  ```powershell
+  set DISCORD_WEBHOOK_URL=your_discord_webhook_url_here
   ```
 
   Example (Linux/macOS):
 
   ```bash
-  export DISCORD_WEBHOOK_TOKEN=your_discord_webhook_token_here
+  export DISCORD_WEBHOOK_URL=your_discord_webhook_url_here
+  ```
+
+  From Python:
+
+  ```python
+  import os
+  os.environ["DISCORD_WEBHOOK_URL"] = "your_discord_webhook_url_here"
   ```
 
 ## Usage
 
-Ensure you have a `setup.yml` configuration file in the `youtube_shorts_automation` directory. Use the [example-setup.yml](example.setup.yml) as a reference.
+Ensure you have a `setup.yml` configuration file in the `shorts_maker` directory. Use the [example-setup.yml](example.setup.yml) as a reference.
 
 Below is a basic example to get you started with ShortsMaker:
 
@@ -115,7 +129,7 @@ from ShortsMaker import MoviepyCreateVideo, ShortsMaker, AskLLM, GenerateImage
 import yaml
 from pathlib import Path
 
-setup_file = "youtube_shorts_automation/setup.yml"
+setup_file = "shorts_maker/setup.yml"
 with open(setup_file) as f:
     cfg = yaml.safe_load(f)
 
@@ -162,6 +176,7 @@ https://github.com/user-attachments/assets/6aad212a-bfd5-4161-a2bc-67d24a8de37f
 
 ## TODO
 - [ ] Dockerize the project, To avoid the complex set up process.
+- [ ] Explain working and usage in blog.
 - [x] Add an example video to the README.
 
 ## Development
