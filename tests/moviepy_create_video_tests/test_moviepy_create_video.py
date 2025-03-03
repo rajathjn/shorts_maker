@@ -319,10 +319,11 @@ class TestMoviepyCreateVideo:
             mock_logger = MagicMock()
             mock_get_logger.return_value = mock_logger
 
-            creator = MoviepyCreateVideo(config_file=setup_file)
+            with patch.object(MoviepyCreateVideo, "_load_transcript"):
+                creator = MoviepyCreateVideo(config_file=setup_file)
 
             # Mock the transcript path
-            transcript_path = Path(creator.config.cache_dir) / "transcript.json"
+            transcript_path = Path(__file__).parent.parent / "data" / "transcript.json"
 
             # Call the method directly
             transcript = creator._load_transcript(transcript_path)

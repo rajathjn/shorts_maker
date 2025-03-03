@@ -54,11 +54,11 @@ def test_get_reddit_post(mock_reddit, mock_is_unique_submission, shorts_maker):
 
 
 @patch("ShortsMaker.shorts_maker.tts")
-def test_generate_audio_success(mock_tts, shorts_maker):
+def test_generate_audio_success(mock_tts, shorts_maker, tmp_path):
     # Test successful audio generation
     source_text = "Test text for audio generation"
-    output_audio = "test_output.wav"
-    output_script = "test_script.txt"
+    output_audio = tmp_path / "test_output.wav"
+    output_script = tmp_path / "test_script.txt"
     seed = "en_us_001"
 
     mock_tts.return_value = None
