@@ -1,3 +1,4 @@
+import os
 import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, patch
@@ -26,7 +27,7 @@ def test_initialization_with_valid_config(
     mock_load_llm_model, setup_file, mock_ollama_service_manager
 ):
     mock_load_llm_model.return_value = None
-    ask_llm = AskLLM(config_file=setup_file, model_name="test_model", logging_config=None)
+    ask_llm = AskLLM(config_file=setup_file, model_name="test_model")
     assert ask_llm.model_name == "test_model"
 
 
@@ -52,8 +53,10 @@ def test_llm_model_loading(mock_load_llm_model, mock_ollama_service_manager, set
     mock_load_llm_model.assert_called_once_with("test_model", 0)
 
 
-def test_invoke_creates_chat_prompt(setup_file, mock_ollama_service_manager):
+@patch("ShortsMaker.ask_llm.AskLLM._load_llm_model")
+def test_invoke_creates_chat_prompt(mock_load_llm_model, setup_file, mock_ollama_service_manager):
     ask_llm = AskLLM(config_file=setup_file)
+    ask_llm.ollama_service_manager = mock_ollama_service_manager
     ask_llm.llm = MagicMock()
     ask_llm.llm.with_structured_output.return_value = ask_llm.llm
     ask_llm.llm.invoke.return_value = {"title": "Test Title"}
@@ -88,6 +91,7 @@ def test_quit_llm_with_self_started_service(
     mock_stop_service.assert_called_once()
 
 
+@pytest.mark.skipif("RUNALL" not in os.environ, reason="takes too long")
 def test_ask_llm_working(setup_file):
     script = "A video about a cat. Doing stunts like running around, flying, and jumping."
     ask_llm = AskLLM(config_file=setup_file)

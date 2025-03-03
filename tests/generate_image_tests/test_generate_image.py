@@ -44,13 +44,17 @@ def test_load_model_failure(generate_image):
 def test_use_huggingface_flux_dev_success(mock_load_model, generate_image):
     mock_load_model.return_value = True
     generate_image.pipe = MagicMock()
-    generate_image.use_huggingface_flux_dev(prompt="Random stuff", output_path="random_path.png")
+    output = generate_image.use_huggingface_flux_dev(
+        prompt="Random stuff", output_path="random_path.png"
+    )
+    assert output is not None
 
 
 @patch("ShortsMaker.generate_image.GenerateImage._load_model")
 def test_use_huggingface_flux_schnell_success(mock_load_model, generate_image):
     mock_load_model.return_value = True
     generate_image.pipe = MagicMock()
-    generate_image.use_huggingface_flux_schnell(
+    output = generate_image.use_huggingface_flux_schnell(
         prompt="Random stuff", output_path="random_path.png"
     )
+    assert output is not None

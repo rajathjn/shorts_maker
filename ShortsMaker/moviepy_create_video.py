@@ -1,6 +1,5 @@
 import random
 import secrets
-from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -64,7 +63,6 @@ class MoviepyCreateVideo:
     def __init__(
         self,
         config_file: Path | str,
-        logging_config: defaultdict = None,
         bg_video_path: Path | str = None,
         add_credits: bool = True,
         credits_path: Path | str = None,

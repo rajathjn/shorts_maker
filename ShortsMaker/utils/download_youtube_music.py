@@ -50,7 +50,8 @@ def download_youtube_music(
             sanitized_filename = ydl.prepare_filename(extracted_info)
             logger.info(f"Sanitized filename will be: {sanitized_filename}")
 
-            output_path = Path(sanitized_filename)
+            output_path = music_dir / f"{sanitized_filename}"
+            logger.info(f"Output path: {output_path.absolute()}")
             if (not output_path.exists() and not force) or force:
                 with yt_dlp.YoutubeDL(ydl_opts) as ydl_audio:
                     ydl_audio.download([music_url])

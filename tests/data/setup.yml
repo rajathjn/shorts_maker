@@ -1,0 +1,38 @@
+---
+hugging_face_access_token: "random_token"
+
+cache_dir: "cache"
+assets_dir: "assets"
+
+retry:
+  max_retries: 3
+  delay: 5
+  notify: False
+
+reddit_praw:
+  client_id: blah
+  client_secret: blah
+  user_agent: blah
+
+reddit_post_getter:
+  subreddit_name: RandomSubreddit
+  record_file_json: post.json
+  record_file_txt: post.txt
+
+audio:
+  output_script_file: generated_audio_script.txt
+  output_audio_file: output.wav
+  transcript_json: transcript.json
+  device: cuda
+  model: large-v2
+  batch_size: 16
+  compute_type: float16
+
+# Random videos
+video:
+  background_videos_urls:
+    - https://www.youtube.com/watch?v=n_Dv4JMiwK8
+  background_music_urls:
+    - https://www.youtube.com/watch?v=G8a45UZJGh4&t=1s
+  font_dir: fonts
+  credits_dir: credits

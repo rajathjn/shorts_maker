@@ -2,21 +2,13 @@ import logging
 from pathlib import Path
 
 import pytest
-import yaml
 
 from ShortsMaker import ShortsMaker
 
 
 @pytest.fixture
 def setup_file():
-    return Path(__file__).parent.parent / "setup.yml"
-
-
-@pytest.fixture
-def setup_file_cfg(setup_file):
-    with open(setup_file) as ymlfile:
-        cfg = yaml.safe_load(ymlfile)
-    return cfg
+    return Path(__file__).parent / "data" / "setup.yml"
 
 
 @pytest.fixture

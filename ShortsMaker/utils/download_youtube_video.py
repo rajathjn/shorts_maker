@@ -39,7 +39,7 @@ def download_youtube_video(video_url: str, video_dir: Path, force: bool = False)
         sanitized_filename = ydl.prepare_filename(info)
         logger.info(f"Sanitized filename will be: {sanitized_filename}")
 
-        output_path = Path(sanitized_filename)
+        output_path = video_dir / sanitized_filename
         if (not output_path.exists() and not force) or force:
             ydl.download([video_url])
             logger.info("Video downloaded successfully!")

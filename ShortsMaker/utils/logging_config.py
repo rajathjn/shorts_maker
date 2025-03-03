@@ -8,7 +8,7 @@ from colorlog import ColoredFormatter
 os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "true"
 
 # Global configuration
-LOG_FILE: Path | None = "ShortsMaker.log"
+LOG_FILE: Path | str = "ShortsMaker.log"
 LOG_LEVEL: str = "DEBUG"
 LOGGING_ENABLED: bool = True
 INITIALIZED: bool = False
