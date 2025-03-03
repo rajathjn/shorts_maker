@@ -2,7 +2,7 @@ from pathlib import Path
 
 import yaml
 
-from ShortsMaker import MoviepyCreateVideo, ShortsMaker
+from ShortsMaker import AskLLM, MoviepyCreateVideo, ShortsMaker
 
 setup_file = "setup.yml"
 
@@ -36,3 +36,21 @@ create_video = MoviepyCreateVideo(
 create_video()
 
 create_video.quit()
+
+ask_llm = AskLLM(config_file=setup_file)
+result = ask_llm.invoke(script)
+print(result["parsed"].title)
+print(result["parsed"].description)
+print(result["parsed"].tags)
+print(result["parsed"].thumbnail_description)
+ask_llm.quit_llm()
+
+# You can use, AskLLM to generate a text prompt for the image generation as well
+# image_description = ask_llm.invoke_image_describer(script = script, input_text = "A wild scenario")
+# print(image_description)
+# print(image_description["parsed"].description)
+
+# Generate image uses a lot of resources so beware
+# generate_image = GenerateImage(config_file=setup_file)
+# generate_image.use_huggingface_flux_schnell(image_description["parsed"].description, "output.png")
+# generate_image.quit()

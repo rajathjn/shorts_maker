@@ -29,8 +29,8 @@ Like what I do, Please consider supporting me.
 - **External Service Integration:** Seamlessly integrates with services like Discord for notifications.
 - **GPU-Accelerated Processing:** Optional GPU support for faster processing using whisperx.
 - **Modular Design:** Built with extensibility in mind.
-- **In Development:** AskLLM AI agent, which helps in generating metadata for YouTube or image generation.
-- **In Development:** Image Generation, GenerateImage class created for text2image generation. Note: This uses flux, Hence maybe resource intensive.
+- **In Development:** AskLLM AI agent now fully integrated for generating metadata and creative insights.
+- **In Development:** GenerateImage class enhanced for text-to-image generation using flux. May be resource intensive.
 
 ## Requirements
 
@@ -107,8 +107,7 @@ Use the [example-setup.yml](example.setup.yml) to look at the `setup.yml` config
 Below is a basic example to get you started with ShortsMaker:
 
 ```python
-from ShortsMaker import MoviepyCreateVideo
-from ShortsMaker import ShortsMaker
+from ShortsMaker import MoviepyCreateVideo, ShortsMaker, AskLLM, GenerateImage
 import yaml
 from pathlib import Path
 
@@ -130,10 +129,26 @@ get_post.quit()
 
 create_video = MoviepyCreateVideo(config_file=setup_file)
 create_video()
-create_video.quit ()
-```
+create_video.quit()
 
-For more detailed usage instructions, please refer to the in-code documentation or the [project wiki](https://example.com/ShortsMaker-wiki).
+ask_llm = AskLLM(config_file=setup_file)
+result = ask_llm.invoke(script)
+print(result["parsed"].title)
+print(result["parsed"].description)
+print(result["parsed"].tags)
+print(result["parsed"].thumbnail_description)
+ask_llm.quit_llm()
+
+# You can use, AskLLM to generate a text prompt for the image generation as well
+# image_description = ask_llm.invoke_image_describer(script = script, input_text = "A wild scenario")
+# print(image_description)
+# print(image_description["parsed"].description)
+
+# Generate image uses a lot of resources so beware
+# generate_image = GenerateImage(config_file=setup_file)
+# generate_image.use_huggingface_flux_schnell(image_description["parsed"].description, "output.png")
+# generate_image.quit()
+```
 
 ## Development
 
@@ -146,10 +161,9 @@ If you want to contribute to the project, please follow these steps:
 2. **Run the Tests:**
    - Tests are located in the `tests/` directory.
    - Run tests using:
-   - Note: Tests require the setup.yml to be at the project root.
 
      ```bash
-     pytest
+     uv run --frozen pytest
      ```
 
 ## License
