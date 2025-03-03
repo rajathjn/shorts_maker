@@ -156,10 +156,13 @@ ask_llm.quit_llm()
 
 ## Example Video
 
-![Example Video](example_videos/example_video.mp4)
+<video width="270" height="480" controls>
+  <source src="example_videos/example_video.mp4" type="video/mp4">
+</video>
 
 ## TODO
 - [ ] Dockerize the project, To avoid the complex set up process.
+- [x] Add an example video to the README.
 
 ## Development
 
