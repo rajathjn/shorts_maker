@@ -7,7 +7,7 @@ ShortsMaker is a Python package designed to facilitate the creation of engaging 
 ## Support Me
 Like what I do, Please consider supporting me.
 
-<a href="https://www.buymeacoffee.com/rajathjn" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+<a href="https://coindrop.to/martisjnx" target="_blank"><img src="https://coindrop.to/embed-button.png" style="border-radius: 10px;" alt="Coindrop.to me" style="height: 57px !important;width: 229px !important;" ></a>
 
 ## Table of Contents
 
