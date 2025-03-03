@@ -50,6 +50,7 @@ class MoviepyCreateVideo:
     Attributes:
         DEFAULT_FADE_TIME (int): Default duration for fade effects applied to the video.
         DEFAULT_DELAY (int): Default delay applied between video transitions or sections.
+        DEFAULT_SPEED_FACTOR (float): Default speed factor applied to the video.)
         REQUIRED_DIRECTORIES (list): List of essential directories required for using the class.
         PUNCTUATION_MARKS (list): List of punctuation marks used for processing transcripts or text inputs.
     """
