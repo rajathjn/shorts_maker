@@ -156,9 +156,7 @@ ask_llm.quit_llm()
 
 ## Example Video
 
-<video width="270" height="480" controls>
-  <source src="example_videos/example_video.mp4" type="video/mp4">
-</video>
+https://github.com/user-attachments/assets/6aad212a-bfd5-4161-a2bc-67d24a8de37f
 
 ## TODO
 - [ ] Dockerize the project, To avoid the complex set up process.
