@@ -21,6 +21,7 @@ Like what I do, Please consider supporting me.
   - [Environment Variables](#environment-variables)
   - [Usage](#usage)
   - [Development](#development)
+  - [Contributing](#contributing)
   - [License](#license)
 
 ## Features
@@ -103,7 +104,8 @@ Before running ShortsMaker, make sure you set the necessary environment variable
 
 ## Usage
 
-Use the [example-setup.yml](example.setup.yml) to look at the `setup.yml` configuration.
+Ensure you have a `setup.yml` configuration file in the `youtube_shorts_automation` directory. Use the [example-setup.yml](example.setup.yml) as a reference.
+
 Below is a basic example to get you started with ShortsMaker:
 
 ```python
@@ -165,6 +167,19 @@ If you want to contribute to the project, please follow these steps:
      ```bash
      uv run --frozen pytest
      ```
+
+## Contributing
+
+If you want to contribute to the project, please follow these steps:
+
+Follow everything in the [Development](#development) section and then:
+
+**Submit a Pull Request:**
+   - Fork the repository.
+   - Create a new branch for your feature or bugfix.
+   - Commit your changes and push the branch to your fork.
+   - Open a pull request with a detailed description of your changes.
+
 
 ## License
 
