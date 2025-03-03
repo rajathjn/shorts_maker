@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
@@ -154,9 +155,9 @@ def test_generate_audio_transcript(mock_transcription, shorts_maker, tmp_path):
 @patch("ShortsMaker.shorts_maker.generate_audio_transcription")
 def test_generate_audio_transcript_default_output(mock_generate_audio_transcription, shorts_maker):
     # Test default output file name generation
-    source_audio = Path(__file__).parent / "data" / "test.wav"
-    source_text = Path(__file__).parent / "data" / "test.txt"
-    with open(Path(__file__).parent / "data" / "transcript.json") as f:
+    source_audio = Path(__file__).parent.parent / "data" / "test.wav"
+    source_text = Path(__file__).parent.parent / "data" / "test.txt"
+    with open(Path(__file__).parent.parent / "data" / "transcript.json") as f:
         expected_transcript = yaml.safe_load(f)
 
     mock_generate_audio_transcription.return_value = expected_transcript
@@ -165,6 +166,21 @@ def test_generate_audio_transcript_default_output(mock_generate_audio_transcript
     expected_output = shorts_maker.cache_dir / shorts_maker.audio_cfg["transcript_json"]
     assert expected_output.exists()
     mock_generate_audio_transcription.assert_called_once()
+    assert result == expected_transcript
+
+
+@pytest.mark.skipif("RUNALL" not in os.environ, reason="takes too long")
+def test_generate_audio_transcript_with_whisperx(shorts_maker):
+    # Test default output file name generation
+    source_audio = Path(__file__).parent.parent / "data" / "test.wav"
+    source_text = Path(__file__).parent.parent / "data" / "test.txt"
+    with open(Path(__file__).parent.parent / "data" / "transcript.json") as f:
+        expected_transcript = yaml.safe_load(f)
+
+    result = shorts_maker.generate_audio_transcript(source_audio, source_text)
+
+    expected_output = shorts_maker.cache_dir / shorts_maker.audio_cfg["transcript_json"]
+    assert expected_output.exists()
     assert result == expected_transcript
 
 

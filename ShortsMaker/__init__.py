@@ -1,6 +1,6 @@
 from .ask_llm import AskLLM, OllamaServiceManager
 from .generate_image import GenerateImage
-from .moviepy_create_video import MoviepyCreateVideo
+from .moviepy_create_video import MoviepyCreateVideo, VideoConfig
 from .shorts_maker import (
     ShortsMaker,
     abbreviation_replacer,
@@ -25,6 +25,7 @@ __all__ = [
     AskLLM,
     OllamaServiceManager,
     MoviepyCreateVideo,
+    VideoConfig,
     configure_logging,
     get_logger,
     download_youtube_music,
