@@ -117,13 +117,13 @@ with open(setup_file) as f:
 
 get_post = ShortsMaker(setup_file)
 get_post.get_reddit_post()
-with open( Path(cfg["cache_dir"])/cfg["reddit_post_getter"]["record_file_txt"] ) as f:
+with open(Path(cfg["cache_dir"])/cfg["reddit_post_getter"]["record_file_txt"]) as f:
     script = f.read()
 
 get_post.generate_audio(script)
 get_post.generate_audio_transcript(
-    source_audio_file = f"{cfg['cache_dir']}/{cfg["audio"]["output_audio_file"]}",
-    source_text_file = f"{cfg['cache_dir']}/{cfg["audio"]["output_script_file"]}",
+    source_audio_file = f"{cfg['cache_dir']}/{cfg['audio']['output_audio_file']}",
+    source_text_file = f"{cfg['cache_dir']}/{cfg['audio']['output_script_file']}"
 )
 get_post.quit()
 
