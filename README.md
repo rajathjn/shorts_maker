@@ -20,6 +20,8 @@ Like what I do, Please consider supporting me.
   - [External Dependencies](#external-dependencies)
   - [Environment Variables](#environment-variables)
   - [Usage](#usage)
+  - [Example Video](#example-video)
+  - [TODO](#todo)
   - [Development](#development)
   - [Contributing](#contributing)
   - [License](#license)
@@ -151,6 +153,13 @@ ask_llm.quit_llm()
 # generate_image.use_huggingface_flux_schnell(image_description["parsed"].description, "output.png")
 # generate_image.quit()
 ```
+
+## Example Video
+
+![Example Video](example_videos/example_video.mp4)
+
+## TODO
+- [ ] Dockerize the project, To avoid the complex set up process.
 
 ## Development
 
