@@ -53,8 +53,10 @@ def test_llm_model_loading(mock_load_llm_model, mock_ollama_service_manager, set
     mock_load_llm_model.assert_called_once_with("test_model", 0)
 
 
-def test_invoke_creates_chat_prompt(setup_file, mock_ollama_service_manager):
+@patch("ShortsMaker.ask_llm.AskLLM._load_llm_model")
+def test_invoke_creates_chat_prompt(mock_load_llm_model, setup_file, mock_ollama_service_manager):
     ask_llm = AskLLM(config_file=setup_file)
+    ask_llm.ollama_service_manager = mock_ollama_service_manager
     ask_llm.llm = MagicMock()
     ask_llm.llm.with_structured_output.return_value = ask_llm.llm
     ask_llm.llm.invoke.return_value = {"title": "Test Title"}
