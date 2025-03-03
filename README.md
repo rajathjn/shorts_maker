@@ -20,6 +20,8 @@ Like what I do, Please consider supporting me.
   - [External Dependencies](#external-dependencies)
   - [Environment Variables](#environment-variables)
   - [Usage](#usage)
+  - [Example Video](#example-video)
+  - [TODO](#todo)
   - [Development](#development)
   - [Contributing](#contributing)
   - [License](#license)
@@ -151,6 +153,16 @@ ask_llm.quit_llm()
 # generate_image.use_huggingface_flux_schnell(image_description["parsed"].description, "output.png")
 # generate_image.quit()
 ```
+
+## Example Video
+
+Generated from this post [here](https://www.reddit.com/r/selfhosted/comments/r2a6og/comment/hm5xoas/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+
+https://github.com/user-attachments/assets/6aad212a-bfd5-4161-a2bc-67d24a8de37f
+
+## TODO
+- [ ] Dockerize the project, To avoid the complex set up process.
+- [x] Add an example video to the README.
 
 ## Development
 
