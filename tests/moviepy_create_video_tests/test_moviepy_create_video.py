@@ -56,7 +56,7 @@ class TestMoviepyCreateVideo:
     @patch("ShortsMaker.moviepy_create_video.get_logger")
     @patch("subprocess.run")
     def test_init_and_ffmpeg_verification(
-        self, mock_subprocess_run, mock_get_logger, setup_file, mock_audio_file
+        self, mock_subprocess_run, mock_get_logger, setup_file, mock_audio_file, mock_video_clip
     ):
         """Test initialization and FFmpeg verification."""
         # Setup
@@ -72,6 +72,9 @@ class TestMoviepyCreateVideo:
             patch.object(
                 MoviepyCreateVideo, "process_audio_transcript_to_word_and_sentences_transcript"
             ) as mock_process,
+            patch.object(
+                MoviepyCreateVideo, "_initialize_background_video", return_value=mock_video_clip
+            ),
             patch.object(MoviepyCreateVideo, "prepare_background_video") as mock_prepare,
             patch.object(MoviepyCreateVideo, "_initialize_music") as mock_init_music,
             patch.object(MoviepyCreateVideo, "_initialize_font") as mock_init_font,
@@ -771,7 +774,7 @@ class TestMoviepyCreateVideo:
     @patch("ShortsMaker.moviepy_create_video.get_logger")
     @patch("subprocess.run")
     def test_quit_with_errors(
-        self, mock_subprocess_run, mock_get_logger, setup_file, mock_audio_clip
+        self, mock_subprocess_run, mock_get_logger, setup_file, mock_audio_clip, mock_video_clip
     ):
         """Test the quit method handles errors gracefully during cleanup."""
         with (
@@ -780,6 +783,9 @@ class TestMoviepyCreateVideo:
                 MoviepyCreateVideo,
                 "process_audio_transcript_to_word_and_sentences_transcript",
                 return_value=([], []),
+            ),
+            patch.object(
+                MoviepyCreateVideo, "_initialize_background_video", return_value=mock_video_clip
             ),
             patch.object(MoviepyCreateVideo, "prepare_background_video"),
             patch.object(MoviepyCreateVideo, "_load_transcript"),
