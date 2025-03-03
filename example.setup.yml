@@ -7,11 +7,6 @@ cache_dir: "/path/to/cache"
 # A dir in which your background_videos, background_music, credits and fonts folders are located
 assets_dir: "/path/to/assets"
 
-logging:
-  enable: true
-  level: DEBUG
-  log_file: "/path/to/logfile.log"
-
 retry:
   enable: true
   max_retries: 3
