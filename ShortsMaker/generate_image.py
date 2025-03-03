@@ -14,7 +14,26 @@ MODEL_UNLOAD_DELAY = 5
 
 
 class GenerateImage:
+    """
+    A class for generating images using different Flux models from Hugging Face.
+
+    This class provides methods to load and use various Flux models, including
+    FLUX.1-dev, FLUX.1-schnell, and a custom Pixel Wave model. It handles model
+    loading, image generation, and resource cleanup.
+    """
+
     def __init__(self, config_file: Path | str) -> None:
+        """
+        Initializes the GenerateImage class.
+
+        Args:
+            config_file (Path | str): Path to the YAML configuration file containing settings
+                such as the Hugging Face access token.
+
+        Raises:
+            FileNotFoundError: If the specified configuration file does not exist.
+            ValueError: If the configuration file is not a YAML file.
+        """
         # if config_file is str convert it to a Pathlike
         self.setup_cfg = Path(config_file) if isinstance(config_file, str) else config_file
 
@@ -38,6 +57,18 @@ class GenerateImage:
         self.pipe: FluxPipeline | None = None
 
     def _load_model(self, model_id: str) -> bool:
+        """
+        Loads a Flux model from Hugging Face.
+
+        Args:
+            model_id (str): The ID of the Flux model to load from Hugging Face.
+
+        Returns:
+            bool: True if the model was loaded successfully.
+
+        Raises:
+            RuntimeError: If there is an error loading the Flux model.
+        """
         try:
             self.pipe = FluxPipeline.from_pretrained(model_id, torch_dtype=torch.bfloat16)
             self.logger.info(f"Loading Flux model from {model_id}")
@@ -70,6 +101,23 @@ class GenerateImage:
         width: int = 1024,
         guidance_scale: float = 3.5,
     ) -> bool:
+        """
+        Generates an image using the FLUX.1-dev model from Hugging Face.
+
+        Args:
+            prompt (str): The text prompt to guide image generation.
+            output_path (str): The path to save the generated image.
+            negative_prompt (str): The text prompt to guide what the model should avoid generating. Defaults to "".
+            model_id (str): The ID of the FLUX.1-dev model on Hugging Face. Defaults to "black-forest-labs/FLUX.1-dev".
+            steps (int): The number of inference steps. Defaults to 20.
+            seed (int): The random seed for image generation. Defaults to 0.
+            height (int): The height of the output image. Defaults to 1024.
+            width (int): The width of the output image. Defaults to 1024.
+            guidance_scale (float): The guidance scale for image generation. Defaults to 3.5.
+
+        Returns:
+            bool: True if the image was generated and saved successfully.
+        """
         self.logger.info("This image generator uses the Flux Dev model.")
         # Add access token to environment variable
         if "hugging_face_access_token" in self.cfg and os.environ.get("HF_TOKEN") is None:
@@ -114,6 +162,23 @@ class GenerateImage:
         width: int = 1024,
         guidance_scale: float = 0.0,
     ) -> bool:
+        """
+        Generates an image using the FLUX.1-schnell model from Hugging Face.
+
+        Args:
+            prompt (str): The text prompt to guide image generation.
+            output_path (str): The path to save the generated image.
+            negative_prompt (str): The text prompt to guide what the model should avoid generating. Defaults to "".
+            model_id (str): The ID of the FLUX.1-schnell model on Hugging Face. Defaults to "black-forest-labs/FLUX.1-schnell".
+            steps (int): The number of inference steps. Defaults to 4.
+            seed (int): The random seed for image generation. Defaults to 0.
+            height (int): The height of the output image. Defaults to 1024.
+            width (int): The width of the output image. Defaults to 1024.
+            guidance_scale (float): The guidance scale for image generation. Defaults to 0.0.
+
+        Returns:
+            bool: True if the image was generated and saved successfully.
+        """
         self.logger.info("This image generator uses the Flux Schnell model.")
 
         self._load_model(model_id)
@@ -152,6 +217,22 @@ class GenerateImage:
         width: int = 1024,
         guidance_scale: float = 3.5,
     ) -> bool:
+        """
+        Generates an image using the custom Flux Pixel Wave model.
+
+        Args:
+            prompt (str): The text prompt to guide image generation.
+            output_path (str): The path to save the generated image.
+            model_id (str): The URL or path to the Pixel Wave model file. Defaults to "https://huggingface.co/mikeyandfriends/PixelWave_FLUX.1-schnell_03/blob/main/pixelwave_flux1_schnell_fp8_03.safetensors".
+            steps (int): The number of inference steps. Defaults to 4.
+            seed (int): The random seed for image generation. Defaults to 595570113709576.
+            height (int): The height of the output image. Defaults to 1024.
+            width (int): The width of the output image. Defaults to 1024.
+            guidance_scale (float): The guidance scale for image generation. Defaults to 3.5.
+
+        Returns:
+            bool: True if the image was generated and saved successfully.
+        """
         self.logger.info("This image generator uses the Flux Pixel Wave model.")
 
         text_encoder = CLIPTextModel.from_pretrained(
@@ -209,6 +290,12 @@ class GenerateImage:
         return True
 
     def quit(self) -> None:
+        """
+        Cleans up resources and exits the image generator.
+
+        This method clears the CUDA cache (if available) and attempts to
+        delete all instance variables to free up memory.
+        """
         self.logger.info("Quitting the image generator")
         if torch.cuda.is_available():
             torch.cuda.empty_cache()

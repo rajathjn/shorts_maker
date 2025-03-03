@@ -16,10 +16,26 @@ from .utils import get_logger
 
 
 class OllamaServiceManager:
+    """
+    Manages the Ollama service, including starting, stopping, and checking its status.
+
+    Attributes:
+        system (str): The operating system the service is running on (e.g., "windows", "linux").
+        process (subprocess.Popen | None): The process object for the running Ollama service.
+        ollama (module): The ollama module.
+        logger (logging.Logger): The logger instance for the class.
+    """
+
     def __init__(
         self,
         logger: logging.Logger | None = None,
     ):
+        """
+        Initializes the OllamaServiceManager.
+
+        Args:
+            logger (logging.Logger | None, optional): An optional logger instance. If not provided, a default logger is created. Defaults to None.
+        """
         self.system = platform.system().lower()
         self.process = None
         self.ollama = ollama
@@ -29,7 +45,15 @@ class OllamaServiceManager:
         self.logger.info(f"Ollama service ollama_service_manager initialized on {self.system}")
 
     def start_service(self) -> bool:
-        # Start the Ollama service based on the operating system
+        """
+        Starts the Ollama service.
+
+        Returns:
+            bool: True if the service started successfully, False otherwise.
+
+        Raises:
+            Exception: If there is an error starting the service.
+        """
         self.logger.info("Starting Ollama service")
         try:
             if self.system == "windows":
@@ -53,7 +77,12 @@ class OllamaServiceManager:
             return False
 
     def stop_service(self) -> bool:
-        # Stop the Ollama service
+        """
+        Stops the Ollama service.
+
+        Returns:
+            bool: True if the service stopped successfully, False otherwise.
+        """
         try:
             if self.process:
                 if self.system == "windows":
@@ -82,7 +111,12 @@ class OllamaServiceManager:
 
     @staticmethod
     def is_ollama_running():
-        """Check if Ollama is already running."""
+        """
+        Checks if any Ollama process is currently running.
+
+        Returns:
+            bool: True if an Ollama process is running, False otherwise.
+        """
         for proc in psutil.process_iter(["name", "cmdline"]):
             try:
                 if "ollama" in proc.info["name"].lower():
@@ -92,7 +126,12 @@ class OllamaServiceManager:
         return False
 
     def is_service_running(self) -> bool:
-        # Check if the Ollama service is running
+        """
+        Checks if the Ollama service managed by this instance is running.
+
+        Returns:
+            bool: True if the service is running, False otherwise.
+        """
         if self.process and self.process.poll() is None:
             return True
         if self.is_ollama_running():
@@ -100,9 +139,24 @@ class OllamaServiceManager:
         return False
 
     def get_running_models(self):
+        """
+        Gets a list of the currently running models on Ollama.
+
+        Returns:
+            list: The models running in ollama service.
+        """
         return self.ollama.ps()
 
     def stop_running_model(self, model_name: str):
+        """
+        Stops a specific model that is running in Ollama.
+
+        Args:
+            model_name (str): The name of the model to stop.
+
+        Returns:
+            bool: True if the model was stopped successfully, False otherwise.
+        """
         try:
             stop_attempt = subprocess.check_output(
                 ["ollama", "stop", model_name], stderr=subprocess.STDOUT, text=True
@@ -120,9 +174,21 @@ class OllamaServiceManager:
             return False
 
     def get_llm_model(self, model_name: str):
+        """
+        Downloads a specific LLM model using Ollama.
+
+        Args:
+            model_name (str): The name of the model to download.
+        """
         return self.ollama.pull(model_name)
 
     def get_list_of_downloaded_files(self) -> list[str]:
+        """
+        Retrieves a list of models that have been downloaded by Ollama.
+
+        Returns:
+            list[str]: A list of the names of the downloaded models.
+        """
         model_list = []
         try:
             model_list = list(self.ollama.list())  # list[tuple[model, list[models]]]
@@ -133,12 +199,42 @@ class OllamaServiceManager:
 
 
 class AskLLM:
+    """
+    A class to interact with a Large Language Model (LLM) using Ollama.
+
+    This class handles loading, querying, and managing the LLM, including
+    starting and stopping the Ollama service if necessary.
+
+    Attributes:
+        setup_cfg (Path): The path to the configuration file.
+        cfg (dict): The configuration loaded from the config file.
+        logger (logging.Logger): The logger instance for the class.
+        self_started_ollama (bool): Indicates if the instance started the ollama service.
+        ollama_service_manager (OllamaServiceManager): The manager for the ollama service.
+        model_name (str): The name of the LLM model to use.
+        model_temperature (float): The temperature parameter for the LLM.
+        llm (ChatOllama): The ChatOllama instance.
+        structured_llm (None | ChatOllama): The structured llm model used for invoke.
+    """
+
     def __init__(
         self,
         config_file: Path | str,
         model_name: str = "llama3.1:latest",
         temperature: float = 0,
     ) -> None:
+        """
+        Initializes the AskLLM instance.
+
+        Args:
+            config_file (Path | str): The path to the configuration file.
+            model_name (str, optional): The name of the LLM model to use. Defaults to "llama3.1:latest".
+            temperature (float, optional): The temperature parameter for the LLM. Defaults to 0.
+
+        Raises:
+            FileNotFoundError: If the configuration file does not exist.
+            ValueError: If the configuration file is not a YAML file.
+        """
         # if config_file is str convert it to a Pathlike
         self.setup_cfg = Path(config_file) if isinstance(config_file, str) else config_file
 
@@ -162,6 +258,18 @@ class AskLLM:
         self.structured_llm = None
 
     def _load_llm_model(self, model_name: str, temperature: float) -> ChatOllama:
+        """
+        Loads the specified LLM model.
+
+        Starts the Ollama service if it's not already running, and downloads the model if it's not already downloaded.
+
+        Args:
+            model_name (str): The name of the model to load.
+            temperature (float): The temperature parameter for the LLM.
+
+        Returns:
+            ChatOllama: The loaded ChatOllama instance.
+        """
         if not self.ollama_service_manager.is_service_running():
             self.logger.warning("Ollama service is not running. Attempting to start it.")
             self.ollama_service_manager.start_service()
@@ -179,6 +287,17 @@ class AskLLM:
         return ChatOllama(model=model_name, temperature=temperature)
 
     def invoke(self, input_text: str) -> dict | BaseModel:
+        """
+        Invokes the LLM with the given input text and returns a structured output.
+
+        This method uses a predefined prompt to query the LLM and expects a response that conforms to the YoutubeDetails schema.
+
+        Args:
+            input_text (str): The input text to send to the LLM.
+
+        Returns:
+            dict | BaseModel: A dictionary or a BaseModel instance containing the LLM's response.
+        """
         prompt = ChatPromptTemplate(
             messages=[
                 SystemMessage(
@@ -197,6 +316,18 @@ class AskLLM:
         return self.structured_llm.invoke(prompt.messages)
 
     def invoke_image_describer(self, script: str, input_text: str) -> dict | BaseModel:
+        """
+        Invokes the LLM to generate an image description based on the given script and input text.
+
+        This method uses a predefined prompt to query the LLM and expects a response that conforms to the ImageDescriber schema.
+
+        Args:
+            script (str): The script to base the image description on.
+            input_text (str): Additional text to guide the image description.
+
+        Returns:
+            dict | BaseModel: A dictionary or a BaseModel instance containing the LLM's image description.
+        """
         prompt = ChatPromptTemplate(
             messages=[
                 SystemMessage(
@@ -214,6 +345,13 @@ class AskLLM:
         return self.structured_llm.invoke(prompt.messages)
 
     def quit_llm(self):
+        """
+        Shuts down the LLM and the Ollama service if it was started by this instance.
+
+        This method stops any running models, and if the Ollama service was started by this
+        instance, it stops the service as well. Finally, it deletes the instance variables to
+        clean up.
+        """
         self.ollama_service_manager.stop_running_model(self.model_name)
         if self.self_started_ollama:
             self.ollama_service_manager.stop_service()
