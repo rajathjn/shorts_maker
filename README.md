@@ -156,6 +156,8 @@ ask_llm.quit_llm()
 
 ## Example Video
 
+Generated from this post [here](https://www.reddit.com/r/selfhosted/comments/r2a6og/comment/hm5xoas/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+
 https://github.com/user-attachments/assets/6aad212a-bfd5-4161-a2bc-67d24a8de37f
 
 ## TODO
