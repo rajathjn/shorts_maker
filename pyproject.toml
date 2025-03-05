@@ -5,7 +5,7 @@ description = "A python project to make and upload Youtube shorts video"
 authors = [
     {name = "rajathjn",email = "rajathjnx@gmail.com"}
 ]
-license = "GPL-3.0-or-later"
+license = "AGPL-3.0-or-later"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 classifiers = [
