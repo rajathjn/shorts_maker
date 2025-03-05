@@ -7,9 +7,27 @@ from .logging_config import get_logger
 logger = get_logger(__name__)
 
 
-def download_youtube_music(
-    music_url: str, music_dir: Path, force: bool = False
-) -> list[Path] | Path:
+def sanitize_filename(source_filename: str) -> str:
+    """
+    Sanitizes a given filename by removing leading and trailing spaces, replacing spaces with underscores,
+    and replacing invalid characters with underscores.
+
+    Args:
+        source_filename (str): The original filename to be sanitized.
+
+    Returns:
+        str: The sanitized filename.
+    """
+    sanitized_filename = source_filename
+    sanitized_filename = sanitized_filename.strip()
+    sanitized_filename = sanitized_filename.strip(" .")
+    sanitized_filename = sanitized_filename.replace(" ", "_")
+    invalid_chars = '<>:"/\\|?*'
+    sanitized_filename = "".join("_" if c in invalid_chars else c for c in sanitized_filename)
+    return sanitized_filename
+
+
+def download_youtube_music(music_url: str, music_dir: Path, force: bool = False) -> list[Path]:
     """
     Downloads music from a YouTube URL provided, saving it to a specified directory. The method supports
     downloading either the full audio or splitting into chapters, if chapters are available in the video
@@ -34,9 +52,11 @@ def download_youtube_music(
         # Handle case with no chapters
         if not info_dict["chapters"]:
             logger.info("No chapters found. Downloading full audio...")
+            sanitized_filename = sanitize_filename(info_dict["title"])
+
             ydl_opts = {
                 "format": "bestaudio",
-                "outtmpl": str(music_dir / "%(title)s.%(ext)s"),
+                "outtmpl": str(music_dir / f"{sanitized_filename}.%(ext)s"),
                 "postprocessors": [
                     {
                         "key": "FFmpegExtractAudio",
@@ -46,29 +66,19 @@ def download_youtube_music(
                 ],
                 "restrictfilenames": True,
             }
-            logger.info(f"Video title: {info_dict['title']}")
-            sanitized_filename = ydl.prepare_filename(extracted_info)
-            logger.info(f"Sanitized filename will be: {sanitized_filename}")
 
-            output_path = music_dir / f"{sanitized_filename}"
+            output_path = music_dir / f"{sanitized_filename}.wav"
             logger.info(f"Output path: {output_path.absolute()}")
             if (not output_path.exists() and not force) or force:
                 with yt_dlp.YoutubeDL(ydl_opts) as ydl_audio:
                     ydl_audio.download([music_url])
                     logger.info("Full audio downloaded successfully!")
-            return output_path
+            return [output_path]
 
         # Handle case with chapters
         for chapter in info_dict["chapters"]:
             logger.info(f"Found chapter: {chapter['title']}")
-            sanitized_filename = chapter["title"]
-            sanitized_filename = sanitized_filename.strip()
-            sanitized_filename = sanitized_filename.strip(" .")
-            sanitized_filename = sanitized_filename.replace(" ", "_")
-            invalid_chars = '<>:"/\\|?*'
-            sanitized_filename = "".join(
-                "_" if c in invalid_chars else c for c in sanitized_filename
-            )
+            sanitized_filename = sanitize_filename(chapter["title"])
 
             ydl_opts = {
                 "format": "bestaudio",
