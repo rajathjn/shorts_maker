@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from ShortsMaker.utils.download_youtube_music import download_youtube_music
+from ShortsMaker.utils.download_youtube_music import download_youtube_music, sanitize_filename
 
 
 @pytest.fixture
@@ -16,7 +16,6 @@ def mock_ydl_no_chapters():
     mock = MagicMock()
     mock.extract_info.return_value = {"title": "test_song"}
     mock.sanitize_info.return_value = {"title": "test_song", "chapters": None}
-    mock.prepare_filename.return_value = "test_song.wav"
     return mock
 
 
@@ -41,8 +40,9 @@ def test_download_without_chapters(mock_music_dir, mock_ydl_no_chapters, force):
 
         result = download_youtube_music("https://youtube.com/test", mock_music_dir, force=force)
 
-        assert isinstance(result, Path)
-        assert result.name == "test_song.wav"
+        assert isinstance(result, list)
+        assert isinstance(result[0], Path)
+        assert result[0].name == "test_song.wav"
         mock_ydl_no_chapters.download.assert_called_once()
 
 
@@ -69,11 +69,30 @@ def test_download_with_existing_files(mock_music_dir, mock_ydl_no_chapters):
         # Should not download when force=False
         result = download_youtube_music("https://youtube.com/test", mock_music_dir, force=False)
 
-        assert isinstance(result, Path)
+        assert isinstance(result, list)
+        assert isinstance(result[0], Path)
         assert not mock_ydl_no_chapters.download.called
 
         # Should download when force=True
         result = download_youtube_music("https://youtube.com/test", mock_music_dir, force=True)
 
-        assert isinstance(result, Path)
+        assert isinstance(result, list)
+        assert isinstance(result[0], Path)
         mock_ydl_no_chapters.download.assert_called_once()
+
+
+@pytest.mark.parametrize(
+    "filename, expected_filenames",
+    [
+        ("normal filename", "normal_filename"),
+        ("  spaces  ", "spaces"),
+        ("file.name.", "file.name"),
+        ('invalid<>:"/\\|?*chars', "invalid_________chars"),
+        ("mixed case FiLe", "mixed_case_FiLe"),
+        ("   leading.trailing.   ", "leading.trailing"),
+        ("file with spaces", "file_with_spaces"),
+        ("file*with?invalid:chars", "file_with_invalid_chars"),
+    ],
+)
+def test_sanitize_filename(filename, expected_filenames):
+    assert sanitize_filename(filename) == expected_filenames
