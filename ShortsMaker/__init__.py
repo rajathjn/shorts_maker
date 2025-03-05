@@ -12,7 +12,7 @@ from .utils.audio_transcript import (
     generate_audio_transcription,
 )
 from .utils.colors_dict import COLORS_DICT
-from .utils.download_youtube_music import download_youtube_music
+from .utils.download_youtube_music import download_youtube_music, sanitize_filename
 from .utils.download_youtube_video import download_youtube_video
 from .utils.get_tts import VOICES, tts
 from .utils.logging_config import configure_logging, get_logger
@@ -38,6 +38,7 @@ __all__ = [
     generate_audio_transcription,
     notify_discord,
     retry,
+    sanitize_filename,
     VOICES,
     tts,
 ]
