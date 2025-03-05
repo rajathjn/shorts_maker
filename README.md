@@ -52,6 +52,18 @@ Like what I do, Please consider supporting me.
 
 2. **Install the Package Using uv:**
 
+   Note: Before starting the installation process. Ensure a python3.12 virtual environment is set up.
+
+   ```bash
+   uv venv -p 3.12 .venv
+
+   or
+
+   python -m venv .venv
+   ```
+
+   Package Installation.
+
    ```bash
    uv pip install -r pyproject.toml
 
@@ -62,7 +74,7 @@ Like what I do, Please consider supporting me.
    uv sync --extra cu124 # for cuda 12.4 versions
    ```
 
-3. **Install Any Additional Python Dependencies:**
+4. **Install Any Additional Python Dependencies:**
 
    If not automatically managed by uv, you may install them using pip:
 
