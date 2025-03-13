@@ -53,6 +53,29 @@ def test_get_reddit_post(mock_reddit, mock_is_unique_submission, shorts_maker):
     assert "Test Content" in result
 
 
+@patch("praw.Reddit")
+def test_get_reddit_post_with_url(mock_reddit, shorts_maker):
+    # Mock submission data
+    mock_submission = MagicMock()
+    mock_submission.title = "Test Title from URL"
+    mock_submission.selftext = "Test Content from URL"
+    mock_submission.name = "t3_url_submission"
+    mock_submission.id = "url_submission"
+    mock_submission.url = "https://www.reddit.com/r/random_subreddit/test_title_from_url/"
+
+    # Mock Reddit API response
+    mock_reddit.return_value.submission.return_value = mock_submission
+
+    # Test with URL
+    test_url = "https://www.reddit.com/r/random_subreddit/test_title_from_url/"
+    result = shorts_maker.get_reddit_post(url=test_url)
+
+    # Assertions
+    assert "Test Title from URL" in result
+    assert "Test Content from URL" in result
+    mock_reddit.return_value.submission.assert_called_once_with(url=test_url)
+
+
 @patch("ShortsMaker.shorts_maker.tts")
 def test_generate_audio_success(mock_tts, shorts_maker, tmp_path):
     # Test successful audio generation

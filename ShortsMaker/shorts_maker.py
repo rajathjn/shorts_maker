@@ -320,10 +320,13 @@ class ShortsMaker:
         return True
 
     @retry(max_retries=MAX_RETRIES, delay=DELAY, notify=NOTIFY)
-    def get_reddit_post(self) -> str:
+    def get_reddit_post(self, url: str | None = None) -> str:
         """
         Retrieves a random top Reddit post from a specified subreddit, saves the post details
         to both a JSON file and a text file, and returns the text content of the post.
+
+        Args:
+            url (str | None): The URL of the Reddit post to retrieve. If None, a random top post is retrieved.
 
         Returns:
             str: The text content of the retrieved Reddit post.
@@ -346,12 +349,15 @@ class ShortsMaker:
         )
         self.logger.info(f"Is reddit readonly: {reddit.read_only}")
 
-        for submission_found in self.get_submission_from_subreddit(
-            reddit, self.reddit_post["subreddit_name"]
-        ):
-            if self.is_unique_submission(submission_found):
-                submission = submission_found
-                break
+        if url:
+            submission = reddit.submission(url=url)
+        else:
+            for submission_found in self.get_submission_from_subreddit(
+                reddit, self.reddit_post["subreddit_name"]
+            ):
+                if self.is_unique_submission(submission_found):
+                    submission = submission_found
+                    break
 
         self.logger.info(f"Submission Url: {submission.url}")
         self.logger.info(f"Submission title: {submission.title}")
