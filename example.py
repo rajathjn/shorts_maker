@@ -11,7 +11,12 @@ with open(setup_file) as f:
 
 get_post = ShortsMaker(setup_file)
 
-get_post.get_reddit_post()
+# You can either provide an URL for the reddit post
+get_post.get_reddit_post(
+    url="https://www.reddit.com/r/Python/comments/1j36d7a/i_got_tired_of_ai_shorts_scams_so_i_built_my_own/"
+)
+# Or just run the method to get a random post from the subreddit defined in setup.yml
+# get_post.get_reddit_post()
 
 with open(Path(cfg["cache_dir"]) / cfg["reddit_post_getter"]["record_file_txt"]) as f:
     script = f.read()
