@@ -3,17 +3,16 @@
 hugging_face_access_token: "your_hugging_face_access_token_here"
 
 # A cache dir for storing results
-cache_dir: "/path/to/cache"
+cache_dir: "cache"
 
 # A dir in which your background_videos, background_music, credits and fonts folders are located
 assets_dir: "assets"
 
 # Best to leave this as is
 retry:
-  enable: true
   max_retries: 3
   delay: 5
-  notify: false
+  notify: False
 
 # Refer to https://business.reddithelp.com/s/article/Create-a-Reddit-Application
 # for more information on how to create a Reddit application
@@ -35,10 +34,10 @@ audio:
   output_script_file: "generated_audio_script.txt"
   output_audio_file: "output.wav"
   transcript_json: "transcript.json"
-  device: "cuda" # or "cpu"
+  device: "cpu" # or "cuda"
   model: "large-v2" # or "medium"
   batch_size: 16 # or 32
-  compute_type: "float16" # or "int8"
+  compute_type: "int8" # or "float16"
 
 # Replace with the video URLs and music URLs you want to use
 # Only YouTube URLs are supported
