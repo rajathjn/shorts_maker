@@ -1,0 +1,25 @@
+.venv
+old_scripts
+
+# remove any cache
+cache
+assets
+
+# ignore cache files
+*.pyc
+*.pyo
+
+# ignore logs
+*.log
+
+# ignore pytest cache
+.pytest_cache
+
+# IDE caches
+.vscode
+.idea
+
+# ignore ipynb files and checkpoints, which may be used for testing
+*.ipynb
+.ipynb_checkpoints
+.ruff_cache
