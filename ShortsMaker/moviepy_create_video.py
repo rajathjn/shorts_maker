@@ -73,7 +73,7 @@ class MoviepyCreateVideo:
         font_path: Path | str = None,
         fade_time: int = DEFAULT_FADE_TIME,
         delay: int = DEFAULT_DELAY,
-        speed_factor: int = DEFAULT_SPEED_FACTOR,
+        speed_factor: float = DEFAULT_SPEED_FACTOR,
     ) -> None:
         self.fade_time = fade_time
         self.delay = delay
