@@ -31,11 +31,14 @@ get_post.quit()
 
 create_video = MoviepyCreateVideo(
     config_file=setup_file,
+    speed_factor=1.0,
 )
 
-create_video()
+create_video(output_path="assets/output.mp4")
 
 create_video.quit()
+
+# Do not run the below when you are using shorts_maker within a container.
 
 # ask_llm = AskLLM(config_file=setup_file)
 # result = ask_llm.invoke(script)
