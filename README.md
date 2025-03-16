@@ -16,6 +16,7 @@ Like what I do, Please consider supporting me.
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Requirements](#requirements)
+  - [Usage Via Docker](#usage-via-docker)
   - [Installation](#installation)
   - [External Dependencies](#external-dependencies)
   - [Environment Variables](#environment-variables)
@@ -40,6 +41,60 @@ Like what I do, Please consider supporting me.
 - **Python:** 3.12.8
 - **Package Manager:** [`uv`](https://docs.astral.sh/uv/) is used for package management. ( It's amazing! try it out. )
 - **Operating System:** Windows, Mac, or Linux (ensure external dependencies are installed for your platform)
+
+## Usage Via Docker
+
+To use ShortsMaker via Docker, follow these steps:
+
+1. **Build the Docker Image:**
+
+   Build the Docker image using the provided Dockerfile.
+
+   ```bash
+   docker build -t shorts_maker -f Dockerfile .
+   ```
+
+2. **Run the Docker Container:**
+
+   For the first time, run the container with the necessary mounts, container name, and working directory set.
+
+   ```bash
+   docker run --name shorts_maker_container -v $pwd/assets:/shorts_maker/assets -w /shorts_maker -it shorts_maker bash
+   ```
+
+3. **Start the Docker Container:**
+
+   If the container was previously stopped, you can start it again using:
+
+   ```bash
+   docker start shorts_maker_container
+   ```
+
+4. **Access the Docker Container:**
+
+   Execute a bash shell inside the running container.
+
+   ```bash
+   docker exec -it shorts_maker_container bash
+   ```
+
+5. **Run Examples and Tests:**
+
+   Once you are in the bash shell of the container, you can run the example script or tests using `uv`.
+
+   To run the example script:
+
+   ```bash
+   uv run example.py
+   ```
+
+   To run tests:
+
+   ```bash
+   uv run pytest
+   ```
+
+**Note:** If you plan to use `ask_llm` or `generate_image`, it is not recommended to use the Docker image due to the high resource requirements of these features. Instead, run ShortsMaker directly on your host machine.
 
 ## Installation
 
@@ -76,7 +131,7 @@ Like what I do, Please consider supporting me.
 
 4. **Install Any Additional Python Dependencies:**
 
-   If not automatically managed by uv, you may install them using pip:
+   If not automatically managed by uv, you may install them using pip ( In most cases you do not need to use the below. ):
 
    ```bash
    pip install -r requirements.txt
@@ -136,38 +191,63 @@ Ensure you have a `setup.yml` configuration file in the `shorts_maker` directory
 
 Below is a basic example to get you started with ShortsMaker:
 
+You can also refer to the same [here](example.py)
+
 ```python
-from ShortsMaker import MoviepyCreateVideo, ShortsMaker, AskLLM, GenerateImage
-import yaml
 from pathlib import Path
 
-setup_file = "shorts_maker/setup.yml"
+import yaml
+
+from ShortsMaker import MoviepyCreateVideo, ShortsMaker
+
+setup_file = "setup.yml"
+
 with open(setup_file) as f:
     cfg = yaml.safe_load(f)
 
 get_post = ShortsMaker(setup_file)
-get_post.get_reddit_post()
-with open(Path(cfg["cache_dir"])/cfg["reddit_post_getter"]["record_file_txt"]) as f:
+
+# You can either provide an URL for the reddit post
+get_post.get_reddit_post(
+    url="https://www.reddit.com/r/Python/comments/1j36d7a/i_got_tired_of_ai_shorts_scams_so_i_built_my_own/"
+)
+# Or just run the method to get a random post from the subreddit defined in setup.yml
+# get_post.get_reddit_post()
+
+with open(Path(cfg["cache_dir"]) / cfg["reddit_post_getter"]["record_file_txt"]) as f:
     script = f.read()
 
-get_post.generate_audio(script)
-get_post.generate_audio_transcript(
-    source_audio_file = f"{cfg['cache_dir']}/{cfg['audio']['output_audio_file']}",
-    source_text_file = f"{cfg['cache_dir']}/{cfg['audio']['output_script_file']}"
+get_post.generate_audio(
+    source_txt=script,
+    output_audio=f"{cfg['cache_dir']}/{cfg['audio']['output_audio_file']}",
+    output_script_file=f"{cfg['cache_dir']}/{cfg['audio']['output_script_file']}",
 )
+
+get_post.generate_audio_transcript(
+    source_audio_file=f"{cfg['cache_dir']}/{cfg['audio']['output_audio_file']}",
+    source_text_file=f"{cfg['cache_dir']}/{cfg['audio']['output_script_file']}",
+)
+
 get_post.quit()
 
-create_video = MoviepyCreateVideo(config_file=setup_file)
-create_video()
+create_video = MoviepyCreateVideo(
+    config_file=setup_file,
+    speed_factor=1.0,
+)
+
+create_video(output_path="assets/output.mp4")
+
 create_video.quit()
 
-ask_llm = AskLLM(config_file=setup_file)
-result = ask_llm.invoke(script)
-print(result["parsed"].title)
-print(result["parsed"].description)
-print(result["parsed"].tags)
-print(result["parsed"].thumbnail_description)
-ask_llm.quit_llm()
+# Do not run the below when you are using shorts_maker within a container.
+
+# ask_llm = AskLLM(config_file=setup_file)
+# result = ask_llm.invoke(script)
+# print(result["parsed"].title)
+# print(result["parsed"].description)
+# print(result["parsed"].tags)
+# print(result["parsed"].thumbnail_description)
+# ask_llm.quit_llm()
 
 # You can use, AskLLM to generate a text prompt for the image generation as well
 # image_description = ask_llm.invoke_image_describer(script = script, input_text = "A wild scenario")
@@ -178,6 +258,7 @@ ask_llm.quit_llm()
 # generate_image = GenerateImage(config_file=setup_file)
 # generate_image.use_huggingface_flux_schnell(image_description["parsed"].description, "output.png")
 # generate_image.quit()
+
 ```
 
 ## Example Video
@@ -187,8 +268,9 @@ Generated from this post [here](https://www.reddit.com/r/selfhosted/comments/r2a
 https://github.com/user-attachments/assets/6aad212a-bfd5-4161-a2bc-67d24a8de37f
 
 ## TODO
-- [ ] Dockerize the project, To avoid the complex set up process.
 - [ ] Explain working and usage in blog.
+- [x] Dockerize the project, To avoid the complex set up process.
+- [x] Add option to fetch post from submission URLs.
 - [x] Add an example video to the README.
 
 ## Development
