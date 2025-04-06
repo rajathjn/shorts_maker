@@ -1,7 +1,7 @@
 import base64
 import io
-import sys
 import textwrap
+from pprint import pformat
 from threading import Thread
 
 import requests
@@ -55,8 +55,8 @@ def tts(text: str, voice: str, output_filename: str = "output.mp3") -> None:
 
     global ENDPOINT_DATA
 
-    audio_data = [""] * len(chunks)
     for endpoint in ENDPOINT_DATA:
+        audio_data = [""] * len(chunks)
         audio_data = _process_chunks(chunks, endpoint, voice, audio_data)
         if audio_data is not None:
             _save_audio(audio_data, output_filename)
@@ -88,6 +88,7 @@ def _process_chunks(
             return
 
         try:
+            logger.info(f"Using endpoint: {endpoint['url']}")
             response = requests.post(
                 endpoint["url"],
                 json={"text": chunk, "voice": voice},
@@ -97,12 +98,22 @@ def _process_chunks(
             )
             if response.status_code == 200:
                 audio_data[index] = response.json()[endpoint["response"]]
+                logger.info(
+                    f"Chunk {index} processed successfully with endpoint: {endpoint['url']}"
+                )
             else:
-                logger.info(f"response: {response}, Endpoint not valid: {endpoint['url']}")
+                logger.warning(
+                    f"Endpoint failed with status {response.status_code}: {endpoint['url']}"
+                )
                 valid = False
+        except requests.exceptions.JSONDecodeError as e:
+            logger.warning(f"JSONDecodeError for endpoint {endpoint['url']}: {e}")
+            logger.error(f"RequestException for endpoint {endpoint['url']}: {e}")
+            valid = False
         except requests.RequestException as e:
-            print(f"Error: {e}")
-            sys.exit()
+            logger.warning(f"Response from endpoint {endpoint['url']}:\n{pformat(response.json)}")
+            logger.error(f"RequestException for endpoint {endpoint['url']}: {e}")
+            valid = False
 
     threads = [
         Thread(target=generate_audio_chunk, args=(i, chunk)) for i, chunk in enumerate(chunks)
