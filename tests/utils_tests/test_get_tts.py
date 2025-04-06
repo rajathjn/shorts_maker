@@ -2,7 +2,14 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from ShortsMaker.utils.get_tts import VOICES, _process_chunks, _split_text, _validate_inputs, tts
+from ShortsMaker.utils.get_tts import (
+    ENDPOINT_DATA,
+    VOICES,
+    _process_chunks,
+    _split_text,
+    _validate_inputs,
+    tts,
+)
 
 
 @pytest.fixture
@@ -78,3 +85,51 @@ def test_tts_integration(mock_post, mock_audio):
 
     tts("test text", VOICES[0], "test_output.wav")
     assert mock_audio_obj.export.called
+
+
+@patch("requests.post")
+@patch("ShortsMaker.utils.get_tts._save_audio")
+def test_tts_with_failing_and_successful_endpoints(mock_save_audio, mock_post):
+    # Mock responses for endpoints
+    def mock_post_side_effect(url, json, headers) -> Mock:
+        if url == ENDPOINT_DATA[0]["url"]:
+            # Simulate failure for the first endpoint
+            response = Mock()
+            response.status_code = 500
+            return response
+        elif url == ENDPOINT_DATA[1]["url"]:
+            # Simulate success for the second endpoint
+            response = Mock()
+            response.status_code = 200
+            response.json.return_value = {ENDPOINT_DATA[1]["response"]: "mock_audio_data"}
+            return response
+
+    mock_post.side_effect = mock_post_side_effect
+
+    mock_save_audio.return_value = None
+
+    # Input data
+    text = "This is a test."
+    voice = "en_us_001"
+    output_filename = "test_output.mp3"
+
+    # Call the tts function
+    tts(text, voice, output_filename)
+
+    # Assertions
+    assert mock_post.call_count == 2
+    mock_post.assert_any_call(
+        ENDPOINT_DATA[0]["url"],
+        json={"text": "This is a test.", "voice": voice},
+        headers={
+            "User-Agent": "com.zhiliaoapp.musically/2022600030 (Linux; U; Android 7.1.2; es_ES; SM-G988N; Build/NRD90M;tt-ok/3.12.13.1)",
+        },
+    )
+    mock_post.assert_any_call(
+        ENDPOINT_DATA[1]["url"],
+        json={"text": "This is a test.", "voice": voice},
+        headers={
+            "User-Agent": "com.zhiliaoapp.musically/2022600030 (Linux; U; Android 7.1.2; es_ES; SM-G988N; Build/NRD90M;tt-ok/3.12.13.1)",
+        },
+    )
+    mock_save_audio.assert_called_once_with(["mock_audio_data"], output_filename)
