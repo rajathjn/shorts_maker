@@ -6,6 +6,9 @@ on:
 
 jobs:
   test:
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     env:
       DISCORD_WEBHOOK_URL: "https://discord.com/api/webhooks/xxx"
