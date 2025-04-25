@@ -36,7 +36,7 @@ get_post.quit()
 
 create_video = MoviepyCreateVideo(
     config_file=setup_file,
-    speed_factor=1.0,
+    # speed_factor=1.25,  # Set the speed factor for the video
 )
 
 create_video(output_path="assets/output.mp4")
