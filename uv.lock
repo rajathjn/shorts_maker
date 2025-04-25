@@ -2,188 +2,22 @@ version = 1
 revision = 1
 requires-python = "==3.12.*"
 resolution-markers = [
-    "python_full_version >= '3.12.4' and extra != 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_full_version < '3.12.4' and extra != 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (python_full_version >= '3.12.4' and sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "(python_full_version < '3.12.4' and platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (python_full_version < '3.12.4' and sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_full_version >= '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_full_version < '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_full_version >= '3.12.4' and sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_full_version < '3.12.4' and sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_full_version >= '3.12.4' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_version < '0'",
-    "python_full_version < '3.12.4' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64' and extra != 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (python_full_version >= '3.12.4' and sys_platform != 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64' and extra != 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (python_full_version < '3.12.4' and sys_platform != 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')",
+    "python_full_version >= '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128'",
+    "python_full_version < '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128'",
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (python_full_version >= '3.12.4' and sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (python_full_version < '3.12.4' and sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')",
+    "python_full_version >= '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128'",
+    "python_full_version < '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128'",
+    "python_full_version >= '3.12.4' and sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128'",
+    "python_full_version < '3.12.4' and sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128'",
+    "python_full_version >= '3.12.4' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128'",
+    "python_full_version < '3.12.4' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128'",
 ]
 conflicts = [[
     { package = "shortsmaker", extra = "cpu" },
-    { package = "shortsmaker", extra = "cu124" },
+    { package = "shortsmaker", extra = "cu128" },
 ]]
 
 [[package]]
@@ -197,10 +31,10 @@ dependencies = [
     { name = "psutil" },
     { name = "pyyaml" },
     { name = "safetensors" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/8f/02/24a4c4edb9cf0f1e0bc32bb6829e2138f1cc201442e7a24f0daf93b8a15a/accelerate-1.4.0.tar.gz", hash = "sha256:37d413e1b64cb8681ccd2908ae211cf73e13e6e636a2f598a96eccaa538773a5", size = 348745 }
 wheels = [
@@ -310,10 +144,10 @@ version = "0.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "numpy" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
     { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/90/fa/5c2be1f96dc179f83cdd3bb267edbd1f47d08f756785c016d5c2163901a7/asteroid-filterbanks-0.4.0.tar.gz", hash = "sha256:415f89d1dcf2b13b35f03f7a9370968ac4e6fa6800633c522dac992b283409b9", size = 24599 }
@@ -424,7 +258,7 @@ name = "click"
 version = "8.1.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a", size = 226593 }
 wheels = [
@@ -457,7 +291,7 @@ name = "colorlog"
 version = "6.9.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/d3/7a/359f4d5df2353f26172b3cc39ea32daa39af8de522205f512f458923e677/colorlog-6.9.0.tar.gz", hash = "sha256:bfba54a1b93b94f54e1f4fe48395725a3d92fd2a4af702f6bd70946bdc0c6ac2", size = 16624 }
 wheels = [
@@ -772,7 +606,7 @@ name = "humanfriendly"
 version = "10.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pyreadline3", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "pyreadline3", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/cc/3f/2c29224acb2e2df4d2046e4c73ee2662023c58ff5b113c4c1adac0886c43/humanfriendly-10.0.tar.gz", hash = "sha256:6b0b831ce8f15f7300721aa49829fc4e83921a9a301cc7f606be6686a2288ddc", size = 360702 }
 wheels = [
@@ -905,10 +739,10 @@ name = "julius"
 version = "0.2.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/a1/19/c9e1596b5572c786b93428d0904280e964c930fae7e6c9368ed9e1b63922/julius-0.2.7.tar.gz", hash = "sha256:3c0f5f5306d7d6016fcc95196b274cae6f07e2c9596eed314e4e7641554fbb08", size = 59640 }
 
@@ -972,7 +806,7 @@ version = "0.3.11"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
-    { name = "orjson", marker = "platform_python_implementation != 'PyPy' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "orjson", marker = "platform_python_implementation != 'PyPy' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
     { name = "packaging" },
     { name = "pydantic" },
     { name = "requests" },
@@ -1009,10 +843,10 @@ dependencies = [
     { name = "packaging" },
     { name = "pytorch-lightning" },
     { name = "pyyaml" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
     { name = "torchmetrics" },
     { name = "tqdm" },
     { name = "typing-extensions" },
@@ -1241,20 +1075,6 @@ wheels = [
 
 [[package]]
 name = "nvidia-cublas-cu12"
-version = "12.4.5.8"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/7f/7f/7fbae15a3982dc9595e49ce0f19332423b260045d0a6afe93cdbe2f1f624/nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_aarch64.whl", hash = "sha256:0f8aa1706812e00b9f19dfe0cdb3999b092ccb8ca168c0db5b8ea712456fd9b3", size = 363333771 },
-    { url = "https://files.pythonhosted.org/packages/ae/71/1c91302526c45ab494c23f61c7a84aa568b8c1f9d196efa5993957faf906/nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl", hash = "sha256:2fc8da60df463fdefa81e323eef2e36489e1c94335b5358bcb38360adf75ac9b", size = 363438805 },
-    { url = "https://files.pythonhosted.org/packages/e2/2a/4f27ca96232e8b5269074a72e03b4e0d43aa68c9b965058b1684d07c6ff8/nvidia_cublas_cu12-12.4.5.8-py3-none-win_amd64.whl", hash = "sha256:5a796786da89203a0657eda402bcdcec6180254a8ac22d72213abc42069522dc", size = 396895858 },
-]
-
-[[package]]
-name = "nvidia-cublas-cu12"
 version = "12.6.4.1"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
@@ -1268,17 +1088,17 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-cuda-cupti-cu12"
-version = "12.4.127"
+name = "nvidia-cublas-cu12"
+version = "12.8.3.14"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/93/b5/9fb3d00386d3361b03874246190dfec7b206fd74e6e287b26a8fcb359d95/nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_aarch64.whl", hash = "sha256:79279b35cf6f91da114182a5ce1864997fd52294a87a16179ce275773799458a", size = 12354556 },
-    { url = "https://files.pythonhosted.org/packages/67/42/f4f60238e8194a3106d06a058d494b18e006c10bb2b915655bd9f6ea4cb1/nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:9dec60f5ac126f7bb551c055072b69d85392b13311fcc1bcda2202d172df30fb", size = 13813957 },
-    { url = "https://files.pythonhosted.org/packages/f3/79/8cf313ec17c58ccebc965568e5bcb265cdab0a1df99c4e674bb7a3b99bfe/nvidia_cuda_cupti_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:5688d203301ab051449a2b1cb6690fbe90d2b372f411521c86018b950f3d7922", size = 9938035 },
+    { url = "https://files.pythonhosted.org/packages/ed/63/684a6f72f52671ea222c12ecde9bdf748a0ba025e2ad3ec374e466c26eb6/nvidia_cublas_cu12-12.8.3.14-py3-none-manylinux_2_27_aarch64.whl", hash = "sha256:93a4e0e386cc7f6e56c822531396de8170ed17068a1e18f987574895044cd8c3", size = 604900717 },
+    { url = "https://files.pythonhosted.org/packages/82/df/4b01f10069e23c641f116c62fc31e31e8dc361a153175d81561d15c8143b/nvidia_cublas_cu12-12.8.3.14-py3-none-manylinux_2_27_x86_64.whl", hash = "sha256:3f0e05e7293598cf61933258b73e66a160c27d59c4422670bf0b79348c04be44", size = 609620630 },
+    { url = "https://files.pythonhosted.org/packages/6c/54/fbfa3315b936d3358517f7da5f9f2557c279bf210e5261f0cf66cc0f9832/nvidia_cublas_cu12-12.8.3.14-py3-none-win_amd64.whl", hash = "sha256:9ae5eae500aead01fc4bdfc458209df638b1a3551557ce11a78eea9ece602ae9", size = 578387959 },
 ]
 
 [[package]]
@@ -1298,17 +1118,17 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-cuda-nvrtc-cu12"
-version = "12.4.127"
+name = "nvidia-cuda-cupti-cu12"
+version = "12.8.57"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/77/aa/083b01c427e963ad0b314040565ea396f914349914c298556484f799e61b/nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_aarch64.whl", hash = "sha256:0eedf14185e04b76aa05b1fea04133e59f465b6f960c0cbf4e37c3cb6b0ea198", size = 24133372 },
-    { url = "https://files.pythonhosted.org/packages/2c/14/91ae57cd4db3f9ef7aa99f4019cfa8d54cb4caa7e00975df6467e9725a9f/nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:a178759ebb095827bd30ef56598ec182b85547f1508941a3d560eb7ea1fbf338", size = 24640306 },
-    { url = "https://files.pythonhosted.org/packages/7c/30/8c844bfb770f045bcd8b2c83455c5afb45983e1a8abf0c4e5297b481b6a5/nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:a961b2f1d5f17b14867c619ceb99ef6fcec12e46612711bcec78eb05068a60ec", size = 19751955 },
+    { url = "https://files.pythonhosted.org/packages/fe/53/458956a65283c55c22ba40a65745bbe9ff20c10b68ea241bc575e20c0465/nvidia_cuda_cupti_cu12-12.8.57-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:ff154211724fd824e758ce176b66007b558eea19c9a5135fc991827ee147e317", size = 9526469 },
+    { url = "https://files.pythonhosted.org/packages/39/6f/3683ecf4e38931971946777d231c2df00dd5c1c4c2c914c42ad8f9f4dca6/nvidia_cuda_cupti_cu12-12.8.57-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:8e0b2eb847de260739bee4a3f66fac31378f4ff49538ff527a38a01a9a39f950", size = 10237547 },
+    { url = "https://files.pythonhosted.org/packages/3f/2a/cabe033045427beb042b70b394ac3fd7cfefe157c965268824011b16af67/nvidia_cuda_cupti_cu12-12.8.57-py3-none-win_amd64.whl", hash = "sha256:bbed719c52a476958a74cfc42f2b95a3fd6b3fd94eb40134acc4601feb4acac3", size = 7002337 },
 ]
 
 [[package]]
@@ -1326,17 +1146,17 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-cuda-runtime-cu12"
-version = "12.4.127"
+name = "nvidia-cuda-nvrtc-cu12"
+version = "12.8.61"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a1/aa/b656d755f474e2084971e9a297def515938d56b466ab39624012070cb773/nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_aarch64.whl", hash = "sha256:961fe0e2e716a2a1d967aab7caee97512f71767f852f67432d572e36cb3a11f3", size = 894177 },
-    { url = "https://files.pythonhosted.org/packages/ea/27/1795d86fe88ef397885f2e580ac37628ed058a92ed2c39dc8eac3adf0619/nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:64403288fa2136ee8e467cdc9c9427e0434110899d07c779f25b5c068934faa5", size = 883737 },
-    { url = "https://files.pythonhosted.org/packages/a8/8b/450e93fab75d85a69b50ea2d5fdd4ff44541e0138db16f9cd90123ef4de4/nvidia_cuda_runtime_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:09c2e35f48359752dfa822c09918211844a3d93c100a715d79b59591130c5e1e", size = 878808 },
+    { url = "https://files.pythonhosted.org/packages/d4/22/32029d4583f7b19cfe75c84399cbcfd23f2aaf41c66fc8db4da460104fff/nvidia_cuda_nvrtc_cu12-12.8.61-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl", hash = "sha256:a0fa9c2a21583105550ebd871bd76e2037205d56f33f128e69f6d2a55e0af9ed", size = 88024585 },
+    { url = "https://files.pythonhosted.org/packages/f1/98/29f98d57fc40d6646337e942d37509c6d5f8abe29012671f7a6eb9978ebe/nvidia_cuda_nvrtc_cu12-12.8.61-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:b1f376bf58111ca73dde4fd4df89a462b164602e074a76a2c29c121ca478dcd4", size = 43097015 },
+    { url = "https://files.pythonhosted.org/packages/f8/5b/052d05aa068e4752415ad03bac58e852ea8bc17c9321e08546b3f261e47e/nvidia_cuda_nvrtc_cu12-12.8.61-py3-none-win_amd64.whl", hash = "sha256:9c8887bf5e5dffc441018ba8c5dc59952372a6f4806819e8c1f03d62637dbeea", size = 73567440 },
 ]
 
 [[package]]
@@ -1356,19 +1176,17 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-cudnn-cu12"
-version = "9.1.0.70"
+name = "nvidia-cuda-runtime-cu12"
+version = "12.8.57"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-dependencies = [
-    { name = "nvidia-cublas-cu12", version = "12.4.5.8", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9f/fd/713452cd72343f682b1c7b9321e23829f00b842ceaedcda96e742ea0b0b3/nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl", hash = "sha256:165764f44ef8c61fcdfdfdbe769d687e06374059fbb388b6c89ecb0e28793a6f", size = 664752741 },
-    { url = "https://files.pythonhosted.org/packages/3f/d0/f90ee6956a628f9f04bf467932c0a25e5a7e706a684b896593c06c82f460/nvidia_cudnn_cu12-9.1.0.70-py3-none-win_amd64.whl", hash = "sha256:6278562929433d68365a07a4a1546c237ba2849852c0d4b2262a486e805b977a", size = 679925892 },
+    { url = "https://files.pythonhosted.org/packages/cd/9d/e77ec4227e70c6006195bdf410370f2d0e5abfa2dc0d1d315cacd57c5c88/nvidia_cuda_runtime_cu12-12.8.57-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:534ccebd967b6a44292678fa5da4f00666029cb2ed07a79515ea41ef31fe3ec7", size = 965264 },
+    { url = "https://files.pythonhosted.org/packages/16/f6/0e1ef31f4753a44084310ba1a7f0abaf977ccd810a604035abb43421c057/nvidia_cuda_runtime_cu12-12.8.57-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:75342e28567340b7428ce79a5d6bb6ca5ff9d07b69e7ce00d2c7b4dc23eff0be", size = 954762 },
+    { url = "https://files.pythonhosted.org/packages/16/ee/52508c74bee2a3de8d59c6fd9af4ca2f216052fa2bc916da3a6a7bb998af/nvidia_cuda_runtime_cu12-12.8.57-py3-none-win_amd64.whl", hash = "sha256:89be637e3ee967323865b85e0f147d75f9a5bd98360befa37481b02dd57af8f5", size = 944309 },
 ]
 
 [[package]]
@@ -1380,7 +1198,7 @@ resolution-markers = [
     "python_full_version < '3.12.4'",
 ]
 dependencies = [
-    { name = "nvidia-cublas-cu12", version = "12.6.4.1", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
+    { name = "nvidia-cublas-cu12", version = "12.6.4.1", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/99/93/a201a12d3ec1caa8c6ac34c1c2f9eeb696b886f0c36ff23c638b46603bd0/nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_aarch64.whl", hash = "sha256:9fd4584468533c61873e5fda8ca41bac3a38bcb2d12350830c69b0a96a7e4def", size = 570523509 },
@@ -1389,20 +1207,20 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-cufft-cu12"
-version = "11.2.1.3"
+name = "nvidia-cudnn-cu12"
+version = "9.7.1.26"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
 ]
 dependencies = [
-    { name = "nvidia-nvjitlink-cu12", version = "12.4.127", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
+    { name = "nvidia-cublas-cu12", version = "12.8.3.14", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7a/8a/0e728f749baca3fbeffad762738276e5df60851958be7783af121a7221e7/nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_aarch64.whl", hash = "sha256:5dad8008fc7f92f5ddfa2101430917ce2ffacd86824914c82e28990ad7f00399", size = 211422548 },
-    { url = "https://files.pythonhosted.org/packages/27/94/3266821f65b92b3138631e9c8e7fe1fb513804ac934485a8d05776e1dd43/nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl", hash = "sha256:f083fc24912aa410be21fa16d157fed2055dab1cc4b6934a0e03cba69eb242b9", size = 211459117 },
-    { url = "https://files.pythonhosted.org/packages/f6/ee/3f3f8e9874f0be5bbba8fb4b62b3de050156d159f8b6edc42d6f1074113b/nvidia_cufft_cu12-11.2.1.3-py3-none-win_amd64.whl", hash = "sha256:d802f4954291101186078ccbe22fc285a902136f974d369540fd4a5333d1440b", size = 210576476 },
+    { url = "https://files.pythonhosted.org/packages/c1/2e/ec5dda717eeb1de3afbbbb611ca556f9d6d057470759c6abd36d72f0063b/nvidia_cudnn_cu12-9.7.1.26-py3-none-manylinux_2_27_aarch64.whl", hash = "sha256:848a61d40ef3b32bd4e1fadb599f0cf04a4b942fbe5fb3be572ad75f9b8c53ef", size = 725862213 },
+    { url = "https://files.pythonhosted.org/packages/25/dc/dc825c4b1c83b538e207e34f48f86063c88deaa35d46c651c7c181364ba2/nvidia_cudnn_cu12-9.7.1.26-py3-none-manylinux_2_27_x86_64.whl", hash = "sha256:6d011159a158f3cfc47bf851aea79e31bcff60d530b70ef70474c84cac484d07", size = 726851421 },
+    { url = "https://files.pythonhosted.org/packages/d0/ea/636cda41b3865caa0d43c34f558167304acde3d2c5f6c54c00a550e69ecd/nvidia_cudnn_cu12-9.7.1.26-py3-none-win_amd64.whl", hash = "sha256:7b805b9a4cf9f3da7c5f4ea4a9dff7baf62d1a612d6154a7e0d2ea51ed296241", size = 715962100 },
 ]
 
 [[package]]
@@ -1414,7 +1232,7 @@ resolution-markers = [
     "python_full_version < '3.12.4'",
 ]
 dependencies = [
-    { name = "nvidia-nvjitlink-cu12", version = "12.6.85", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
+    { name = "nvidia-nvjitlink-cu12", version = "12.6.85", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/1f/37/c50d2b2f2c07e146776389e3080f4faf70bcc4fa6e19d65bb54ca174ebc3/nvidia_cufft_cu12-11.3.0.4-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:d16079550df460376455cba121db6564089176d9bac9e4f360493ca4741b22a6", size = 200164144 },
@@ -1425,26 +1243,46 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-cufile-cu12"
-version = "1.11.1.6"
+name = "nvidia-cufft-cu12"
+version = "11.3.3.41"
 source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
+]
+dependencies = [
+    { name = "nvidia-nvjitlink-cu12", version = "12.8.61", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b2/66/cc9876340ac68ae71b15c743ddb13f8b30d5244af344ec8322b449e35426/nvidia_cufile_cu12-1.11.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:cc23469d1c7e52ce6c1d55253273d32c565dd22068647f3aa59b3c6b005bf159", size = 1142103 },
-    { url = "https://files.pythonhosted.org/packages/17/bf/cc834147263b929229ce4aadd62869f0b195e98569d4c28b23edc72b85d9/nvidia_cufile_cu12-1.11.1.6-py3-none-manylinux_2_27_aarch64.whl", hash = "sha256:8f57a0051dcf2543f6dc2b98a98cb2719c37d3cee1baba8965d57f3bbc90d4db", size = 1066155 },
+    { url = "https://files.pythonhosted.org/packages/72/95/6157cb45a49f5090a470de42353a22a0ed5b13077886dca891b4b0e350fe/nvidia_cufft_cu12-11.3.3.41-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:68509dcd7e3306e69d0e2d8a6d21c8b25ed62e6df8aac192ce752f17677398b5", size = 193108626 },
+    { url = "https://files.pythonhosted.org/packages/ac/26/b53c493c38dccb1f1a42e1a21dc12cba2a77fbe36c652f7726d9ec4aba28/nvidia_cufft_cu12-11.3.3.41-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:da650080ab79fcdf7a4b06aa1b460e99860646b176a43f6208099bdc17836b6a", size = 193118795 },
+    { url = "https://files.pythonhosted.org/packages/32/f3/f6248aa119c2726b1bdd02d472332cae274133bd32ca5fa8822efb0c308c/nvidia_cufft_cu12-11.3.3.41-py3-none-win_amd64.whl", hash = "sha256:f9760612886786601d27a0993bb29ce1f757e6b8b173499d0ecfa850d31b50f8", size = 192216738 },
 ]
 
 [[package]]
-name = "nvidia-curand-cu12"
-version = "10.3.5.147"
+name = "nvidia-cufile-cu12"
+version = "1.11.1.6"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
     "python_full_version >= '3.12.4'",
     "python_full_version < '3.12.4'",
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/80/9c/a79180e4d70995fdf030c6946991d0171555c6edf95c265c6b2bf7011112/nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_aarch64.whl", hash = "sha256:1f173f09e3e3c76ab084aba0de819c49e56614feae5c12f69883f4ae9bb5fad9", size = 56314811 },
-    { url = "https://files.pythonhosted.org/packages/8a/6d/44ad094874c6f1b9c654f8ed939590bdc408349f137f9b98a3a23ccec411/nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl", hash = "sha256:a88f583d4e0bb643c49743469964103aa59f7f708d862c3ddb0fc07f851e3b8b", size = 56305206 },
-    { url = "https://files.pythonhosted.org/packages/1c/22/2573503d0d4e45673c263a313f79410e110eb562636b0617856fdb2ff5f6/nvidia_curand_cu12-10.3.5.147-py3-none-win_amd64.whl", hash = "sha256:f307cc191f96efe9e8f05a87096abc20d08845a841889ef78cb06924437f6771", size = 55799918 },
+    { url = "https://files.pythonhosted.org/packages/b2/66/cc9876340ac68ae71b15c743ddb13f8b30d5244af344ec8322b449e35426/nvidia_cufile_cu12-1.11.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:cc23469d1c7e52ce6c1d55253273d32c565dd22068647f3aa59b3c6b005bf159", size = 1142103 },
+    { url = "https://files.pythonhosted.org/packages/17/bf/cc834147263b929229ce4aadd62869f0b195e98569d4c28b23edc72b85d9/nvidia_cufile_cu12-1.11.1.6-py3-none-manylinux_2_27_aarch64.whl", hash = "sha256:8f57a0051dcf2543f6dc2b98a98cb2719c37d3cee1baba8965d57f3bbc90d4db", size = 1066155 },
+]
+
+[[package]]
+name = "nvidia-cufile-cu12"
+version = "1.13.0.11"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e5/9c/1f3264d0a84c8a031487fb7f59780fc78fa6f1c97776233956780e3dc3ac/nvidia_cufile_cu12-1.13.0.11-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:483f434c541806936b98366f6d33caef5440572de8ddf38d453213729da3e7d4", size = 1197801 },
+    { url = "https://files.pythonhosted.org/packages/35/80/f6a0fc90ab6fa4ac916f3643e5b620fd19724626c59ae83b74f5efef0349/nvidia_cufile_cu12-1.13.0.11-py3-none-manylinux_2_27_aarch64.whl", hash = "sha256:2acbee65dc2eaf58331f0798c5e6bcdd790c4acb26347530297e63528c9eba5d", size = 1120660 },
 ]
 
 [[package]]
@@ -1464,22 +1302,17 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-cusolver-cu12"
-version = "11.6.1.9"
+name = "nvidia-curand-cu12"
+version = "10.3.9.55"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-dependencies = [
-    { name = "nvidia-cublas-cu12", version = "12.4.5.8", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "nvidia-cusparse-cu12", version = "12.3.1.170", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "nvidia-nvjitlink-cu12", version = "12.4.127", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/46/6b/a5c33cf16af09166845345275c34ad2190944bcc6026797a39f8e0a282e0/nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_aarch64.whl", hash = "sha256:d338f155f174f90724bbde3758b7ac375a70ce8e706d70b018dd3375545fc84e", size = 127634111 },
-    { url = "https://files.pythonhosted.org/packages/3a/e1/5b9089a4b2a4790dfdea8b3a006052cfecff58139d5a4e34cb1a51df8d6f/nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl", hash = "sha256:19e33fa442bcfd085b3086c4ebf7e8debc07cfe01e11513cc6d332fd918ac260", size = 127936057 },
-    { url = "https://files.pythonhosted.org/packages/f2/be/d435b7b020e854d5d5a682eb5de4328fd62f6182507406f2818280e206e2/nvidia_cusolver_cu12-11.6.1.9-py3-none-win_amd64.whl", hash = "sha256:e77314c9d7b694fcebc84f58989f3aa4fb4cb442f12ca1a9bde50f5e8f6d1b9c", size = 125224015 },
+    { url = "https://files.pythonhosted.org/packages/f4/13/bbcf48e2f8a6a9adef58f130bc968810528a4e66bbbe62fad335241e699f/nvidia_curand_cu12-10.3.9.55-py3-none-manylinux_2_27_aarch64.whl", hash = "sha256:b6bb90c044fa9b07cedae2ef29077c4cf851fb6fdd6d862102321f359dca81e9", size = 63623836 },
+    { url = "https://files.pythonhosted.org/packages/bd/fc/7be5d0082507269bb04ac07cc614c84b78749efb96e8cf4100a8a1178e98/nvidia_curand_cu12-10.3.9.55-py3-none-manylinux_2_27_x86_64.whl", hash = "sha256:8387d974240c91f6a60b761b83d4b2f9b938b7e0b9617bae0f0dafe4f5c36b86", size = 63618038 },
+    { url = "https://files.pythonhosted.org/packages/d6/f0/91252f3cffe3f3c233a8e17262c21b41534652edfe783c1e58ea1c92c115/nvidia_curand_cu12-10.3.9.55-py3-none-win_amd64.whl", hash = "sha256:570d82475fe7f3d8ed01ffbe3b71796301e0e24c98762ca018ff8ce4f5418e1f", size = 62761446 },
 ]
 
 [[package]]
@@ -1491,9 +1324,9 @@ resolution-markers = [
     "python_full_version < '3.12.4'",
 ]
 dependencies = [
-    { name = "nvidia-cublas-cu12", version = "12.6.4.1", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cusparse-cu12", version = "12.5.4.2", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-nvjitlink-cu12", version = "12.6.85", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
+    { name = "nvidia-cublas-cu12", version = "12.6.4.1", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cusparse-cu12", version = "12.5.4.2", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-nvjitlink-cu12", version = "12.6.85", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/93/17/dbe1aa865e4fdc7b6d4d0dd308fdd5aaab60f939abfc0ea1954eac4fb113/nvidia_cusolver_cu12-11.7.1.2-py3-none-manylinux2014_aarch64.whl", hash = "sha256:0ce237ef60acde1efc457335a2ddadfd7610b892d94efee7b776c64bb1cac9e0", size = 157833628 },
@@ -1504,20 +1337,22 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-cusparse-cu12"
-version = "12.3.1.170"
+name = "nvidia-cusolver-cu12"
+version = "11.7.2.55"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
 ]
 dependencies = [
-    { name = "nvidia-nvjitlink-cu12", version = "12.4.127", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
+    { name = "nvidia-cublas-cu12", version = "12.8.3.14", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cusparse-cu12", version = "12.5.7.53", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-nvjitlink-cu12", version = "12.8.61", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/96/a9/c0d2f83a53d40a4a41be14cea6a0bf9e668ffcf8b004bd65633f433050c0/nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_aarch64.whl", hash = "sha256:9d32f62896231ebe0480efd8a7f702e143c98cfaa0e8a76df3386c1ba2b54df3", size = 207381987 },
-    { url = "https://files.pythonhosted.org/packages/db/f7/97a9ea26ed4bbbfc2d470994b8b4f338ef663be97b8f677519ac195e113d/nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl", hash = "sha256:ea4f11a2904e2a8dc4b1833cc1b5181cde564edd0d5cd33e3c168eff2d1863f1", size = 207454763 },
-    { url = "https://files.pythonhosted.org/packages/a2/e0/3155ca539760a8118ec94cc279b34293309bcd14011fc724f87f31988843/nvidia_cusparse_cu12-12.3.1.170-py3-none-win_amd64.whl", hash = "sha256:9bc90fb087bc7b4c15641521f31c0371e9a612fc2ba12c338d3ae032e6b6797f", size = 204684315 },
+    { url = "https://files.pythonhosted.org/packages/8c/ce/4214a892e804b20bf66d04f04a473006fc2d3dac158160ef85f1bc906639/nvidia_cusolver_cu12-11.7.2.55-py3-none-manylinux_2_27_aarch64.whl", hash = "sha256:0fd9e98246f43c15bee5561147ad235dfdf2d037f5d07c9d41af3f7f72feb7cc", size = 260094827 },
+    { url = "https://files.pythonhosted.org/packages/c2/08/953675873a136d96bb12f93b49ba045d1107bc94d2551c52b12fa6c7dec3/nvidia_cusolver_cu12-11.7.2.55-py3-none-manylinux_2_27_x86_64.whl", hash = "sha256:4d1354102f1e922cee9db51920dba9e2559877cf6ff5ad03a00d853adafb191b", size = 260373342 },
+    { url = "https://files.pythonhosted.org/packages/c4/f9/e0e6f8b7aecd13e0f9e937d116fb3211329a0a92b9bea9624b1368de307a/nvidia_cusolver_cu12-11.7.2.55-py3-none-win_amd64.whl", hash = "sha256:a5a516c55da5c5aba98420d9bc9bcab18245f21ec87338cc1f930eb18dd411ac", size = 249600787 },
 ]
 
 [[package]]
@@ -1529,7 +1364,7 @@ resolution-markers = [
     "python_full_version < '3.12.4'",
 ]
 dependencies = [
-    { name = "nvidia-nvjitlink-cu12", version = "12.6.85", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
+    { name = "nvidia-nvjitlink-cu12", version = "12.6.85", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/eb/eb/6681efd0aa7df96b4f8067b3ce7246833dd36830bb4cec8896182773db7d/nvidia_cusparse_cu12-12.5.4.2-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:d25b62fb18751758fe3c93a4a08eff08effedfe4edf1c6bb5afd0890fe88f887", size = 216451147 },
@@ -1540,27 +1375,26 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-cusparselt-cu12"
-version = "0.6.2"
+name = "nvidia-cusparse-cu12"
+version = "12.5.7.53"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
+]
+dependencies = [
+    { name = "nvidia-nvjitlink-cu12", version = "12.8.61", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/98/8e/675498726c605c9441cf46653bd29cb1b8666da1fb1469ffa25f67f20c58/nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_aarch64.whl", hash = "sha256:067a7f6d03ea0d4841c85f0c6f1991c5dda98211f6302cb83a4ab234ee95bef8", size = 149422781 },
-    { url = "https://files.pythonhosted.org/packages/78/a8/bcbb63b53a4b1234feeafb65544ee55495e1bb37ec31b999b963cbccfd1d/nvidia_cusparselt_cu12-0.6.2-py3-none-manylinux2014_x86_64.whl", hash = "sha256:df2c24502fd76ebafe7457dbc4716b2fec071aabaed4fb7691a201cde03704d9", size = 150057751 },
-    { url = "https://files.pythonhosted.org/packages/56/8f/2c33082238b6c5e783a877dc8786ab62619e3e6171c083bd3bba6e3fe75e/nvidia_cusparselt_cu12-0.6.2-py3-none-win_amd64.whl", hash = "sha256:0057c91d230703924c0422feabe4ce768841f9b4b44d28586b6f6d2eb86fbe70", size = 148755794 },
+    { url = "https://files.pythonhosted.org/packages/2e/a2/313db0453087f5324a5900380ca2e57e050c8de76f407b5e11383dc762ae/nvidia_cusparse_cu12-12.5.7.53-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:d869c6146ca80f4305b62e02d924b4aaced936f8173e3cef536a67eed2a91af1", size = 291963692 },
+    { url = "https://files.pythonhosted.org/packages/c2/ab/31e8149c66213b846c082a3b41b1365b831f41191f9f40c6ddbc8a7d550e/nvidia_cusparse_cu12-12.5.7.53-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:3c1b61eb8c85257ea07e9354606b26397612627fdcd327bfd91ccf6155e7c86d", size = 292064180 },
+    { url = "https://files.pythonhosted.org/packages/7c/48/64b01653919a3d1d9b5117c156806ab0db8312c7496ff646477a5c1545bf/nvidia_cusparse_cu12-12.5.7.53-py3-none-win_amd64.whl", hash = "sha256:82c201d6781bacf6bb7c654f0446728d0fe596dfdd82ef4a04c204ce3e107441", size = 288767123 },
 ]
 
 [[package]]
 name = "nvidia-cusparselt-cu12"
 version = "0.6.3"
 source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/62/da/4de092c61c6dea1fc9c936e69308a02531d122e12f1f649825934ad651b5/nvidia_cusparselt_cu12-0.6.3-py3-none-manylinux2014_aarch64.whl", hash = "sha256:8371549623ba601a06322af2133c4a44350575f5a3108fb75f3ef20b822ad5f1", size = 156402859 },
     { url = "https://files.pythonhosted.org/packages/3b/9a/72ef35b399b0e183bc2e8f6f558036922d453c4d8237dab26c666a04244b/nvidia_cusparselt_cu12-0.6.3-py3-none-manylinux2014_x86_64.whl", hash = "sha256:e5c8a26c36445dd2e6812f1177978a24e2d37cacce7e090f297a688d1ec44f46", size = 156785796 },
@@ -1569,41 +1403,11 @@ wheels = [
 
 [[package]]
 name = "nvidia-nccl-cu12"
-version = "2.21.5"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/df/99/12cd266d6233f47d00daf3a72739872bdc10267d0383508b0b9c84a18bb6/nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl", hash = "sha256:8579076d30a8c24988834445f8d633c697d42397e92ffc3f63fa26766d25e0a0", size = 188654414 },
-]
-
-[[package]]
-name = "nvidia-nccl-cu12"
 version = "2.26.2"
 source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/69/5b/ca2f213f637305633814ae8c36b153220e40a07ea001966dcd87391f3acb/nvidia_nccl_cu12-2.26.2-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:5c196e95e832ad30fbbb50381eb3cbd1fadd5675e587a548563993609af19522", size = 291671495 },
     { url = "https://files.pythonhosted.org/packages/67/ca/f42388aed0fddd64ade7493dbba36e1f534d4e6fdbdd355c6a90030ae028/nvidia_nccl_cu12-2.26.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:694cf3879a206553cc9d7dbda76b13efaf610fdb70a50cba303de1b0d1530ac6", size = 201319755 },
-]
-
-[[package]]
-name = "nvidia-nvjitlink-cu12"
-version = "12.4.127"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/02/45/239d52c05074898a80a900f49b1615d81c07fceadd5ad6c4f86a987c0bc4/nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_aarch64.whl", hash = "sha256:4abe7fef64914ccfa909bc2ba39739670ecc9e820c83ccc7a6ed414122599b83", size = 20552510 },
-    { url = "https://files.pythonhosted.org/packages/ff/ff/847841bacfbefc97a00036e0fce5a0f086b640756dc38caea5e1bb002655/nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:06b3b9b25bf3f8af351d664978ca26a16d2c5127dbd53c0497e28d1fb9611d57", size = 21066810 },
-    { url = "https://files.pythonhosted.org/packages/81/19/0babc919031bee42620257b9a911c528f05fb2688520dcd9ca59159ffea8/nvidia_nvjitlink_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:fd9020c501d27d135f983c6d3e244b197a7ccad769e34df53a42e276b0e25fa1", size = 95336325 },
 ]
 
 [[package]]
@@ -1621,17 +1425,17 @@ wheels = [
 ]
 
 [[package]]
-name = "nvidia-nvtx-cu12"
-version = "12.4.127"
+name = "nvidia-nvjitlink-cu12"
+version = "12.8.61"
 source = { registry = "https://pypi.org/simple" }
 resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/06/39/471f581edbb7804b39e8063d92fc8305bdc7a80ae5c07dbe6ea5c50d14a5/nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_aarch64.whl", hash = "sha256:7959ad635db13edf4fc65c06a6e9f9e55fc2f92596db928d169c0bb031e88ef3", size = 100417 },
-    { url = "https://files.pythonhosted.org/packages/87/20/199b8713428322a2f22b722c62b8cc278cc53dffa9705d744484b5035ee9/nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:781e950d9b9f60d8241ccea575b32f5105a5baf4c2351cab5256a24869f12a1a", size = 99144 },
-    { url = "https://files.pythonhosted.org/packages/54/1b/f77674fbb73af98843be25803bbd3b9a4f0a96c75b8d33a2854a5c7d2d77/nvidia_nvtx_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:641dccaaa1139f3ffb0d3164b4b84f9d253397e38246a4f2f36728b48566d485", size = 66307 },
+    { url = "https://files.pythonhosted.org/packages/03/f8/9d85593582bd99b8d7c65634d2304780aefade049b2b94d96e44084be90b/nvidia_nvjitlink_cu12-12.8.61-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl", hash = "sha256:45fd79f2ae20bd67e8bc411055939049873bfd8fac70ff13bd4865e0b9bdab17", size = 39243473 },
+    { url = "https://files.pythonhosted.org/packages/af/53/698f3758f48c5fcb1112721e40cc6714da3980d3c7e93bae5b29dafa9857/nvidia_nvjitlink_cu12-12.8.61-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:9b80ecab31085dda3ce3b41d043be0ec739216c3fc633b8abe212d5a30026df0", size = 38374634 },
+    { url = "https://files.pythonhosted.org/packages/7f/c6/0d1b2bfeb2ef42c06db0570c4d081e5cde4450b54c09e43165126cfe6ff6/nvidia_nvjitlink_cu12-12.8.61-py3-none-win_amd64.whl", hash = "sha256:1166a964d25fdc0eae497574d38824305195a5283324a21ccb0ce0c802cbf41c", size = 268514099 },
 ]
 
 [[package]]
@@ -1648,6 +1452,20 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/56/9a/fff8376f8e3d084cd1530e1ef7b879bb7d6d265620c95c1b322725c694f4/nvidia_nvtx_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:b90bed3df379fa79afbd21be8e04a0314336b8ae16768b58f2d34cb1d04cd7d2", size = 89276 },
     { url = "https://files.pythonhosted.org/packages/9e/4e/0d0c945463719429b7bd21dece907ad0bde437a2ff12b9b12fee94722ab0/nvidia_nvtx_cu12-12.6.77-py3-none-manylinux2014_x86_64.whl", hash = "sha256:6574241a3ec5fdc9334353ab8c479fe75841dbe8f4532a8fc97ce63503330ba1", size = 89265 },
     { url = "https://files.pythonhosted.org/packages/f7/cd/98a447919d4ed14d407ac82b14b0a0c9c1dbfe81099934b1fc3bfd1e6316/nvidia_nvtx_cu12-12.6.77-py3-none-win_amd64.whl", hash = "sha256:2fb11a4af04a5e6c84073e6404d26588a34afd35379f0855a99797897efa75c0", size = 56434 },
+]
+
+[[package]]
+name = "nvidia-nvtx-cu12"
+version = "12.8.55"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bb/e8/ae6ecbdade8bb9174d75db2b302c57c1c27d9277d6531c62aafde5fb32a3/nvidia_nvtx_cu12-12.8.55-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:c38405335fbc0f0bf363eaeaeb476e8dfa8bae82fada41d25ace458b9ba9f3db", size = 91103 },
+    { url = "https://files.pythonhosted.org/packages/8d/cd/0e8c51b2ae3a58f054f2e7fe91b82d201abfb30167f2431e9bd92d532f42/nvidia_nvtx_cu12-12.8.55-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:2dd0780f1a55c21d8e06a743de5bd95653de630decfff40621dbde78cc307102", size = 89896 },
+    { url = "https://files.pythonhosted.org/packages/e5/14/84d46e62bfde46dd20cfb041e0bb5c2ec454fd6a384696e7fa3463c5bb59/nvidia_nvtx_cu12-12.8.55-py3-none-win_amd64.whl", hash = "sha256:9022681677aef1313458f88353ad9c0d2fbbe6402d6b07c9f00ba0e3ca8774d3", size = 56435 },
 ]
 
 [[package]]
@@ -1686,8 +1504,7 @@ dependencies = [
     { name = "numpy" },
     { name = "packaging" },
     { name = "protobuf" },
-    { name = "sympy", version = "1.13.1", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "sympy", version = "1.13.3", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cpu' or extra != 'extra-11-shortsmaker-cu124'" },
+    { name = "sympy" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e5/39/9335e0874f68f7d27103cbffc0e235e32e26759202df6085716375c078bb/onnxruntime-1.20.1-cp312-cp312-macosx_13_0_universal2.whl", hash = "sha256:22b0655e2bf4f2161d52706e31f517a0e54939dc393e92577df51808a7edc8c9", size = 31007580 },
@@ -1940,15 +1757,16 @@ dependencies = [
     { name = "soundfile" },
     { name = "speechbrain" },
     { name = "tensorboardx" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
     { name = "torch-audiomentations" },
-    { name = "torchaudio", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
     { name = "torchmetrics" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/e9/00/3b96ca7ad0641e4f64cfaa2af153dc7da0998ff972280e1c1681b1fcc243/pyannote_audio-3.3.2.tar.gz", hash = "sha256:b2115e86b0db5faedb9f36ee1a150cebd07f7758e65e815accdac1a12ca9c777", size = 13664309 }
@@ -1999,8 +1817,7 @@ dependencies = [
     { name = "pyannote-database" },
     { name = "scikit-learn" },
     { name = "scipy" },
-    { name = "sympy", version = "1.13.1", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "sympy", version = "1.13.3", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cpu' or extra != 'extra-11-shortsmaker-cu124'" },
+    { name = "sympy" },
     { name = "tabulate" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/39/2b/6c5f01d3c49aa1c160765946e23782ca6436ae8b9bc514b56319ff5f16e7/pyannote.metrics-3.2.1.tar.gz", hash = "sha256:08024255a3550e96a8e9da4f5f4af326886548480de891414567c8900920ee5c", size = 49086 }
@@ -2116,7 +1933,7 @@ name = "pytest"
 version = "8.3.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
     { name = "iniconfig" },
     { name = "packaging" },
     { name = "pluggy" },
@@ -2181,10 +1998,10 @@ dependencies = [
     { name = "lightning-utilities" },
     { name = "packaging" },
     { name = "pyyaml" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
     { name = "torchmetrics" },
     { name = "tqdm" },
     { name = "typing-extensions" },
@@ -2201,10 +2018,10 @@ source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "numpy" },
     { name = "scikit-learn" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
     { name = "tqdm" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/78/94/1bfb2c3eaf195b2d72912b65b3d417f2d9ac22491563eca360d453512c59/pytorch-metric-learning-2.8.1.tar.gz", hash = "sha256:fcc4d3b4a805e5fce25fb2e67505c47ba6fea0563fc09c5655ea1f08d1e8ed93", size = 83117 }
@@ -2341,7 +2158,7 @@ name = "ruamel-yaml"
 version = "0.18.10"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "ruamel-yaml-clib", marker = "platform_python_implementation == 'CPython' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "ruamel-yaml-clib", marker = "platform_python_implementation == 'CPython' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/ea/46/f44d8be06b85bc7c4d8c95d658be2b68f27711f279bf9dd0612a5e4794f5/ruamel.yaml-0.18.10.tar.gz", hash = "sha256:20c86ab29ac2153f80a428e1254a8adf686d3383df04490514ca3b79a362db58", size = 143447 }
 wheels = [
@@ -2528,17 +2345,19 @@ dependencies = [
 
 [package.optional-dependencies]
 cpu = [
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchvision", version = "0.22.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchvision", version = "0.22.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchvision", version = "0.22.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchvision", version = "0.22.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
-cu124 = [
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" } },
-    { name = "torchaudio", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" } },
-    { name = "torchvision", version = "0.21.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" } },
+cu128 = [
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" } },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchvision", version = "0.22.0", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchvision", version = "0.22.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 
 [package.dev-dependencies]
@@ -2574,18 +2393,18 @@ requires-dist = [
     { name = "requests", specifier = ">=2.32.3" },
     { name = "setuptools", specifier = ">=75.8.0" },
     { name = "torch", marker = "extra == 'cpu'", specifier = ">=2.7.0", index = "https://download.pytorch.org/whl/cpu", conflict = { package = "shortsmaker", extra = "cpu" } },
-    { name = "torch", marker = "extra == 'cu124'", specifier = ">=2.6.0", index = "https://download.pytorch.org/whl/cu124", conflict = { package = "shortsmaker", extra = "cu124" } },
+    { name = "torch", marker = "extra == 'cu128'", specifier = ">=2.7.0", index = "https://download.pytorch.org/whl/cu128", conflict = { package = "shortsmaker", extra = "cu128" } },
     { name = "torchaudio", marker = "extra == 'cpu'", specifier = ">=2.7.0", index = "https://download.pytorch.org/whl/cpu", conflict = { package = "shortsmaker", extra = "cpu" } },
-    { name = "torchaudio", marker = "extra == 'cu124'", specifier = ">=2.6.0", index = "https://download.pytorch.org/whl/cu124", conflict = { package = "shortsmaker", extra = "cu124" } },
+    { name = "torchaudio", marker = "extra == 'cu128'", specifier = ">=2.7.0", index = "https://download.pytorch.org/whl/cu128", conflict = { package = "shortsmaker", extra = "cu128" } },
     { name = "torchvision", marker = "extra == 'cpu'", specifier = ">=0.22.0", index = "https://download.pytorch.org/whl/cpu", conflict = { package = "shortsmaker", extra = "cpu" } },
-    { name = "torchvision", marker = "extra == 'cu124'", specifier = ">=0.21.0", index = "https://download.pytorch.org/whl/cu124", conflict = { package = "shortsmaker", extra = "cu124" } },
+    { name = "torchvision", marker = "extra == 'cu128'", specifier = ">=0.22.0", index = "https://download.pytorch.org/whl/cu128", conflict = { package = "shortsmaker", extra = "cu128" } },
     { name = "transformers", specifier = ">=4.48.2" },
     { name = "unidecode", specifier = ">=1.3.8" },
     { name = "wheel", specifier = ">=0.45.1" },
     { name = "whisperx", specifier = ">=3.3.1" },
     { name = "yt-dlp", specifier = ">=2025.2.19" },
 ]
-provides-extras = ["cpu", "cu124"]
+provides-extras = ["cpu", "cu128"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -2664,14 +2483,15 @@ dependencies = [
     { name = "packaging" },
     { name = "scipy" },
     { name = "sentencepiece" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
     { name = "tqdm" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/93/60/76aebeee10c5a95f3aad25d97c185106ea308307953b26991860f0b9719e/speechbrain-1.0.2.tar.gz", hash = "sha256:b293d665161d7cd34caa3ee8966acce6c43b611b7fc9cd0b24637ce871bd7a73", size = 22532336 }
@@ -2684,7 +2504,7 @@ name = "sqlalchemy"
 version = "2.0.38"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "greenlet", marker = "platform_machine == 'AMD64' or platform_machine == 'WIN32' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'ppc64le' or platform_machine == 'win32' or platform_machine == 'x86_64' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "greenlet", marker = "platform_machine == 'AMD64' or platform_machine == 'WIN32' or platform_machine == 'aarch64' or platform_machine == 'amd64' or platform_machine == 'ppc64le' or platform_machine == 'win32' or platform_machine == 'x86_64' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
     { name = "typing-extensions" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/e4/08/9a90962ea72acd532bda71249a626344d855c4032603924b1b547694b837/sqlalchemy-2.0.38.tar.gz", hash = "sha256:e5a4d82bdb4bf1ac1285a68eab02d253ab73355d9f0fe725a97e1e0fa689decb", size = 9634782 }
@@ -2702,34 +2522,8 @@ wheels = [
 
 [[package]]
 name = "sympy"
-version = "1.13.1"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-dependencies = [
-    { name = "mpmath", marker = "extra == 'extra-11-shortsmaker-cu124'" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/ca/99/5a5b6f19ff9f083671ddf7b9632028436167cd3d33e11015754e41b249a4/sympy-1.13.1.tar.gz", hash = "sha256:9cebf7e04ff162015ce31c9c6c9144daa34a93bd082f54fd8f12deca4f47515f", size = 7533040 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/b2/fe/81695a1aa331a842b582453b605175f419fe8540355886031328089d840a/sympy-1.13.1-py3-none-any.whl", hash = "sha256:db36cdc64bf61b9b24578b6f7bab1ecdd2452cf008f34faa33776680c26d66f8", size = 6189177 },
-]
-
-[[package]]
-name = "sympy"
 version = "1.13.3"
 source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (python_full_version >= '3.12.4' and sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')",
-    "(python_full_version < '3.12.4' and platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (python_full_version < '3.12.4' and sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')",
-    "python_full_version >= '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_full_version < '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_full_version >= '3.12.4' and sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_full_version < '3.12.4' and sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_full_version >= '3.12.4' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-    "python_full_version < '3.12.4' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124'",
-]
 dependencies = [
     { name = "mpmath" },
 ]
@@ -2815,42 +2609,6 @@ wheels = [
 
 [[package]]
 name = "torch"
-version = "2.6.0+cu124"
-source = { registry = "https://download.pytorch.org/whl/cu124" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-dependencies = [
-    { name = "filelock", marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "fsspec", marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "jinja2", marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "networkx", marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "nvidia-cublas-cu12", version = "12.4.5.8", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cuda-cupti-cu12", version = "12.4.127", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cuda-nvrtc-cu12", version = "12.4.127", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cuda-runtime-cu12", version = "12.4.127", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cudnn-cu12", version = "9.1.0.70", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cufft-cu12", version = "11.2.1.3", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-curand-cu12", version = "10.3.5.147", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cusolver-cu12", version = "11.6.1.9", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cusparse-cu12", version = "12.3.1.170", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cusparselt-cu12", version = "0.6.2", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-nccl-cu12", version = "2.21.5", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-nvjitlink-cu12", version = "12.4.127", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-nvtx-cu12", version = "12.4.127", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "setuptools", marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "sympy", version = "1.13.1", source = { registry = "https://pypi.org/simple" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "triton", version = "3.2.0", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "typing-extensions", marker = "extra == 'extra-11-shortsmaker-cu124'" },
-]
-wheels = [
-    { url = "https://download.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp312-cp312-linux_x86_64.whl", hash = "sha256:a393b506844035c0dac2f30ea8478c343b8e95a429f06f3b3cadfc7f53adb597" },
-    { url = "https://download.pytorch.org/whl/cu124/torch-2.6.0%2Bcu124-cp312-cp312-win_amd64.whl", hash = "sha256:3313061c1fec4c7310cf47944e84513dcd27b6173b72a349bb7ca68d0ee6e9c0" },
-]
-
-[[package]]
-name = "torch"
 version = "2.7.0"
 source = { registry = "https://download.pytorch.org/whl/cpu" }
 resolution-markers = [
@@ -2858,13 +2616,13 @@ resolution-markers = [
     "python_full_version < '3.12.4' and sys_platform == 'darwin'",
 ]
 dependencies = [
-    { name = "filelock", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "fsspec", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "jinja2", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "networkx", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "setuptools", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "sympy", version = "1.13.3", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "typing-extensions", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "filelock", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "fsspec", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "jinja2", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "networkx", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "setuptools", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "sympy", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "typing-extensions", marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://download.pytorch.org/whl/cpu/torch-2.7.0-cp312-none-macosx_11_0_arm64.whl", hash = "sha256:30b7688a87239a7de83f269333651d8e582afffce6f591fff08c046f7787296e" },
@@ -2879,28 +2637,28 @@ resolution-markers = [
     "python_full_version < '3.12.4'",
 ]
 dependencies = [
-    { name = "filelock", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "fsspec", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "jinja2", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "networkx", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cublas-cu12", version = "12.6.4.1", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cuda-cupti-cu12", version = "12.6.80", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cuda-nvrtc-cu12", version = "12.6.77", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cuda-runtime-cu12", version = "12.6.77", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cudnn-cu12", version = "9.5.1.17", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cufft-cu12", version = "11.3.0.4", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cufile-cu12", marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-curand-cu12", version = "10.3.7.77", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cusolver-cu12", version = "11.7.1.2", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cusparse-cu12", version = "12.5.4.2", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-cusparselt-cu12", version = "0.6.3", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-nccl-cu12", version = "2.26.2", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-nvjitlink-cu12", version = "12.6.85", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "nvidia-nvtx-cu12", version = "12.6.77", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "setuptools", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "sympy", version = "1.13.3", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "triton", version = "3.3.0", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "typing-extensions", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
+    { name = "filelock", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "fsspec", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "jinja2", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "networkx", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cublas-cu12", version = "12.6.4.1", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cuda-cupti-cu12", version = "12.6.80", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cuda-nvrtc-cu12", version = "12.6.77", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cuda-runtime-cu12", version = "12.6.77", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cudnn-cu12", version = "9.5.1.17", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cufft-cu12", version = "11.3.0.4", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cufile-cu12", version = "1.11.1.6", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-curand-cu12", version = "10.3.7.77", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cusolver-cu12", version = "11.7.1.2", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cusparse-cu12", version = "12.5.4.2", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cusparselt-cu12", marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-nccl-cu12", marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-nvjitlink-cu12", version = "12.6.85", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-nvtx-cu12", version = "12.6.77", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "setuptools", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "sympy", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "triton", marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "typing-extensions", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/aa/5e/ac759f4c0ab7c01feffa777bd68b43d2ac61560a9770eeac074b450f81d4/torch-2.7.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:36a6368c7ace41ad1c0f69f18056020b6a5ca47bedaca9a2f3b578f5a104c26c", size = 99013250 },
@@ -2920,13 +2678,13 @@ resolution-markers = [
     "python_full_version < '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux'",
 ]
 dependencies = [
-    { name = "filelock", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "fsspec", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "jinja2", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "networkx", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "setuptools", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "sympy", version = "1.13.3", source = { registry = "https://pypi.org/simple" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "typing-extensions", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "filelock", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "fsspec", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "jinja2", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "networkx", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "setuptools", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "sympy", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "typing-extensions", marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://download.pytorch.org/whl/cpu/torch-2.7.0%2Bcpu-cp312-cp312-manylinux_2_28_aarch64.whl" },
@@ -2936,20 +2694,61 @@ wheels = [
 ]
 
 [[package]]
+name = "torch"
+version = "2.7.0+cu128"
+source = { registry = "https://download.pytorch.org/whl/cu128" }
+resolution-markers = [
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
+    "python_full_version >= '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux'",
+    "python_full_version < '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux'",
+]
+dependencies = [
+    { name = "filelock", marker = "extra == 'extra-11-shortsmaker-cu128'" },
+    { name = "fsspec", marker = "extra == 'extra-11-shortsmaker-cu128'" },
+    { name = "jinja2", marker = "extra == 'extra-11-shortsmaker-cu128'" },
+    { name = "networkx", marker = "extra == 'extra-11-shortsmaker-cu128'" },
+    { name = "nvidia-cublas-cu12", version = "12.8.3.14", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cuda-cupti-cu12", version = "12.8.57", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cuda-nvrtc-cu12", version = "12.8.61", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cuda-runtime-cu12", version = "12.8.57", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cudnn-cu12", version = "9.7.1.26", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cufft-cu12", version = "11.3.3.41", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cufile-cu12", version = "1.13.0.11", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-curand-cu12", version = "10.3.9.55", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cusolver-cu12", version = "11.7.2.55", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cusparse-cu12", version = "12.5.7.53", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-cusparselt-cu12", marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-nccl-cu12", marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-nvjitlink-cu12", version = "12.8.61", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "nvidia-nvtx-cu12", version = "12.8.55", source = { registry = "https://pypi.org/simple" }, marker = "(platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "setuptools", marker = "extra == 'extra-11-shortsmaker-cu128'" },
+    { name = "sympy", marker = "extra == 'extra-11-shortsmaker-cu128'" },
+    { name = "triton", marker = "(sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "typing-extensions", marker = "extra == 'extra-11-shortsmaker-cu128'" },
+]
+wheels = [
+    { url = "https://download.pytorch.org/whl/cu128/torch-2.7.0%2Bcu128-cp312-cp312-manylinux_2_28_aarch64.whl" },
+    { url = "https://download.pytorch.org/whl/cu128/torch-2.7.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:7c0f08d1c44a02abad389373dddfce75904b969a410be2f4e5109483dd3dc0ce" },
+    { url = "https://download.pytorch.org/whl/cu128/torch-2.7.0%2Bcu128-cp312-cp312-win_amd64.whl", hash = "sha256:1704e5dd66c9221e4e8b6ae2d80cbf54e129571e643f5fa9ca78cc6d2096403a" },
+]
+
+[[package]]
 name = "torch-audiomentations"
 version = "0.12.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "julius" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
     { name = "torch-pitch-shift" },
-    { name = "torchaudio", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/31/8d/2f8fd7e34c75f5ee8de4310c3bd3f22270acd44d1f809e2fe7c12fbf35f8/torch_audiomentations-0.12.0.tar.gz", hash = "sha256:b02d4c5eb86376986a53eb405cca5e34f370ea9284411237508e720c529f7888", size = 52094 }
 wheels = [
@@ -2963,34 +2762,19 @@ source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "packaging" },
     { name = "primepy" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/79/a6/722a832bca75d5079f6731e005b3d0c2eec7c6c6863d030620952d143d57/torch_pitch_shift-1.2.5.tar.gz", hash = "sha256:6e1c7531f08d0f407a4c55e5ff8385a41355c5c5d27ab7fa08632e51defbd0ed", size = 4725 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/27/4c/96ac2a09efb56cc3c41fb3ce9b6f4d8c0604499f7481d4a13a7b03e21382/torch_pitch_shift-1.2.5-py3-none-any.whl", hash = "sha256:6f8500cbc13f1c98b11cde1805ce5084f82cdd195c285f34287541f168a7c6a7", size = 5005 },
-]
-
-[[package]]
-name = "torchaudio"
-version = "2.6.0+cu124"
-source = { registry = "https://download.pytorch.org/whl/cu124" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-dependencies = [
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-]
-wheels = [
-    { url = "https://download.pytorch.org/whl/cu124/torchaudio-2.6.0%2Bcu124-cp312-cp312-linux_x86_64.whl", hash = "sha256:3e5ffa69606171c74f3e2b969785ead50b782ca657e746aaee1ee7cc88dcfc08" },
-    { url = "https://download.pytorch.org/whl/cu124/torchaudio-2.6.0%2Bcu124-cp312-cp312-win_amd64.whl", hash = "sha256:004ff6bcee0ac78747253c09db67d281add4308a9b87a7bf1769da5914998639" },
 ]
 
 [[package]]
@@ -3004,12 +2788,27 @@ resolution-markers = [
     "python_full_version < '3.12.4' and sys_platform == 'darwin'",
 ]
 dependencies = [
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://download.pytorch.org/whl/cpu/torchaudio-2.7.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:65b4fc9b7f28367f918b02ae4db4290457bc4fdd160f22b7d684e93ab8dcb956" },
     { url = "https://download.pytorch.org/whl/cpu/torchaudio-2.7.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:33004ed47f18f00044c97ee8cd9e3f5e1c2e26ef23d4f72b5f1ae33e6182587b" },
+]
+
+[[package]]
+name = "torchaudio"
+version = "2.7.0"
+source = { registry = "https://download.pytorch.org/whl/cu128" }
+resolution-markers = [
+    "python_full_version >= '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux'",
+    "python_full_version < '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux'",
+]
+dependencies = [
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+]
+wheels = [
+    { url = "https://download.pytorch.org/whl/cu128/torchaudio-2.7.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:1eda1ab85e1361fe0bca287df3fbca6f5bd9f3492199cdb2c452e8addefb8016" },
 ]
 
 [[package]]
@@ -3021,7 +2820,7 @@ resolution-markers = [
     "python_full_version < '3.12.4'",
 ]
 dependencies = [
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/dd/b9/66dd7c4e16e8e6dcc52b4702ba7bbace589972b3597627d39d9dc3aa5fdd/torchaudio-2.7.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:65b4fc9b7f28367f918b02ae4db4290457bc4fdd160f22b7d684e93ab8dcb956", size = 1846733 },
@@ -3039,11 +2838,27 @@ resolution-markers = [
     "(python_full_version < '3.12.4' and platform_machine != 'aarch64' and sys_platform == 'linux') or (python_full_version < '3.12.4' and sys_platform != 'darwin' and sys_platform != 'linux')",
 ]
 dependencies = [
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://download.pytorch.org/whl/cpu/torchaudio-2.7.0%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:f95c2810e7cfa9ebcd32fd61cdcc950bc6ec5560454dcb56b1461fd51eaa043e" },
     { url = "https://download.pytorch.org/whl/cpu/torchaudio-2.7.0%2Bcpu-cp312-cp312-win_amd64.whl", hash = "sha256:806d9b6b413568db5176297adbabae2ced413c0b5eec78122e0de84ea066475e" },
+]
+
+[[package]]
+name = "torchaudio"
+version = "2.7.0+cu128"
+source = { registry = "https://download.pytorch.org/whl/cu128" }
+resolution-markers = [
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
+]
+dependencies = [
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+]
+wheels = [
+    { url = "https://download.pytorch.org/whl/cu128/torchaudio-2.7.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:1bf478e24e94aa49b682e6b6ab481998cb542d06f77daa9aafc92cedd6a21127" },
+    { url = "https://download.pytorch.org/whl/cu128/torchaudio-2.7.0%2Bcu128-cp312-cp312-win_amd64.whl", hash = "sha256:fc2627c5e9a362300692f34f7d587088b2bd19e8e6158640b8266532f53051b9" },
 ]
 
 [[package]]
@@ -3054,32 +2869,14 @@ dependencies = [
     { name = "lightning-utilities" },
     { name = "numpy" },
     { name = "packaging" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/14/c5/8d916585d4d6eb158105c21b28cd4b0ed296d74e499bf8f104368de16619/torchmetrics-1.6.1.tar.gz", hash = "sha256:a5dc236694b392180949fdd0a0fcf2b57135c8b600e557c725e077eb41e53e64", size = 540022 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9d/e1/84066ff60a20dfa63f4d9d8ddc280d5ed323b7f06504dbb51c523b690116/torchmetrics-1.6.1-py3-none-any.whl", hash = "sha256:c3090aa2341129e994c0a659abb6d4140ae75169a6ebf45bffc16c5cb553b38e", size = 927305 },
-]
-
-[[package]]
-name = "torchvision"
-version = "0.21.0+cu124"
-source = { registry = "https://download.pytorch.org/whl/cu124" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-dependencies = [
-    { name = "numpy" },
-    { name = "pillow" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" } },
-]
-wheels = [
-    { url = "https://download.pytorch.org/whl/cu124/torchvision-0.21.0%2Bcu124-cp312-cp312-linux_x86_64.whl", hash = "sha256:efb53ea0af7bf09b7b53e2a18b9be6d245f7d46a90b51d5cf97f37e9b929a991" },
-    { url = "https://download.pytorch.org/whl/cu124/torchvision-0.21.0%2Bcu124-cp312-cp312-win_amd64.whl", hash = "sha256:ec63c2ee792757492da40590e34b14f2fceda29050558c215f0c1f3b08149c0f" },
 ]
 
 [[package]]
@@ -3095,12 +2892,29 @@ resolution-markers = [
 dependencies = [
     { name = "numpy", marker = "(platform_machine == 'aarch64' and sys_platform == 'linux') or sys_platform == 'darwin'" },
     { name = "pillow", marker = "(platform_machine == 'aarch64' and sys_platform == 'linux') or sys_platform == 'darwin'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 wheels = [
     { url = "https://download.pytorch.org/whl/cpu/torchvision-0.22.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:31c3165418fe21c3d81fe3459e51077c2f948801b8933ed18169f54652796a0f" },
     { url = "https://download.pytorch.org/whl/cpu/torchvision-0.22.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:8f116bc82e0c076e70ba7776e611ed392b9666aa443662e687808b08993d26af" },
+]
+
+[[package]]
+name = "torchvision"
+version = "0.22.0"
+source = { registry = "https://download.pytorch.org/whl/cu128" }
+resolution-markers = [
+    "python_full_version >= '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux'",
+    "python_full_version < '3.12.4' and platform_machine == 'aarch64' and sys_platform == 'linux'",
+]
+dependencies = [
+    { name = "numpy", marker = "platform_machine == 'aarch64' and sys_platform == 'linux'" },
+    { name = "pillow", marker = "platform_machine == 'aarch64' and sys_platform == 'linux'" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "platform_machine == 'aarch64' and sys_platform == 'linux'" },
+]
+wheels = [
+    { url = "https://download.pytorch.org/whl/cu128/torchvision-0.22.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:6e9752b48c1cdd7f6428bcd30c3d198b30ecea348d16afb651f95035e5252506" },
 ]
 
 [[package]]
@@ -3122,11 +2936,29 @@ wheels = [
 ]
 
 [[package]]
+name = "torchvision"
+version = "0.22.0+cu128"
+source = { registry = "https://download.pytorch.org/whl/cu128" }
+resolution-markers = [
+    "(python_full_version >= '3.12.4' and platform_machine != 'aarch64') or (python_full_version >= '3.12.4' and sys_platform != 'linux')",
+    "(python_full_version < '3.12.4' and platform_machine != 'aarch64') or (python_full_version < '3.12.4' and sys_platform != 'linux')",
+]
+dependencies = [
+    { name = "numpy", marker = "platform_machine != 'aarch64' or sys_platform != 'linux'" },
+    { name = "pillow", marker = "platform_machine != 'aarch64' or sys_platform != 'linux'" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "platform_machine != 'aarch64' or sys_platform != 'linux'" },
+]
+wheels = [
+    { url = "https://download.pytorch.org/whl/cu128/torchvision-0.22.0%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:06c101f40e1ff94869be14487c91fd5352e376f202fdeafb8f53c58cee2fbeb5" },
+    { url = "https://download.pytorch.org/whl/cu128/torchvision-0.22.0%2Bcu128-cp312-cp312-win_amd64.whl", hash = "sha256:a87393c86649b7e56b4bf859fe95922ee6ec1c1f3b430246fb1a5b51f8aee37a" },
+]
+
+[[package]]
 name = "tqdm"
 version = "4.67.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz", hash = "sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2", size = 169737 }
 wheels = [
@@ -3156,26 +2988,10 @@ wheels = [
 
 [[package]]
 name = "triton"
-version = "3.2.0"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/06/00/59500052cb1cf8cf5316be93598946bc451f14072c6ff256904428eaf03c/triton-3.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8d9b215efc1c26fa7eefb9a157915c92d52e000d2bf83e5f69704047e63f125c", size = 253159365 },
-]
-
-[[package]]
-name = "triton"
 version = "3.3.0"
 source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.12.4'",
-    "python_full_version < '3.12.4'",
-]
 dependencies = [
-    { name = "setuptools", marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
+    { name = "setuptools" },
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/11/53/ce18470914ab6cfbec9384ee565d23c4d1c55f0548160b1c7b33000b11fd/triton-3.3.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:b68c778f6c4218403a6bd01be7484f6dc9e20fe2083d22dd8aef33e3b87a10a3", size = 156504509 },
@@ -3296,14 +3112,15 @@ dependencies = [
     { name = "pandas" },
     { name = "pyannote-audio" },
     { name = "setuptools" },
-    { name = "torch", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.6.0+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "extra == 'extra-11-shortsmaker-cu124'" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124')" },
-    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torch", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "extra == 'extra-11-shortsmaker-cu128'" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu128') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0", source = { registry = "https://pypi.org/simple" }, marker = "(extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cpu", source = { registry = "https://download.pytorch.org/whl/cpu" }, marker = "(platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
+    { name = "torchaudio", version = "2.7.0+cu128", source = { registry = "https://download.pytorch.org/whl/cu128" }, marker = "(platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cu128') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cu128') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
     { name = "transformers" },
 ]
 wheels = [
@@ -3363,7 +3180,7 @@ name = "zstandard"
 version = "0.23.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cffi", marker = "platform_python_implementation == 'PyPy' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124')" },
+    { name = "cffi", marker = "platform_python_implementation == 'PyPy' or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu128')" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/ed/f6/2ac0287b442160a89d726b17a9184a4c615bb5237db763791a7fd16d9df1/zstandard-0.23.0.tar.gz", hash = "sha256:b2d8c62d08e7255f68f7a740bae85b3c9b8e5466baa9cbf7f57f1cde0ac6bc09", size = 681701 }
 wheels = [
