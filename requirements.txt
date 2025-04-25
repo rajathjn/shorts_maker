@@ -279,12 +279,12 @@ kiwisolver==1.4.8 \
     --hash=sha256:cc978a80a0db3a66d25767b03688f1147a69e6237175c0f4ffffaaedf744055a \
     --hash=sha256:d6af5e8815fd02997cb6ad9bbed0ee1e60014438ee1a5c2444c96f87b8843502 \
     --hash=sha256:eaa973f1e05131de5ff3569bbba7f5fd07ea0595d3870ed4a526d486fe57fa1b
-langchain-core==0.3.39 \
-    --hash=sha256:00f35e15e5f21d77320b3f8b816a1bf5de0b40b7809cd625dc3813b850a87fb2 \
-    --hash=sha256:97d49eccb1dea057b2efadae178bcc5e6472caa69c171fa4508fa6fb45f44c0e
-langchain-ollama==0.2.3 \
-    --hash=sha256:c47700ca68b013358b1e954493ecafb3bd10fa2cda71a9f15ba7897587a9aab2 \
-    --hash=sha256:d13fe8735176b652ca6e6656d7902c1265e8c0601097569f7c95433f3d034b38
+langchain-core==0.3.56 \
+    --hash=sha256:a20c6aca0fa0da265d96d3b14a5a01828ac5d2d9d27516434873d76f2d4839ed \
+    --hash=sha256:de896585bc56e12652327dcd195227c3739a07e86e587c91a07101e0df11dffe
+langchain-ollama==0.3.2 \
+    --hash=sha256:9e747e7bda1b55cdfa344433814b035be3f06d1bae32b1ffb696ccfc12cfa8ae \
+    --hash=sha256:f7516f2f22d912dba1286d644bff00c287799e758d7e465a1439244a1bb02820
 langsmith==0.3.11 \
     --hash=sha256:0cca22737ef07d3b038a437c141deda37e00add56022582680188b681bec095e \
     --hash=sha256:ddf29d24352e99de79c9618aaf95679214324e146c5d3d9475a7ddd2870018b1
@@ -390,55 +390,123 @@ numpy==2.2.3 \
     --hash=sha256:87eed225fd415bbae787f93a457af7f5990b92a334e346f72070bf569b9c9c95 \
     --hash=sha256:a5ae282abe60a2db0fd407072aff4599c279bcd6e9a2475500fc35b00a57c532 \
     --hash=sha256:dbdc15f0c81611925f382dfa97b3bd0bc2c1ce19d4fe50482cb0ddc12ba30020
-nvidia-cublas-cu12==12.4.5.8 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cublas-cu12==12.4.5.8 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:0f8aa1706812e00b9f19dfe0cdb3999b092ccb8ca168c0db5b8ea712456fd9b3 \
     --hash=sha256:2fc8da60df463fdefa81e323eef2e36489e1c94335b5358bcb38360adf75ac9b \
     --hash=sha256:5a796786da89203a0657eda402bcdcec6180254a8ac22d72213abc42069522dc
-nvidia-cuda-cupti-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cublas-cu12==12.6.4.1 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:08ed2686e9875d01b58e3cb379c6896df8e76c75e0d4a7f7dace3d7b6d9ef8eb \
+    --hash=sha256:235f728d6e2a409eddf1df58d5b0921cf80cfa9e72b9f2775ccb7b4a87984668 \
+    --hash=sha256:9e4fa264f4d8a4eb0cdbd34beadc029f453b3bafae02401e999cf3d5a5af75f8
+nvidia-cuda-cupti-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:5688d203301ab051449a2b1cb6690fbe90d2b372f411521c86018b950f3d7922 \
     --hash=sha256:79279b35cf6f91da114182a5ce1864997fd52294a87a16179ce275773799458a \
     --hash=sha256:9dec60f5ac126f7bb551c055072b69d85392b13311fcc1bcda2202d172df30fb
-nvidia-cuda-nvrtc-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cuda-cupti-cu12==12.6.80 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:166ee35a3ff1587f2490364f90eeeb8da06cd867bd5b701bf7f9a02b78bc63fc \
+    --hash=sha256:358b4a1d35370353d52e12f0a7d1769fc01ff74a191689d3870b2123156184c4 \
+    --hash=sha256:6768bad6cab4f19e8292125e5f1ac8aa7d1718704012a0e3272a6f61c4bce132 \
+    --hash=sha256:a3eff6cdfcc6a4c35db968a06fcadb061cbc7d6dde548609a941ff8701b98b73 \
+    --hash=sha256:bbe6ae76e83ce5251b56e8c8e61a964f757175682bbad058b170b136266ab00a
+nvidia-cuda-nvrtc-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:0eedf14185e04b76aa05b1fea04133e59f465b6f960c0cbf4e37c3cb6b0ea198 \
     --hash=sha256:a178759ebb095827bd30ef56598ec182b85547f1508941a3d560eb7ea1fbf338 \
     --hash=sha256:a961b2f1d5f17b14867c619ceb99ef6fcec12e46612711bcec78eb05068a60ec
-nvidia-cuda-runtime-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cuda-nvrtc-cu12==12.6.77 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:35b0cc6ee3a9636d5409133e79273ce1f3fd087abb0532d2d2e8fff1fe9efc53 \
+    --hash=sha256:5847f1d6e5b757f1d2b3991a01082a44aad6f10ab3c5c0213fa3e25bddc25a13 \
+    --hash=sha256:f7007dbd914c56bd80ea31bc43e8e149da38f68158f423ba845fc3292684e45a
+nvidia-cuda-runtime-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:09c2e35f48359752dfa822c09918211844a3d93c100a715d79b59591130c5e1e \
     --hash=sha256:64403288fa2136ee8e467cdc9c9427e0434110899d07c779f25b5c068934faa5 \
     --hash=sha256:961fe0e2e716a2a1d967aab7caee97512f71767f852f67432d572e36cb3a11f3
-nvidia-cudnn-cu12==9.1.0.70 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cuda-runtime-cu12==12.6.77 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:6116fad3e049e04791c0256a9778c16237837c08b27ed8c8401e2e45de8d60cd \
+    --hash=sha256:86c58044c824bf3c173c49a2dbc7a6c8b53cb4e4dca50068be0bf64e9dab3f7f \
+    --hash=sha256:a84d15d5e1da416dd4774cb42edf5e954a3e60cc945698dc1d5be02321c44dc8 \
+    --hash=sha256:ba3b56a4f896141e25e19ab287cd71e52a6a0f4b29d0d31609f60e3b4d5219b7 \
+    --hash=sha256:d461264ecb429c84c8879a7153499ddc7b19b5f8d84c204307491989a365588e
+nvidia-cudnn-cu12==9.1.0.70 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:165764f44ef8c61fcdfdfdbe769d687e06374059fbb388b6c89ecb0e28793a6f \
     --hash=sha256:6278562929433d68365a07a4a1546c237ba2849852c0d4b2262a486e805b977a
-nvidia-cufft-cu12==11.2.1.3 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cudnn-cu12==9.5.1.17 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:30ac3869f6db17d170e0e556dd6cc5eee02647abc31ca856634d5a40f82c15b2 \
+    --hash=sha256:9fd4584468533c61873e5fda8ca41bac3a38bcb2d12350830c69b0a96a7e4def \
+    --hash=sha256:d7af0f8a4f3b4b9dbb3122f2ef553b45694ed9c384d5a75bab197b8eefb79ab8
+nvidia-cufft-cu12==11.2.1.3 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:5dad8008fc7f92f5ddfa2101430917ce2ffacd86824914c82e28990ad7f00399 \
     --hash=sha256:d802f4954291101186078ccbe22fc285a902136f974d369540fd4a5333d1440b \
     --hash=sha256:f083fc24912aa410be21fa16d157fed2055dab1cc4b6934a0e03cba69eb242b9
-nvidia-curand-cu12==10.3.5.147 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cufft-cu12==11.3.0.4 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:6048ebddfb90d09d2707efb1fd78d4e3a77cb3ae4dc60e19aab6be0ece2ae464 \
+    --hash=sha256:768160ac89f6f7b459bee747e8d175dbf53619cfe74b2a5636264163138013ca \
+    --hash=sha256:8510990de9f96c803a051822618d42bf6cb8f069ff3f48d93a8486efdacb48fb \
+    --hash=sha256:ccba62eb9cef5559abd5e0d54ceed2d9934030f51163df018532142a8ec533e5 \
+    --hash=sha256:d16079550df460376455cba121db6564089176d9bac9e4f360493ca4741b22a6
+nvidia-cufile-cu12==1.11.1.6 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:8f57a0051dcf2543f6dc2b98a98cb2719c37d3cee1baba8965d57f3bbc90d4db \
+    --hash=sha256:cc23469d1c7e52ce6c1d55253273d32c565dd22068647f3aa59b3c6b005bf159
+nvidia-curand-cu12==10.3.5.147 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:1f173f09e3e3c76ab084aba0de819c49e56614feae5c12f69883f4ae9bb5fad9 \
     --hash=sha256:a88f583d4e0bb643c49743469964103aa59f7f708d862c3ddb0fc07f851e3b8b \
     --hash=sha256:f307cc191f96efe9e8f05a87096abc20d08845a841889ef78cb06924437f6771
-nvidia-cusolver-cu12==11.6.1.9 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-curand-cu12==10.3.7.77 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:6d6d935ffba0f3d439b7cd968192ff068fafd9018dbf1b85b37261b13cfc9905 \
+    --hash=sha256:6e82df077060ea28e37f48a3ec442a8f47690c7499bff392a5938614b56c98d8 \
+    --hash=sha256:7b2ed8e95595c3591d984ea3603dd66fe6ce6812b886d59049988a712ed06b6e \
+    --hash=sha256:99f1a32f1ac2bd134897fc7a203f779303261268a65762a623bf30cc9fe79117 \
+    --hash=sha256:a42cd1344297f70b9e39a1e4f467a4e1c10f1da54ff7a85c12197f6c652c8bdf
+nvidia-cusolver-cu12==11.6.1.9 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:19e33fa442bcfd085b3086c4ebf7e8debc07cfe01e11513cc6d332fd918ac260 \
     --hash=sha256:d338f155f174f90724bbde3758b7ac375a70ce8e706d70b018dd3375545fc84e \
     --hash=sha256:e77314c9d7b694fcebc84f58989f3aa4fb4cb442f12ca1a9bde50f5e8f6d1b9c
-nvidia-cusparse-cu12==12.3.1.170 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cusolver-cu12==11.7.1.2 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:0ce237ef60acde1efc457335a2ddadfd7610b892d94efee7b776c64bb1cac9e0 \
+    --hash=sha256:6813f9d8073f555444a8705f3ab0296d3e1cb37a16d694c5fc8b862a0d8706d7 \
+    --hash=sha256:6cf28f17f64107a0c4d7802be5ff5537b2130bfc112f25d5a30df227058ca0e6 \
+    --hash=sha256:dbbe4fc38ec1289c7e5230e16248365e375c3673c9c8bac5796e2e20db07f56e \
+    --hash=sha256:e9e49843a7707e42022babb9bcfa33c29857a93b88020c4e4434656a655b698c
+nvidia-cusparse-cu12==12.3.1.170 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:9bc90fb087bc7b4c15641521f31c0371e9a612fc2ba12c338d3ae032e6b6797f \
     --hash=sha256:9d32f62896231ebe0480efd8a7f702e143c98cfaa0e8a76df3386c1ba2b54df3 \
     --hash=sha256:ea4f11a2904e2a8dc4b1833cc1b5181cde564edd0d5cd33e3c168eff2d1863f1
-nvidia-cusparselt-cu12==0.6.2 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cusparse-cu12==12.5.4.2 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:23749a6571191a215cb74d1cdbff4a86e7b19f1200c071b3fcf844a5bea23a2f \
+    --hash=sha256:4acb8c08855a26d737398cba8fb6f8f5045d93f82612b4cfd84645a2332ccf20 \
+    --hash=sha256:7556d9eca156e18184b94947ade0fba5bb47d69cec46bf8660fd2c71a4b48b73 \
+    --hash=sha256:7aa32fa5470cf754f72d1116c7cbc300b4e638d3ae5304cfa4a638a5b87161b1 \
+    --hash=sha256:d25b62fb18751758fe3c93a4a08eff08effedfe4edf1c6bb5afd0890fe88f887
+nvidia-cusparselt-cu12==0.6.2 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:0057c91d230703924c0422feabe4ce768841f9b4b44d28586b6f6d2eb86fbe70 \
     --hash=sha256:067a7f6d03ea0d4841c85f0c6f1991c5dda98211f6302cb83a4ab234ee95bef8 \
     --hash=sha256:df2c24502fd76ebafe7457dbc4716b2fec071aabaed4fb7691a201cde03704d9
-nvidia-nccl-cu12==2.21.5 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-cusparselt-cu12==0.6.3 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:3b325bcbd9b754ba43df5a311488fca11a6b5dc3d11df4d190c000cf1a0765c7 \
+    --hash=sha256:8371549623ba601a06322af2133c4a44350575f5a3108fb75f3ef20b822ad5f1 \
+    --hash=sha256:e5c8a26c36445dd2e6812f1177978a24e2d37cacce7e090f297a688d1ec44f46
+nvidia-nccl-cu12==2.21.5 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:8579076d30a8c24988834445f8d633c697d42397e92ffc3f63fa26766d25e0a0
-nvidia-nvjitlink-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-nccl-cu12==2.26.2 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:5c196e95e832ad30fbbb50381eb3cbd1fadd5675e587a548563993609af19522 \
+    --hash=sha256:694cf3879a206553cc9d7dbda76b13efaf610fdb70a50cba303de1b0d1530ac6
+nvidia-nvjitlink-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:06b3b9b25bf3f8af351d664978ca26a16d2c5127dbd53c0497e28d1fb9611d57 \
     --hash=sha256:4abe7fef64914ccfa909bc2ba39739670ecc9e820c83ccc7a6ed414122599b83 \
     --hash=sha256:fd9020c501d27d135f983c6d3e244b197a7ccad769e34df53a42e276b0e25fa1
-nvidia-nvtx-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+nvidia-nvjitlink-cu12==12.6.85 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:cf4eaa7d4b6b543ffd69d6abfb11efdeb2db48270d94dfd3a452c24150829e41 \
+    --hash=sha256:e61120e52ed675747825cdd16febc6a0730537451d867ee58bee3853b1b13d1c \
+    --hash=sha256:eedc36df9e88b682efe4309aa16b5b4e78c2407eac59e8c10a6a47535164369a
+nvidia-nvtx-cu12==12.4.127 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:641dccaaa1139f3ffb0d3164b4b84f9d253397e38246a4f2f36728b48566d485 \
     --hash=sha256:781e950d9b9f60d8241ccea575b32f5105a5baf4c2351cab5256a24869f12a1a \
     --hash=sha256:7959ad635db13edf4fc65c06a6e9f9e55fc2f92596db928d169c0bb031e88ef3
+nvidia-nvtx-cu12==12.6.77 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:2fb11a4af04a5e6c84073e6404d26588a34afd35379f0855a99797897efa75c0 \
+    --hash=sha256:6574241a3ec5fdc9334353ab8c479fe75841dbe8f4532a8fc97ce63503330ba1 \
+    --hash=sha256:adcaabb9d436c9761fca2b13959a2d237c5f9fd406c8e4b723c695409ff88059 \
+    --hash=sha256:b90bed3df379fa79afbd21be8e04a0314336b8ae16768b58f2d34cb1d04cd7d2 \
+    --hash=sha256:f44f8d86bb7d5629988d61c8d3ae61dddb2015dee142740536bc7481b022fe4b
 ollama==0.4.7 \
     --hash=sha256:85505663cca67a83707be5fb3aeff0ea72e67846cea5985529d8eca4366564a1 \
     --hash=sha256:891dcbe54f55397d82d289c459de0ea897e103b86a3f1fad0fdb1895922a75ff
@@ -802,9 +870,12 @@ sqlalchemy==2.0.38 \
     --hash=sha256:e185ea07a99ce8b8edfc788c586c538c4b1351007e614ceb708fd01b095ef33e \
     --hash=sha256:e5a4d82bdb4bf1ac1285a68eab02d253ab73355d9f0fe725a97e1e0fa689decb \
     --hash=sha256:ee3bee874cb1fadee2ff2b79fc9fc808aa638670f28b2145074538d4a6a5028e
-sympy==1.13.1 \
+sympy==1.13.1 ; extra == 'extra-11-shortsmaker-cu124' \
     --hash=sha256:9cebf7e04ff162015ce31c9c6c9144daa34a93bd082f54fd8f12deca4f47515f \
     --hash=sha256:db36cdc64bf61b9b24578b6f7bab1ecdd2452cf008f34faa33776680c26d66f8
+sympy==1.13.3 ; extra == 'extra-11-shortsmaker-cpu' or extra != 'extra-11-shortsmaker-cu124' \
+    --hash=sha256:54612cf55a62755ee71824ce692986f23c88ffa77207b30c1368eda4a7060f73 \
+    --hash=sha256:b27fd2c6530e0ab39e275fc9b683895367e51d5da91baa8d3d64db2565fec4d9
 tabulate==0.9.0 \
     --hash=sha256:0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c \
     --hash=sha256:024ca478df22e9340661486f85298cff5f6dcdba14f3813e8830015b9ed1948f
@@ -836,40 +907,40 @@ tokenizers==0.21.0 \
 toml==0.10.2 \
     --hash=sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b \
     --hash=sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f
-torch==2.6.0 ; (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
-    --hash=sha256:9a610afe216a85a8b9bc9f8365ed561535c93e804c2a317ef7fabcc5deda0989
-torch==2.6.0 ; (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') \
-    --hash=sha256:2bb8987f3bb1ef2675897034402373ddfc8f5ef0e156e2d8cfc47cacafdda4a9 \
-    --hash=sha256:7e1448426d0ba3620408218b50aa6ada88aeae34f7a239ba5431f6c8774b1239 \
-    --hash=sha256:9a610afe216a85a8b9bc9f8365ed561535c93e804c2a317ef7fabcc5deda0989 \
-    --hash=sha256:b789069020c5588c70d5c2158ac0aa23fd24a028f34a8b4fcb8fcb4d7efcf5fb
-torch==2.6.0+cpu ; (sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
-    --hash=sha256:318290e8924353c61b125cdc8768d15208704e279e7757c113b9620740deca98 \
-    --hash=sha256:4027d982eb2781c93825ab9527f17fbbb12dbabf422298e4b954be60016f87d8 \
-    --hash=sha256:59e78aa0c690f70734e42670036d6b541930b8eabbaa18d94e090abf14cc4d91
 torch==2.6.0+cu124 ; extra == 'extra-11-shortsmaker-cu124' \
     --hash=sha256:3313061c1fec4c7310cf47944e84513dcd27b6173b72a349bb7ca68d0ee6e9c0 \
     --hash=sha256:a393b506844035c0dac2f30ea8478c343b8e95a429f06f3b3cadfc7f53adb597
+torch==2.7.0 ; (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:30b7688a87239a7de83f269333651d8e582afffce6f591fff08c046f7787296e
+torch==2.7.0 ; (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:15aab3e31c16feb12ae0a88dba3434a458874636f360c567caa6a91f6bfba481 \
+    --hash=sha256:30b7688a87239a7de83f269333651d8e582afffce6f591fff08c046f7787296e \
+    --hash=sha256:36a6368c7ace41ad1c0f69f18056020b6a5ca47bedaca9a2f3b578f5a104c26c \
+    --hash=sha256:f56d4b2510934e072bab3ab8987e00e60e1262fb238176168f5e0c43a1320c6d
+torch==2.7.0+cpu ; (sys_platform != 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:1d7a6f33868276770a657beec7f77c7726b4da9d0739eff1b3ae64cc9a09d8e3 \
+    --hash=sha256:64123c05615e27368c7a7816f6e39c6d219998693beabde0b0b9cedf91b5ed8b \
+    --hash=sha256:69e25c973bdd7ea24b0fa9f9792114950afaeb8f819e5723819b923f50989175
 torch-audiomentations==0.12.0 \
     --hash=sha256:1b80b91d2016ccf83979622cac8f702072a79b7dcc4c2bee40f00b26433a786b \
     --hash=sha256:b02d4c5eb86376986a53eb405cca5e34f370ea9284411237508e720c529f7888
 torch-pitch-shift==1.2.5 \
     --hash=sha256:6e1c7531f08d0f407a4c55e5ff8385a41355c5c5d27ab7fa08632e51defbd0ed \
     --hash=sha256:6f8500cbc13f1c98b11cde1805ce5084f82cdd195c285f34287541f168a7c6a7
-torchaudio==2.6.0 ; (platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
-    --hash=sha256:6291d9507dc1d6b4ffe8843fbfb201e6c8270dd8c42ad70bb76226c0ebdcad56 \
-    --hash=sha256:7d0e4b08c42325bf4b887de9a25c44ed882997001740e1bd7d901f65581cf1ab
-torchaudio==2.6.0 ; (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') \
-    --hash=sha256:6291d9507dc1d6b4ffe8843fbfb201e6c8270dd8c42ad70bb76226c0ebdcad56 \
-    --hash=sha256:715aa21f6bdbd085454c313ae3a2c7cc07bf2e8cf05752f819afb5b4c57f4e6f \
-    --hash=sha256:7d0e4b08c42325bf4b887de9a25c44ed882997001740e1bd7d901f65581cf1ab \
-    --hash=sha256:86d6239792bf94741a41acd6fe3d549faaf0d50e7275d17d076a190bd007e2f9
-torchaudio==2.6.0+cpu ; (platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
-    --hash=sha256:75266c25d394bb5d70f83a38b1b4d858c074a767c18f7ff87443bdf193c1b236 \
-    --hash=sha256:dfb1ae1d7da1e869a6a6a315cc2b2652c43e3aabb5184da4d363d1b4bb2c86a4
 torchaudio==2.6.0+cu124 ; extra == 'extra-11-shortsmaker-cu124' \
     --hash=sha256:004ff6bcee0ac78747253c09db67d281add4308a9b87a7bf1769da5914998639 \
     --hash=sha256:3e5ffa69606171c74f3e2b969785ead50b782ca657e746aaee1ee7cc88dcfc08
+torchaudio==2.7.0 ; (platform_machine == 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (platform_machine != 'aarch64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:33004ed47f18f00044c97ee8cd9e3f5e1c2e26ef23d4f72b5f1ae33e6182587b \
+    --hash=sha256:65b4fc9b7f28367f918b02ae4db4290457bc4fdd160f22b7d684e93ab8dcb956
+torchaudio==2.7.0 ; (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:275931c8a38ff84b5692df990506b41f18d0a0706574d96bc8456ad9e5fa85c8 \
+    --hash=sha256:33004ed47f18f00044c97ee8cd9e3f5e1c2e26ef23d4f72b5f1ae33e6182587b \
+    --hash=sha256:65b4fc9b7f28367f918b02ae4db4290457bc4fdd160f22b7d684e93ab8dcb956 \
+    --hash=sha256:a6f03494075bcdd62e7fade7baf50a0ef107aa809d02b5e1786391adced451a3
+torchaudio==2.7.0+cpu ; (platform_machine != 'aarch64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform != 'darwin' and sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu') or (sys_platform == 'darwin' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:806d9b6b413568db5176297adbabae2ced413c0b5eec78122e0de84ea066475e \
+    --hash=sha256:f95c2810e7cfa9ebcd32fd61cdcc950bc6ec5560454dcb56b1461fd51eaa043e
 torchmetrics==1.6.1 \
     --hash=sha256:a5dc236694b392180949fdd0a0fcf2b57135c8b600e557c725e077eb41e53e64 \
     --hash=sha256:c3090aa2341129e994c0a659abb6d4140ae75169a6ebf45bffc16c5cb553b38e
@@ -879,8 +950,10 @@ tqdm==4.67.1 \
 transformers==4.49.0 \
     --hash=sha256:6b4fded1c5fee04d384b1014495b4235a2b53c87503d7d592423c06128cbbe03 \
     --hash=sha256:7e40e640b5b8dc3f48743f5f5adbdce3660c82baafbd3afdfc04143cdbd2089e
-triton==3.2.0 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+triton==3.2.0 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra == 'extra-11-shortsmaker-cu124') or (platform_machine != 'x86_64' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') or (sys_platform != 'linux' and extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
     --hash=sha256:8d9b215efc1c26fa7eefb9a157915c92d52e000d2bf83e5f69704047e63f125c
+triton==3.3.0 ; (platform_machine == 'x86_64' and sys_platform == 'linux' and extra != 'extra-11-shortsmaker-cpu' and extra != 'extra-11-shortsmaker-cu124') or (extra == 'extra-11-shortsmaker-cpu' and extra == 'extra-11-shortsmaker-cu124') \
+    --hash=sha256:b68c778f6c4218403a6bd01be7484f6dc9e20fe2083d22dd8aef33e3b87a10a3
 typer==0.15.1 \
     --hash=sha256:7994fb7b8155b64d3402518560648446072864beefd44aa2dc36972a5972e847 \
     --hash=sha256:a0588c0a7fa68a1978a069818657778f86abe6ff5ea6abf472f940a08bfe4f0a

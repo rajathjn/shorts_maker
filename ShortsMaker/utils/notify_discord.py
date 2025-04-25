@@ -72,7 +72,11 @@ def get_meme():
     # Example: https://meme-api.com/gimme/wholesomememes/2
     # Returns:
     #     Image url
-    url = "https://meme-api.com/gimme"
+    # Looks like the below endpoint is not working anymore
+    # url = "https://meme-api.com/gimme"
+
+    url = "https://memeapi.zachl.tech/pic/json"
+
     response = requests.get(
         url,
         headers={
@@ -80,8 +84,9 @@ def get_meme():
                             Chrome/50.0.2661.102 Safari/537.36"
         },
     )
+
     soup = BeautifulSoup(response.content, "html.parser")
-    return json.loads(soup.text)["url"]
+    return json.loads(soup.text)["MemeURL"]
 
 
 def notify_discord(message) -> Response:
@@ -107,7 +112,12 @@ def notify_discord(message) -> Response:
         embed.set_title(":warning:Error found while running the Automation!:warning:")
         embed.set_description(f"{message}")
         embed.set_image(url=get_meme())
-        embed.set_thumbnail(url=get_arthas())
+
+        try:
+            embed.set_thumbnail(url=get_arthas())
+        except Exception as e:
+            print(f"Error fetching arthas: {e}")
+
         embed.set_color("ff0000")
         embed.set_timestamp()
         webhook.add_embed(embed)
