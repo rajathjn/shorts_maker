@@ -48,8 +48,8 @@ def test_get_arthas(requests_mock):
 
 
 def test_get_meme(requests_mock):
-    mock_response = {"url": "http://test-meme.com/image.jpg"}
-    requests_mock.get("https://meme-api.com/gimme", json=mock_response)
+    mock_response = {"MemeURL": "http://test-meme.com/image.jpg"}
+    requests_mock.get("https://memeapi.zachl.tech/pic/json", json=mock_response)
     result = get_meme()
     assert result == "http://test-meme.com/image.jpg"
 
