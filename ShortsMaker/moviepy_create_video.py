@@ -57,7 +57,7 @@ class MoviepyCreateVideo:
 
     DEFAULT_FADE_TIME = 2
     DEFAULT_DELAY = 1
-    DEFAULT_SPEED_FACTOR = 1.1
+    DEFAULT_SPEED_FACTOR = 1
     REQUIRED_DIRECTORIES = ["video_dir", "music_dir", "fonts_dir", "credits_dir"]
     PUNCTUATION_MARKS = [".", ";", ":", "!", "?", ","]
 
