@@ -1,9 +1,9 @@
-# ShortsMaker
+# ClipForge
 
 [![ShortsMaker](https://github.com/rajathjn/shorts_maker/actions/workflows/python-app.yml/badge.svg)](https://github.com/rajathjn/shorts_maker/actions/workflows/python-app.yml)
 [![CodeQL](https://github.com/rajathjn/shorts_maker/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/rajathjn/shorts_maker/actions/workflows/github-code-scanning/codeql)
 
-ShortsMaker is a Python package designed to facilitate the creation of engaging short videos or social media clips. It leverages a variety of external services and libraries to streamline the process of generating, processing, and uploading short content.
+ClipForge ( Previously called ShortsMaker ) is a Python package designed to facilitate the creation of engaging short videos or social media clips. It leverages a variety of external services and libraries to streamline the process of generating, processing, and uploading short content.
 
 ## Support Me
 Like what I do, Please consider supporting me.
