@@ -70,7 +70,7 @@ class GenerateImage:
             RuntimeError: If there is an error loading the Flux model.
         """
         try:
-            self.pipe = FluxPipeline.from_pretrained(model_id, torch_dtype=torch.bfloat16)
+            self.pipe = FluxPipeline.from_pretrained(model_id, torch_dtype=torch.bfloat16, token=self.cfg["hugging_face_access_token"])
             self.logger.info(f"Loading Flux model from {model_id}")
             # to run on low vram GPUs (i.e. between 4 and 32 GB VRAM)
             # Choose ONE of the following:
