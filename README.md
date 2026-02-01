@@ -11,6 +11,9 @@ Like what I do, Please consider supporting me.
 <a href="https://coindrop.to/martisjnx" target="_blank"><img src="https://coindrop.to/embed-button.png" style="border-radius: 10px;" alt="Coindrop.to me" style="height: 57px !important;width: 229px !important;" ></a>
 <!-- GitAds-Verify: OG5FIRBLMGMERDMEWNO7QI5LMT8MJX4G -->
 
+## GitAds Sponsored
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=rajathjn/shorts_maker@github)](https://gitads.dev/v1/ad-track?source=rajathjn/shorts_maker@github)
+
 ## Table of Contents
 
 - [ShortsMaker](#shortsmaker)
