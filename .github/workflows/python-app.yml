@@ -12,9 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DISCORD_WEBHOOK_URL: "https://discord.com/api/webhooks/xxx"
+      UV_LINK_MODE: copy
     steps:
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 21
@@ -23,12 +24,12 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@main
       - name: Install the latest version of uv and set the python version
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v7
         with:
           version: "latest"
           enable-cache: true
           pyproject-file: "pyproject.toml"
       - name: Install dependencies
-        run: uv sync --frozen --extra cpu
+        run: uv sync --extra cpu --group dev --frozen
       - name: Run tests
         run: uv run --frozen pytest
