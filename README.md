@@ -127,7 +127,7 @@ To use ShortsMaker via Docker, follow these steps:
 
    uv sync
    uv sync --extra cpu # for cpu
-   uv sync --extra cu124 # for cuda 12.4 versions
+   uv sync --extra cu130 # for cuda 13.0 versions
    ```
 
 4. **Install Any Additional Python Dependencies:**
@@ -269,7 +269,7 @@ Generated from this post [here](https://www.reddit.com/r/selfhosted/comments/r2a
 https://github.com/user-attachments/assets/6aad212a-bfd5-4161-a2bc-67d24a8de37f
 
 ## TODO
-- [ ] Explain working and usage in blog.
+- [x] Explain working and usage in [educational guide](assets/educational_guide/index.html).
 - [x] Dockerize the project, To avoid the complex set up process.
 - [x] Add option to fetch post from submission URLs.
 - [x] Add an example video to the README.
