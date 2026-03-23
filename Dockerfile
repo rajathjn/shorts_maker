@@ -1,6 +1,6 @@
 # Use a Python 3.12 base image
 FROM python:3.12-slim-bookworm
-COPY --from=ghcr.io/astral-sh/uv:0.6.6 /uv /bin/
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 
 # Set environment variables
 # Set this appropriately or leave empty if not using Discord

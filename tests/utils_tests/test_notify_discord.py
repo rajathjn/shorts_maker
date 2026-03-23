@@ -1,3 +1,4 @@
+import os
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -55,6 +56,7 @@ def test_get_meme(requests_mock):
 
 
 def test_notify_discord_short_message(mock_webhook):
+    os.environ["DISCORD_WEBHOOK_URL"] = "https://discord.com/api/webhooks/xxxxxx"
     message = "Test message"
     mock_webhook.return_value.execute.return_value = MagicMock(status_code=200)
     result = notify_discord(message)
@@ -63,6 +65,7 @@ def test_notify_discord_short_message(mock_webhook):
 
 
 def test_notify_discord_long_message(mock_webhook, mock_get_meme, mock_get_arthas, mock_response):
+    os.environ["DISCORD_WEBHOOK_URL"] = "https://discord.com/api/webhooks/xxxxxx"
     message = "x" * 5000  # Message longer than 4000 chars
     mock_webhook.return_value.execute.return_value = MagicMock(status_code=200)
     result = notify_discord(message)
@@ -80,6 +83,7 @@ def test_notify_discord_long_message(mock_webhook, mock_get_meme, mock_get_artha
 def test_notify_discord_response(
     mock_webhook, mock_get_meme, mock_get_arthas, status_code, expected_text
 ):
+    os.environ["DISCORD_WEBHOOK_URL"] = "https://discord.com/api/webhooks/xxxxxx"
     webhook = mock_webhook.return_value
     response = MagicMock(spec=Response)
     response.status_code = status_code

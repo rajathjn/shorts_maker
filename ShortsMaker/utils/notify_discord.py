@@ -12,9 +12,7 @@ if not os.environ.get("DISCORD_WEBHOOK_URL"):
     print(
         "Warning: DISCORD_WEBHOOK_URL environment variable is not set. Discord notifications will not work."
     )
-    os.environ["DISCORD_WEBHOOK_URL"] = None
-
-DISCORD_URL = os.environ.get("DISCORD_WEBHOOK_URL")
+    os.environ["DISCORD_WEBHOOK_URL"] = "None"
 
 
 def get_arthas():
@@ -105,8 +103,9 @@ def notify_discord(message) -> Response:
         Response: The response object resulting from the webhook execution, which contains information
             such as status code and response text.
     """
+    DISCORD_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-    if not DISCORD_URL:
+    if DISCORD_URL == "None":
         print(
             "Error: DISCORD_WEBHOOK_URL environment variable is not set. Cannot send Discord notification."
         )
