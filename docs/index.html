@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShortsMaker: Your Personal Video Creator Guide</title>
+    <title>Clip Forge</title>
+    <link rel="icon" type="image/png" href="rocket_favicon.png">
     <style>
         :root {
             --primary-color: #ff4500; /* Reddit-ish orange */
@@ -97,23 +98,137 @@
             color: #6c757d;
             margin-top: 1rem;
         }
+
+        /* Dark Mode Overrides */
+        body.dark-mode {
+            --secondary-color: #d1d5db;
+            --text-color: #e5e7eb;
+            --bg-color: #111827;
+            --card-bg: #1f2937;
+        }
+
+        body.dark-mode header {
+            background-color: #0f131a;
+            color: #e5e7eb;
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        body.dark-mode .visual-aid {
+            background: #374151;
+            border-color: #4b5563;
+            color: #9ca3af;
+        }
+
+        body.dark-mode .highlight {
+            color: #ff6a33; /* Slightly brighter orange for dark bg */
+        }
+
+        /* Hover fixes for Dark Mode */
+        body.dark-mode .step {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        /* Floating Utilities (Dark Mode + Scroll Top) */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        .float-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        .float-btn:hover {
+            background-color: #e03d00;
+            transform: scale(1.1);
+        }
+        #scrollTopBtn {
+            display: none;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>ShortsMaker: How It Works! 🚀</h1>
-    <p>Creating awesome videos from stories you love.</p>
+    <h1>Clip Forge</h1>
+    <p>Creating awesome videos from stories you love. 🚀</p>
 </header>
 
 <div class="container">
+    <section class="how-to-section" style="background-color: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 3rem; padding: 2rem; border-left: 5px solid var(--primary-color);">
+        <h2 style="margin-top: 0; color: var(--secondary-color);">How to Use Clip Forge (For Absolute Beginners) 🛠️</h2>
+        <p>You don't need any coding experience to learn this! Just follow these straightforward steps to create your first video:</p>
+
+        <h3>Step 1: Install Docker</h3>
+        <p>Docker is like a safe "virtual box" that runs Clip Forge without changing your computer's settings.</p>
+        <ul>
+            <li><a href="https://docs.docker.com/get-docker/" target="_blank" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">Download and Install Docker Here</a></li>
+        </ul>
+
+        <h3>Step 2: Install uv</h3>
+        <p><strong>uv</strong> is a simple tool that automatically prepares the project for you behind the scenes.</p>
+        <ul>
+            <li><a href="https://docs.astral.sh/uv/getting-started/installation/" target="_blank" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">Download and Install uv Here</a></li>
+        </ul>
+
+        <h3>Step 3: Download Clip Forge</h3>
+        <p>Go to our GitHub page, click the green <strong>"Code"</strong> button, and select <strong>"Download ZIP"</strong>. Double-click the ZIP file to extract it to a folder you can easily find (like your Desktop).</p>
+        <ul>
+            <li><a href="https://github.com/rajathjn/shorts_maker" target="_blank" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">Get the Project Code on GitHub</a></li>
+        </ul>
+
+        <h3>Step 4: Get Reddit API Secrets</h3>
+        <p>Clip Forge needs a special "key" to fetch stories from Reddit. It's totally free!</p>
+        <ol>
+            <li>Go to the <a href="https://www.reddit.com/prefs/apps" target="_blank" style="color: var(--primary-color); font-weight: bold; text-decoration: none;">Reddit Apps settings page</a> and log in.</li>
+            <li>Click <strong>"Create App"</strong> or <strong>"Create Another App..."</strong> at the bottom.</li>
+            <li>Give it a name, select <strong>"script"</strong>, and put <code style="background: #e9ecef; padding: 2px 4px; border-radius: 4px;">http://localhost:8080</code> in the "redirect uri" box.</li>
+            <li>Click <strong>"Create app"</strong>. You will now see your <strong>Client ID</strong> (under the name) and <strong>Client Secret</strong>. Keep these safe!</li>
+        </ol>
+
+        <h3>Step 5: Fill Out the Setup File</h3>
+        <p>Open the folder you downloaded in Step 3. You will find a file called <code>setup.yml</code> (or <code>example.setup.yml</code> which you should rename to <code>setup.yml</code>). Open it with Notepad!</p>
+        <p>Find the Reddit section inside and paste the <strong>Client ID</strong> and <strong>Client Secret</strong> from Step 4. You can also add your Discord webhook if you want alerts!</p>
+
+        <h3>Step 6: Run the Magic Command! 🎉</h3>
+        <p><strong>Pro-Tip for Beginners:</strong> Open the <code>shorts_maker</code> folder you downloaded, right-click anywhere in the empty space, and click <strong>"Open in Terminal"</strong>.</p>
+        <p>Once the black box opens, simply type this and press Enter:</p>
+        <pre style="background: var(--bg-color); padding: 1rem; border-radius: 8px; font-weight: bold;">uv run example.py</pre>
+        <p>Your computer will automatically download everything it needs and start creating your video! Wait patiently for it to finish setting things up.</p>
+
+        <h3 style="margin-top: 2rem; color: #198754;">What's Next? 👀</h3>
+        <p>When the screen stops printing text, look inside the <code>assets</code> folder. You will find your finished video, ready to upload!</p>
+
+        <div style="background-color: #fff3cd; padding: 1rem; border-radius: 8px; margin-top: 1rem; border-left: 4px solid #ffecb5;">
+            <p style="margin: 0; color: #664d03;"><strong>Troubleshooting:</strong> Did you get a "Command not found" or "uv is not recognized" error? Make sure you closed all your terminals and restarted your computer after installing Docker and uv!</p>
+        </div>
+    </section>
+
+    <h2 style="text-align: center; color: var(--secondary-color); margin-bottom: 2rem; font-size: 2rem;">How Clip Forge Actually Works:</h2>
+
     <div class="step">
         <div class="step-number">1</div>
         <div class="step-content">
             <h2>Find a Great Story 📖</h2>
-            <p>The first step is finding an amazing story. ShortsMaker looks at <span class="highlight">Reddit</span>—a place where millions of people share their experiences. It picks a popular story that's perfect for a video!</p>
-            <div class="visual-aid">
-                [Image: A Reddit logo and a magnifying glass searching for a story]
+            <p>The first step is finding an amazing story. Clip Forge looks at <span class="highlight">Reddit</span>—a place where millions of people share their experiences. It picks a popular story that's perfect for a video!</p>
+            <div class="visual-aid" style="padding: 0; border: none; background: transparent;">
+                <img src="reddit_search.png" alt="Reddit Search Illustration" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
             </div>
         </div>
     </div>
@@ -123,8 +238,8 @@
         <div class="step-content">
             <h2>Polish the Script ✍️</h2>
             <p>Before reading it out loud, the tool cleans up the text. It fixes grammar, removes weird characters, and makes sure the "internet slang" sounds right when spoken by our voice artist.</p>
-            <div class="visual-aid">
-                [Image: A pencil and paper turning messy text into clear sentences]
+            <div class="visual-aid" style="padding: 0; border: none; background: transparent;">
+                <img src="script_polish.png" alt="Script Polishing Illustration" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
             </div>
         </div>
     </div>
@@ -134,8 +249,8 @@
         <div class="step-content">
             <h2>Give it a Voice 🎙️</h2>
             <p>Now for the magic! We use <span class="highlight">TikTok-style voices</span> to read the script. It's not just a robot; it's a clear, engaging voice that brings the story to life.</p>
-            <div class="visual-aid">
-                [Image: A microphone with sound waves coming out]
+            <div class="visual-aid" style="padding: 0; border: none; background: transparent;">
+                <img src="voice_mic.png" alt="Voice Microphone Illustration" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
             </div>
         </div>
     </div>
@@ -144,9 +259,9 @@
         <div class="step-number">4</div>
         <div class="step-content">
             <h2>Write Down the Words 📝</h2>
-            <p>Every single word is timed perfectly. We create a <span class="highlight">transcript</span> that tells the video editor exactly when each word is spoken so they appear on screen at just the right moment.</p>
-            <div class="visual-aid">
-                [Image: A list of words with timers next to them (0:01 - "Once", 0:02 - "upon")]
+            <p>Every single word is timed perfectly. We create a <span class="highlight">Subtitle Timing File</span> (a transcript) that tells the video editor exactly when each word is spoken so they appear on screen at just the right moment.</p>
+            <div class="visual-aid" style="padding: 0; border: none; background: transparent;">
+                <img src="timing_words.png" alt="Subtitles Timing Illustration" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
             </div>
         </div>
     </div>
@@ -156,12 +271,8 @@
         <div class="step-content">
             <h2>Pick the Background 🎮</h2>
             <p>Nobody wants to watch a blank screen. We add <span class="highlight">Minecraft parkour</span> or <span class="highlight">satisfying gameplay</span> in the background to keep everyone watching!</p>
-            <div class="visual-aid">
-                <video width="100%" controls>
-                    <source src="example_output.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <p><em>Example of the final background with captions</em></p>
+            <div class="visual-aid" style="padding: 0; border: none; background: transparent;">
+                <img src="minecraft_parkour.png" alt="Minecraft Parkour Gameplay Illustration" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
             </div>
         </div>
     </div>
@@ -170,13 +281,13 @@
         <div class="step-number">6</div>
         <div class="step-content">
             <h2>Add Some Beats 🎵</h2>
-            <p>Finally, we add some low-key background music. It fills the gaps and makes the whole video feel professional and exciting.</p>
-            <div class="visual-aid">
-                <audio controls>
+            <p>We can even add some low-key background music. It fills the gaps and makes the whole video feel professional and exciting.</p>
+            <div class="visual-aid" style="padding: 0; border: none; background: transparent;">
+                <audio controls preload="metadata" style="width: 100%;" aria-label="Sample Background Music">
                     <source src="music_sample.wav" type="audio/wav">
                     Your browser does not support the audio element.
                 </audio>
-                <p><em>Sample background music</em></p>
+                <p style="margin-top: 10px; color: #6c757d;"><em>Sample background music</em></p>
             </div>
         </div>
     </div>
@@ -184,18 +295,75 @@
     <div class="step">
         <div class="step-number">7</div>
         <div class="step-content">
-            <h2>The Grand Reveal! 🎉</h2>
-            <p>The computer puts everything together into one <span class="highlight">MP4 file</span>. Your short is ready to be uploaded to YouTube, TikTok, or Instagram!</p>
-            <div class="visual-aid">
-                [Image: A "Loading" bar finishing and showing a "Download Complete" checkmark]
+            <h2>See it in Action! 🎬</h2>
+            <p>Here is an example of the final video with the background, audio, and captions perfectly synced together:</p>
+            <div class="visual-aid" style="padding: 0; border: none; background: transparent;">
+                <div style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; line-height: 0; max-width: 320px; margin: 0 auto;">
+                    <video controls playsinline style="display: block; width: 100%; height: auto; background-color: #000;">
+                        <source src="example_output.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer>
-        &copy; 2026 ShortsMaker Team. Created to help you tell better stories.
+    <div class="step">
+        <div class="step-number">8</div>
+        <div class="step-content">
+            <h2>The Grand Reveal! 🎉</h2>
+            <p>The computer puts everything together into one <span class="highlight">MP4 file</span>. Your short is ready to be uploaded to YouTube, TikTok, or Instagram!</p>
+            <div class="visual-aid" style="padding: 0; border: none; background: transparent;">
+                <img src="grand_reveal.png" alt="Grand Reveal Illustration" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; display: flex; flex-direction: column; gap: 0.5rem; border-top: 1px solid #ddd; padding-top: 2rem; padding-bottom: 2rem; margin-top: 2rem; color: #777;">
+        <div>&copy; 2026 Clip Forge Team. Created to help you tell better stories.</div>
+        <div style="margin-top: 10px;">
+            <a href="https://github.com/rajathjn/shorts_maker" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: bold; margin: 0 10px;">GitHub Repository</a> |
+            <a href="https://rajathjaiprakash.com/TERMS_OF_SERVICE.html" target="_blank" style="color: #6c757d; text-decoration: underline; margin: 0 10px;">Terms of Service</a> |
+            <a href="https://rajathjaiprakash.com/PRIVACY_POLICY.html" target="_blank" style="color: #6c757d; text-decoration: underline; margin: 0 10px;">Privacy Policy</a>
+        </div>
     </footer>
 </div>
+
+<div class="floating-buttons">
+    <button id="darkModeBtn" class="float-btn" aria-label="Toggle Dark Mode" title="Toggle Dark Mode">🌙</button>
+    <button id="scrollTopBtn" class="float-btn" aria-label="Scroll to Top" title="Scroll to Top">⬆️</button>
+</div>
+
+<script>
+    const darkModeBtn = document.getElementById('darkModeBtn');
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const body = document.body;
+
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+        body.classList.add('dark-mode');
+        darkModeBtn.textContent = '☀️';
+    }
+
+    darkModeBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDark = body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDark);
+        darkModeBtn.textContent = isDark ? '☀️' : '🌙';
+    });
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTopBtn.style.display = 'flex';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
 
 </body>
 </html>
