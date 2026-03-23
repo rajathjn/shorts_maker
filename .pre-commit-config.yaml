@@ -29,5 +29,4 @@ repos:
     rev: 0.5.29
     hooks:
       - id: uv-lock
-      - id: uv-export
 exclude: .venv
