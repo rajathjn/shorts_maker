@@ -9,7 +9,10 @@ from discord_webhook import DiscordEmbed, DiscordWebhook
 from requests import Response
 
 if not os.environ.get("DISCORD_WEBHOOK_URL"):
-    raise ValueError("DISCORD_WEBHOOK_URL not set, Please set it in your environment variables.")
+    print(
+        "Warning: DISCORD_WEBHOOK_URL environment variable is not set. Discord notifications will not work."
+    )
+    os.environ["DISCORD_WEBHOOK_URL"] = None
 
 DISCORD_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
@@ -102,6 +105,13 @@ def notify_discord(message) -> Response:
         Response: The response object resulting from the webhook execution, which contains information
             such as status code and response text.
     """
+
+    if not DISCORD_URL:
+        print(
+            "Error: DISCORD_WEBHOOK_URL environment variable is not set. Cannot send Discord notification."
+        )
+        return None
+
     messages = textwrap.wrap(message, 4000)
     response = None
 
