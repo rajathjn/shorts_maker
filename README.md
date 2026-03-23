@@ -121,14 +121,12 @@ To use ShortsMaker via Docker, follow these steps:
    Package Installation.
 
    ```bash
-   uv pip install -r pyproject.toml
-
-   or
-
-   uv sync
-   uv sync --extra cpu # for cpu
-   uv sync --extra cu130 # for cuda 13.0 versions
+   uv sync --extra cpu    # CPU (default)
+   uv sync --extra cu128  # CUDA 12.8
+   uv sync --extra cu130  # CUDA 13.0
    ```
+
+   > **Note:** The `cpu`, `cu128`, and `cu130` extras are mutually exclusive — only pass one at a time.
 
 4. **Install Any Additional Python Dependencies:**
 
@@ -156,9 +154,9 @@ ShortsMaker relies on several external non-Python components. Please ensure the 
   - The external tool Ollama must be installed on your system. Refer to the [Ollama documentation](https://ollama.com/) for installation details.
 
 - **WhisperX (GPU Acceleration):**
-  - For GPU execution, ensure that the NVIDIA libraries are installed on your system:
-    - **cuBLAS:** Version 11.x
-    - **cuDNN:** Version 8.x
+  - For GPU execution, install with the appropriate CUDA extra:
+    - `uv sync --extra cu128` — requires CUDA 12.8 toolkit
+    - `uv sync --extra cu130` — requires CUDA 13.0 toolkit
   - These libraries are required for optimal performance when using whisperx for processing.
 
 ## Environment Variables
